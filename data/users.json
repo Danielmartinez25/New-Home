@@ -1,0 +1,29 @@
+[
+ {
+  "id": 1,
+  "name": "Roman Riquelme",
+  "password": "$2a$10$iRE5bBRyPZNREwCVwMLfHOhnFb3v2Js7KDes4j8q1zXv78jfYpqQu",
+  "email": "hola@gmail.com",
+  "country": "Uruguay",
+  "rol": "admin",
+  "avatar": "1662079974191_img.jpg"
+ },
+ {
+  "id": 2,
+  "name": "Goku",
+  "password": "$2a$10$UculHn2j.Jtc6u/DeQGQcOmg2gdkPTKGFkqifkrSkB32yBu/Qn8.S",
+  "email": "chau014@gmail.com",
+  "country": "Argentina",
+  "rol": "admin",
+  "avatar": "1662502140409_img.jpg"
+ },
+ {
+  "id": 3,
+  "name": "Oscar",
+  "password": "$2a$10$uYtN8N5zzkhdyQeT7xTHfeiLYHnLANz1vJrO3Ma0i5y1Gsh7G7tfK",
+  "email": "holaasdas@gmail.com",
+  "country": "Argentina",
+  "rol": "usuario",
+  "avatar": "1662502552577_img.jpg"
+ }
+]

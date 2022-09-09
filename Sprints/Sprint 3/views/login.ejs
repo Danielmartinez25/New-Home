@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head') %> 
+<body>
+    <!-- HEADER -->
+    <%- include('./partials/header') %> 
+
+    <!-- MAIN -->
+    <main class=" d-flex a-center j-center  flex-column ">
+        <a class="m-top25 m-botton25" href="/"><img width="100" src="/img/logo2.jpg" alt="logo"></a>
+        <h1>Acceder!</h1>
+        <form class=" w-40 d-flex  flex-column " action="/login.html" method="get">
+            <label for="name"></label>
+            <input class="m-top25 radio p-left" placeholder="Nombre de usuario" type="text">
+            <label for="password"></label>
+            <input class="m-top50 radio p-left" placeholder="Elegi tu contraseña" type="text">
+            <input class="enviar m-top50 m-botton25" type="submit" value="Enviar" a>
+        </form>
+        <button class="radio bc-white">Olvidaste tu contraseña?</button>
+
+        <a class="outsidelogo" href="/index"><img width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
+<!-- FOOTER -->
+        <%- include('./partials/footer') %>
+</body>
+
+</html>

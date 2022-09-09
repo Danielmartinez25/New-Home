@@ -1,0 +1,48 @@
+
+.w-40{
+    width: 40vw;
+}
+
+.flex-column{
+    flex-direction: column;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.j-center{
+    justify-content: center;
+}
+
+.p-left{
+    padding-left: 10px;
+}
+
+.m-top25{
+    margin-top: 25px;
+}
+
+.m-top50{
+    margin-top: 50px;
+}
+
+.m-botton25{
+    margin-bottom: 25px;
+}
+
+
+.radio{
+    border: none;
+    height: 35px;
+    border-radius: 4px;
+}
+
+.enviar{
+    background-color:#72223E;
+    color: white;
+    border: none;
+    height: 35px;
+    border-radius: 4px;
+}
+

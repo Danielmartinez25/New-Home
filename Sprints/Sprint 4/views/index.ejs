@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head') %> 
+<body class="body">
+    <!-- HEADER -->
+    <%- include('./partials/header') %> 
+    <main class="main">
+        <a href="#"><img  class="main__section__banner__img" src="/img/ofertas-banner2.jpg" alt=""></a>
+        <h2>Lo mejor para tu hogar</h2>
+        <section class="main__section">
+            <% loMejor.forEach(({id,title, image,discount,price}) => { %>
+            <div class="main__section__caja">
+            <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= image %>" alt=""></a>
+            <div class="main__section__texto">
+            <h5><%= title %> </h5>
+            <p class="">$<%= toThousand(price) %> </p>
+            <p class=""><%= discount %> % OFF</p>  
+            </div>    
+            </div>  
+              <% }) %>
+            <div class="main__section__img__banner">                
+                <h2>Ofertas en todos los productos</h2>
+                <a href="#"><img  class="main__section__banner__img__2" src="/img/banner4.jpg" alt=""></a>
+            <h2>Mejores ofertas</h2>
+            </div>  
+            
+            <% oferta.forEach(({id,title, image,discount,price}) => { %>
+                <div class="main__section__caja">
+                <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= image %>" alt=""></a>
+                <div class="main__section__texto">
+                <h5><%= title %> </h5>
+                <p class="">$<%= toThousand(price) %> </p>
+                <p class=""><%= discount %> % OFF</p>  
+                </div>    
+                </div>  
+            <% }) %>
+        </section>
+    </main>
+    <a href="/" class="outsidelogo"  ><img   width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
+<!-- FOOTER -->
+<%- include('./partials/footer') %> 
+</body>
+</html>

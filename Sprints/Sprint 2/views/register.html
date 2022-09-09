@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>register</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://kit.fontawesome.com/203abf4523.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header">
+        <section class="header__section">
+        <div class="header__section__text">
+            <h1>New Home</h1>
+            <p>- Lo mejor para tu hogar -</p>   
+        </div>
+        <div class="header__section__img">
+            <a><img class="header__section__logo" src="/img/logo2.jpg" alt="logo"></a>
+        </div>
+         <div class="header__section__menu">
+            <i id="burguer" class="fa-solid fa-bars"></i>
+            <form class="header__section__barra" action="">
+            <input class="search" placeholder="Buscar productos,marcas y mas..." type="text">
+            <button class="header__section__button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </form>
+        </div>
+        
+        <nav class="header__nav">
+            <ul>
+                <li class="header__nav__li"><a href="/register">Crear cuenta</a></li>
+                <li class="header__nav__li"><a href="/login">Ingresa</a></li>
+                <li class="header__nav__li"><a href="/productDetail">Categorias</a></li>
+                <li class="header__nav__li"><a href="/productCart"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </nav>   
+        </section>     
+    </header>
+    <main class="">
+        <div class="d-flex j-center">
+            <h1 class="m-botton25">Register</h1>
+        </div>
+
+        <form class="d-flex a-center flex-column" action="/register" method="post">
+            <div class="m-botton25">
+                <label class="form-label " for="email">E-mail</label>
+                <input class="form-input bc-white" type="email" name="email" id="email">
+            </div>
+            <div class="m-botton25">
+                <label class="form-label" for="password">Contraseña</label>
+                <input class="form-input bc-white" type="password" name="password" id="password">
+            </div>
+            <div class="m-botton25">
+                <label class="form-label" for="password2">Confirmar contraseña</label>
+                <input class="form-input bc-white" type="password" name="password2" id="password2">
+            </div>
+
+            <div class="m-botton25">
+                <label class="form-label" for="nombre">Nombre de usuario</label>
+                <input class="form-input bc-white" type="text" name="nombre" id="nombre">
+            </div>
+
+
+            <div class="d-flex m-botton25">
+                <div>
+                    <label class="form-label" for="name">Nombre</label>
+                    <input class="form-input bc-white" type="text" name="name" id="name">
+                </div>
+
+                <div class="m-botton25">
+                    <label class="form-label" for="apellido">Apellido</label>
+                    <input class="form-input bc-white" type="text" name="apellido" id="apellido">
+                </div>
+            </div>
+            <div class="d-flex m-botton25">
+                <div>
+                    <label class="form-label">Pais</label>
+                    <select class="form-input bc-white" name="Pais" id="">
+                        <option value="1">Argentina</option>
+                        <option value="2">Peru</option>
+                        <option value="3">Paraguay</option>
+                        <option value="4">Uruguay</option>
+                        <option value="5">Chile</option>
+                        <option value="6">Brazil</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="form-label">Moneda</label>
+                    <select class="form-input bc-white" name="Moneda" id="">
+                        <option value="1">Peso Argentino</option>
+                        <option value="2">Soles</option>
+                        <option value="3">Peso Paraguayo</option>
+                        <option value="4">Peso Uruguayo</option>
+                        <option value="5">Peso chileno</option>
+                        <option value="6">Real</option>
+                    </select>
+                </div>
+            </div>
+            <div class="m-top25">
+                <label class="form-label" for="telefono">Telefono</label>
+                <input class="form-input bc-white" type="tel" name="telefono" id="telefono">
+            </div>
+            <div class=" w-40 d-flex  flex-column" >
+                <input class="enviar m-top50 m-botton25" type="submit" value="Enviar" a>
+            </div>
+            </div>
+
+        </form>
+        <div class="d-flex a-center flex-column">
+            <div class="d-flex m-botton25">
+                <input class="" type="checkbox" name="" value="si">
+                <label class="m-left" for="">Al hacer click, aceptas nuestros terminos y condiciones,que eres mayor de
+                    18 años y
+                    conoces nuestra politica de juego responsable</label>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="d-flex ">
+                <p>Ya tienes cuenta?</p>
+                <button class="enter m-left bc-white">Entra aqui</button>
+            </div>
+        </div>
+
+    </main>
+    <a class="outsidelogo" href="/index"><img  width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
+
+    <footer class="footer">
+
+        <section class="contact">
+
+            <a class="logofooter" href="/index"><img  width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
+
+            <div class="footer_contact">
+
+                <ul>
+                    <p>Aatencion al cliente:</p>
+                    <li>0810 999 6644</li>
+                    <li>LU-VI de 09:00 a 18:00</li>
+                    <li>SA de 9:00 a 13:00</li>
+                </ul>
+                <ul>
+                    <p>Venta telefonica:</p>
+                    <li>0810 222 3700</li>
+                    <li>LU-VI de 8:00 a 20:00</li>
+                    <li>SA-DO-Feriados 9:00 a 21:00</li>
+                </ul>
+                <ul class="ofertasypromos">
+                    <li>Comprar en <a href="#">newhomearg.com.ar</a> </li>
+                    <li>Trabaja con nosotros</li>
+                    <li>ofertas y promociones</li>
+                </ul>
+            </div>
+        </section>
+       
+            <section class="footerbottom">
+                <p class="copyright">Las fotos son a modo ilustrativo.La venta de cualquiera de los productos publicados esta sujeta
+                    a la verificacion de stock</p>
+                
+                <ul class="redes">
+                    <img width="30" height="30" src="/img/redes/whatsapp.png" alt="">
+                    <img width="30" height="29" src="/img/redes/facebook.png" alt="">
+                    <img width="30" height="30" src="/img/redes/instagram.png" alt="">
+                </ul>
+            
+                <form action="">
+                    <input placeholder="Ingresa tu email" type="text">
+                </form>
+            </section>
+    </footer>
+
+</body>
+
+</html>
