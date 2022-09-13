@@ -15,20 +15,6 @@ module.exports = {
     processRegister: (req,res) => {
         const errors = validationResult(req);
         if(errors.isEmpty()){
-        /* let userInDB = User.findByTag('email', req.body.email);
-
-        if (userInDB) {
-            return res.render('register', {
-                title: 'Register',
-                errors : {
-                    email : {
-                        msg: 'Este email ya esta registrado'
-                    }
-                },
-                oldData: req.body
-            });
-        } */
-
         let userToCreate = {
             ...req.body,
             password: bcryptjs.hashSync (req.body.password, 10),
@@ -38,7 +24,7 @@ module.exports = {
 
         User.create (userToCreate);
 
-        return res.redirect ('/users/login');    
+        return res.redirect ('/');    
         }
         else{
               return res.render("register", {
@@ -46,10 +32,7 @@ module.exports = {
                 errors: errors.mapped(),
                 old: req.body
               });
-        }
-        
-        
-        
+        }  
     },
 
     login : (req,res) => {

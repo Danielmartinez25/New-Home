@@ -6,9 +6,7 @@ const { register, processRegister, login, loginProcess , profile, logout} = requ
 
 /* Middlewares */
 const uploadFile = require ('../middlewares/multerMiddleware')
-const validatorRegister = require('../validations/validatorRegister');
-const validatorLogin = require('../validations/validatorLogin');
-
+const { validatorRegister, validatorLogin } = require("../validations");
 const userSessionCheck = require('../middlewares/userSessionCheck')
 
 /*/users */

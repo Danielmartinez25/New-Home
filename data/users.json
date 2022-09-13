@@ -25,5 +25,14 @@
   "country": "Argentina",
   "rol": "usuario",
   "avatar": "1662502552577_img.jpg"
+ },
+ {
+  "id": 4,
+  "name": "daniel ",
+  "password": "$2a$10$ZRFnHsA/akV7Pdlj5lWJge.BtB3WKSXfWjdtqSa7WmTiX6d7kLt5y",
+  "email": "newhome@gmail.com",
+  "country": "Argentina",
+  "rol": "admin",
+  "avatar": "1663037294814_img.jpg"
  }
 ]
