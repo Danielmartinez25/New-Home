@@ -13,17 +13,9 @@ module.exports = {
     },
 
     processRegister: (req,res) => {
-        const resultValidation = validationResult(req);
-        
-        if (resultValidation.errors.length > 0) {
-            return res.render('register', {
-                title: 'Register',
-                errors: resultValidation.mapped(),
-                oldData: req.body,
-            });
-        }
-
-        let userInDB = User.findByTag('email', req.body.email);
+        const errors = validationResult(req);
+        if(errors.isEmpty()){
+        /* let userInDB = User.findByTag('email', req.body.email);
 
         if (userInDB) {
             return res.render('register', {
@@ -35,7 +27,7 @@ module.exports = {
                 },
                 oldData: req.body
             });
-        }
+        } */
 
         let userToCreate = {
             ...req.body,
@@ -46,7 +38,18 @@ module.exports = {
 
         User.create (userToCreate);
 
-        return res.redirect ('/users/login');
+        return res.redirect ('/users/login');    
+        }
+        else{
+              return res.render("register", {
+                title: "Register",
+                errors: errors.mapped(),
+                old: req.body
+              });
+        }
+        
+        
+        
     },
 
     login : (req,res) => {
