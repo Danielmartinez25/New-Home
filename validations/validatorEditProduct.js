@@ -1,23 +1,23 @@
-const {check} = require('express-validator');
+const { check, body } = require("express-validator");
 
 module.exports = [
-    check('title')
-        .notEmpty()
-        .withMessage('Nombre de producto requerido').bail()
-        .isLength({
-            min : 10,
-            max : 40
-        }).withMessage('el producto debe contener entre 10 y 40 caracteres'),
-    check('price')
-        .notEmpty()
-        .withMessage('Precio de producto requerido').bail()
-        .isNumeric({
-            no_symbols: true
-        }).withMessage('Solo números positivos'),
-    check('section')
-        .notEmpty()
-        .withMessage('Sectión requerida'),
-    check('description')
-        .notEmpty()
-        .withMessage('Descripción requerida')
-]
+  check("title")
+    .notEmpty()
+    .withMessage("El nombre del producto es obligatorio")
+    .bail()
+    .isLength({
+      min: 5,
+      max: 50,
+    })
+    .withMessage("El nombre debe tener entre 5 y 20 caracteres"),
+  check("price")
+    .notEmpty()
+    .withMessage("El precio es requerido")
+    .bail()
+    .isNumeric({
+      no_symbols: true,
+    })
+    .withMessage("Solo números positivos"),
+  check("section").notEmpty().withMessage("Debes indicar la sección"),
+  check("description").notEmpty().withMessage("Debes dar una descripción")
+];

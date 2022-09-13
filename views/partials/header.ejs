@@ -42,10 +42,10 @@
             </ul>
             <ul class="menu-horizontal">
                 <% if (locals.userLogged) { %>
-                    <a class="" href="#"><img src="/img/avatars/<%= locals.userLogged.avatar %>" width="40"
-                            style="border-radius: 100%;"></a>
                     <li class="header__nav__li"><a href="/users/profile">Mi perfil</a></li>
                     <li class="header__nav__li"><a href="/users/logout">Salir</a></li>
+                    <a class="" href="#"><img src="/img/avatars/<%= locals.userLogged.avatar %>" width="40"
+                            style="border-radius: 100%;"></a>
                     <% if (userLogged.rol==="admin" ) { %>
                         <li class="header__nav__li"><a href="/products/create">Vender</a></li>
                         <% } %>

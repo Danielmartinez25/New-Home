@@ -2,7 +2,7 @@
 <html lang="es">
 
     <%- include('./partials/head', {
-        title : 'Editar producto'
+        title : 'Producto a Editar'
     }) %> 
 
 
@@ -14,7 +14,7 @@
             <div class="col-12 col-md-8 col-lg-6 mx-auto">
                 <section class="card shadow">
                     <div class="card-header">
-                        <h4>Editar producto: <%= product.title %></h4>
+                        <h4>Producto a Editar: <%= product.title %></h4>
                     </div>
                     <div class="card-body">
                         <form action="/products/update/<%= product.id ? product.id : id %>?_method=PUT" method="POST">
@@ -53,14 +53,13 @@
                                   </div>
                                   <div class="mb-3 col-12">
                                     <label for="description" class="form-label">Descripción</label>
-                                    <textarea class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>" name="description" id="description" cols="30" rows="5" style="resize: none;"><%= product.description %></textarea>
+                                    <textarea class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>" name="description" id="description" cols="30" rows="5" style="resize: none;">  <%= product.description %></textarea>
                                     <p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
                                   </div>
                                   <div class="text-end">
                                     <a href="/products/delete/<%= product.id ? product.id : id %>" class="btn btn-danger">Eliminar</a>
                                     <a href="/products/detail/<%= product.id ? product.id : id %>" class="btn btn-secondary">Cancelar</a>
                                     <button type="submit" class="btn btn-success">Guardar cambios</button>
-
                                   </div>
                             </div>
                           
