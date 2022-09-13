@@ -21,8 +21,10 @@
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
                                                 <label for="name">Nombre completo</label>
-                                                <input class="form-control" type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>">
-                                                <p class="form__error__msg">
+                                                <input type="text" name="name" id="name"
+                                                    value="<%= locals.old && old.name ? old.name : null %>"
+                                                    class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
                                                     <%= locals.errors && errors.name ? errors.name.msg : null %>
                                                 </p>
 
@@ -32,9 +34,9 @@
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
                                                 <label for="password">Contraseña</label>
-                                                <input class="form-control" type="password" name="password"
-                                                    id="password">
-                                                <p class="form__error__msg">
+                                                <input type="password" name="password" id="password"
+                                                    class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
                                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                                 </p>
                                             </div>
@@ -43,8 +45,10 @@
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
                                                 <label for="email">E-mail</label>
-                                                <input class="form-control" type="email" name="email" id="email" value="<%= locals.old && old.email ? old.email : null %>">
-                                                <p class="form__error__msg">
+                                                <input type="email" name="email" id="email"
+                                                    value="<%= locals.old && old.email ? old.email : null %>"
+                                                    class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
                                                     <%= locals.errors && errors.email ? errors.email.msg : null %>
                                                 </p>
                                             </div>
@@ -80,7 +84,12 @@
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
                                                 <label for="avatar">Foto de perfil</label>
-                                                <input class="form-control" type="file" name="avatar" id="avatar" value="<%= locals.old  && old.avatar ? old.avatar : null %>">
+                                                <input type="file" name="avatar" id="avatar"
+                                                    value="<%= locals.old  && old.avatar ? old.avatar : null %>"
+                                                    class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
+                                                    <%= locals.errors && errors.avatar ? errors.avatar.msg : null %>
+                                                </p>
                                             </div>
                                         </div>
 

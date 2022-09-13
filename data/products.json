@@ -147,5 +147,15 @@
       "section": "lo mejor",
       "type": "tv",
       "image": "product-1662093578499.jpg"
+   },
+   {
+      "id": 16,
+      "title": "Celular muy barato chee!!!!!!!",
+      "description": "celular bien barato y muy bueno",
+      "price": 50000,
+      "discount": 20,
+      "section": "oferta",
+      "type": "celulares",
+      "image": "product-1663037719678.jpg"
    }
 ]
