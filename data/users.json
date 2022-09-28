@@ -34,5 +34,50 @@
   "country": "Argentina",
   "rol": "admin",
   "avatar": "1663037294814_img.jpg"
+ },
+ {
+  "id": 5,
+  "name": "daniel ",
+  "password": "$2a$10$9WFLtkLrQMfbXuFIdUJpJumbZ3eJbw5aGPNZuPn9x4VNlksl.hHNO",
+  "email": "newhome123@gmail.com",
+  "country": "Argentina",
+  "rol": "admin",
+  "avatar": "1663103621938_img.jpg"
+ },
+ {
+  "id": 6,
+  "name": "maxi",
+  "password": "$2a$10$4/Hkn2bHmFzpTOF3nApbqOTEOgpCLQX3msX4yGZdPHNQIFaXukKzi",
+  "email": "maxi@gmail.com",
+  "country": "Argentina",
+  "rol": "usuario",
+  "avatar": "1663103786495_img.jpg"
+ },
+ {
+  "id": 7,
+  "name": "Daniel Martinez",
+  "password": "$2a$10$JDYs/sfLP/vqyE6BiykKmeQOXem5NRK5S48OWrw7DIpRuyH6r6QXO",
+  "email": "danimartinez1325@gmail.com",
+  "country": "Argentina",
+  "rol": "admin",
+  "avatar": "1663343048250_img.jpg"
+ },
+ {
+  "id": 8,
+  "name": "daniel m",
+  "password": "$2a$10$a4htI1WqZWjH50izhfV3c.l9VQEDMCv6Dhnb9FmoDIK9PE6CQwra.",
+  "email": "dani@gmail.com",
+  "country": "Argentina",
+  "rol": "usuario",
+  "avatar": "1663343420120_img.jpg"
+ },
+ {
+  "id": 9,
+  "name": "daniel M",
+  "password": "$2a$10$dPxfrJiPCC.aQHzXXlAgieWwRFgCV68L9y3qWbNpRZe6GYc1k9iNy",
+  "email": "gusti@gmail.com",
+  "country": "Argentina",
+  "rol": "admin",
+  "avatar": "1664381905211_img.jpg"
  }
 ]
