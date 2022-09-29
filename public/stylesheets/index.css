@@ -1,4 +1,4 @@
-header{
+.header{
     font-family: 'Roboto';
     font-weight: bold;
 }
@@ -53,7 +53,9 @@ header{
 
 /* MAIN */
 
-
+/* .main{
+    margin-top: 5%;
+} */
 .main__section__banner__img{
     width: 100%;
 }
@@ -99,6 +101,8 @@ header{
     width: 30%;
 
 }
+
+
 
 
 @media(min-width:768px){
