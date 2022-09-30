@@ -120,15 +120,6 @@
       "type": "tv"
    },
    {
-      "id": 13,
-      "title": "Sony PlayStation 5 825GB Standard color blanco y negro",
-      "description": "Con tu consola PlayStation 5 tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos.\r\n\r\nPlayStation renovó las expectativas del mundo virtual con esta nueva consola y su gran rendimiento. Cuenta con una interfaz de usuario más rápida y fácil de navegar que en anteriores modelos. Además, podrás jugar durante horas desafiando a millones de contrincantes alrededor del mundo que esperan nuevos retos.\r\n\r\nCalidad de otro nivel\r\nSe considera que esta consola es de las mejores dentro del mercado, dado que presenta una resolución de hasta 4K.",
-      "price": 310000,
-      "discount": 20,
-      "section": "lo mejor",
-      "image": "product-1662002525488.jpg"
-   },
-   {
       "id": 14,
       "title": "Sega genesis",
       "description": "Sega Mega Drive o Sega Genesis es una videoconsola de sobremesa producida por SEGA, lanzada al mercado en 1988. Esta videoconsola es la sucesora directa de la Sega Master System y compitió contra la SNES de Nintendo, como parte de las videoconsolas de cuarta generación.",
@@ -137,15 +128,5 @@
       "section": "",
       "type": "consolas",
       "image": "product-1662078677579.jpg"
-   },
-   {
-      "id": 15,
-      "title": "Smart TV Samsung Series 5",
-      "description": "Samsung es reconocida a nivel mundial como una empresa líder en la industria tecnológica. Todos sus productos son diseñados con una calidad superior y pensados para contribuir a un futuro mejor. Por eso, va a hacer que disfrutes de una experiencia visual incomparable.\r\nCon el Smart TV UN43T5300AG vas a acceder a las aplicaciones en las que se encuentran tus contenidos favoritos. Además, podés navegar por Internet, interactuar en redes sociales y divertirte con videojuegos.",
-      "price": 77999,
-      "discount": 10,
-      "section": "lo mejor",
-      "type": "tv",
-      "image": "product-1662093578499.jpg"
    }
 ]
