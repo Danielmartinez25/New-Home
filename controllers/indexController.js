@@ -4,7 +4,7 @@ const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 module.exports = {
     index : (req, res) => {
-        const products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json')));
+        const products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productDB.json')));
         let loMejor = products.filter(product => product.section === "lo mejor" && product.discount <= 20 );
         let oferta = products.filter(product =>  product.section === "oferta");
 
@@ -18,7 +18,7 @@ module.exports = {
   search : (req,res) => {
 
     let {keywords} = req.query;
-    const products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'products.json')));
+    const products = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'productDB.json')));
 
     let result = products.filter(product => product.title.toLowerCase().includes(keywords.toLowerCase()));
 

@@ -1,0 +1,151 @@
+[
+   {
+      "id": 1,
+      "title": "Secarropas centrífugo Koh-i-noor",
+      "price": 35999,
+      "discount": 10,
+      "image": "secarropas.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "lavado"
+   },
+   {
+      "id": 2,
+      "title": "Heladera inverter no frost Samsung",
+      "price": 158190,
+      "discount": 15,
+      "image": "heladera.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "cocina"
+   },
+   {
+      "id": 3,
+      "title": "Lavarropas automático Whirlpool",
+      "price": 100499,
+      "discount": 20,
+      "image": "lavarropas2.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "lavado"
+   },
+   {
+      "id": 4,
+      "title": "Ropero de madera",
+      "price": 45065,
+      "discount": 10,
+      "image": "ropero.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "muebles"
+   },
+   {
+      "id": 5,
+      "title": "Ventilador de techo Liliana",
+      "price": 44899,
+      "discount": 15,
+      "image": "ventilador.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "climatizacion"
+   },
+   {
+      "id": 6,
+      "title": "Colchón 1 plaza de espuma",
+      "price": 47599,
+      "discount": 20,
+      "image": "colchon.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "lo mejor",
+      "type": "hogar"
+   },
+   {
+      "id": 7,
+      "title": "Cocina Electrolux",
+      "price": 189799,
+      "discount": 30,
+      "image": "cocina.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "cocina"
+   },
+   {
+      "id": 8,
+      "title": "Tostadora Moulinex Vita",
+      "price": 7590,
+      "discount": 35,
+      "image": "tostadora.png",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "cocina"
+   },
+   {
+      "id": 9,
+      "title": "Inodoro Prunus One Piece",
+      "price": 37012,
+      "discount": 30,
+      "image": "inodoro.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "hogar"
+   },
+   {
+      "id": 10,
+      "title": "Cesto Tacho Basura Acero Inoxidable Pedal",
+      "price": 4990,
+      "discount": 50,
+      "image": "tacho.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "hogar"
+   },
+   {
+      "id": 11,
+      "title": "Sillon Capitone Premium",
+      "price": 19999,
+      "discount": 40,
+      "image": "sillon.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "hogar"
+   },
+   {
+      "id": 12,
+      "title": "Smart TV Samsung",
+      "price": 112999,
+      "discount": 40,
+      "image": "tv1.jpg",
+      "description": "lorem ipsum dolor amet sit.",
+      "section": "oferta",
+      "type": "tv"
+   },
+   {
+      "id": 13,
+      "title": "Sony PlayStation 5 825GB Standard color blanco y negro",
+      "description": "Con tu consola PlayStation 5 tendrás entretenimiento asegurado todos los días. Su tecnología fue creada para poner nuevos retos tanto a jugadores principiantes como expertos.\r\n\r\nPlayStation renovó las expectativas del mundo virtual con esta nueva consola y su gran rendimiento. Cuenta con una interfaz de usuario más rápida y fácil de navegar que en anteriores modelos. Además, podrás jugar durante horas desafiando a millones de contrincantes alrededor del mundo que esperan nuevos retos.\r\n\r\nCalidad de otro nivel\r\nSe considera que esta consola es de las mejores dentro del mercado, dado que presenta una resolución de hasta 4K.",
+      "price": 310000,
+      "discount": 20,
+      "section": "lo mejor",
+      "image": "product-1662002525488.jpg"
+   },
+   {
+      "id": 14,
+      "title": "Sega genesis",
+      "description": "Sega Mega Drive o Sega Genesis es una videoconsola de sobremesa producida por SEGA, lanzada al mercado en 1988. Esta videoconsola es la sucesora directa de la Sega Master System y compitió contra la SNES de Nintendo, como parte de las videoconsolas de cuarta generación.",
+      "price": 5000,
+      "discount": 0,
+      "section": "lo mejor",
+      "type": "consolas",
+      "image": "product-1662078677579.jpg"
+   },
+   {
+      "id": 15,
+      "title": "Iphone 12",
+      "description": "Esta re bueno",
+      "price": 250000,
+      "discount": 5,
+      "section": "lo mejor",
+      "type": "celulares",
+      "image": "product-1662143951330.jpg"
+   }
+]

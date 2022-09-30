@@ -7,7 +7,7 @@ const {validationResult} = require('express-validator');
 controller = {
   all: (req, res) => {
     const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
     let selectType = req.params.nombre;
     let type = products.filter((product) => product.type === selectType);
@@ -23,7 +23,7 @@ controller = {
   },
   detail: (req, res) => {
     const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
     const product = products.find((product) => product.id === +req.params.id);
     let loMejor = products.filter(
@@ -39,7 +39,7 @@ controller = {
   },
   edit: (req, res) => {
     const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
     const { id } = req.params;
     let product = products.find((product) => product.id === +id);
@@ -49,7 +49,7 @@ controller = {
   },
   update: (req, res) => {
     const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
 
     const errors = validationResult(req);
@@ -74,7 +74,7 @@ controller = {
       });
 
       fs.writeFileSync(
-        path.join(__dirname, "..", "data", "products.json"),
+        path.join(__dirname, "..", "data", "productDB.json"),
         JSON.stringify(productModify, null, 3),
         "utf-8"
       );
@@ -95,7 +95,7 @@ controller = {
     if (errors.isEmpty()) {
       const { price, section, discount, description, title, type } = req.body;
       const products = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+        fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
       );
       image = req.file.filename;
       const newProduct = {
@@ -110,7 +110,7 @@ controller = {
       };
       let productModify = [...products, newProduct];
       fs.writeFileSync(
-        path.join(__dirname, "..", "data", "products.json"),
+        path.join(__dirname, "..", "data", "productDB.json"),
         JSON.stringify(productModify, null, 3),
         "utf-8"
       );
@@ -135,11 +135,11 @@ controller = {
   destroy: (req, res) => {
     const { id } = req.params;
     const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "products.json"))
+      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
     const productModify = products.filter((product) => product.id !== +id);
     fs.writeFileSync(
-      path.join(__dirname, "..", "data", "products.json"),
+      path.join(__dirname, "..", "data", "productDB.json"),
       JSON.stringify(productModify, null, 3),
       "utf-8"
     );

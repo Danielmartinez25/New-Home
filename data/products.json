@@ -1,132 +1,100 @@
 [
-   {
-      "id": 1,
-      "title": "Secarropas centrífugo Koh-i-noor",
-      "price": 35999,
-      "discount": 10,
-      "image": "secarropas.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "lavado"
-   },
-   {
-      "id": 2,
-      "title": "Heladera inverter no frost Samsung",
-      "price": 158190,
-      "discount": 15,
-      "image": "heladera.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "cocina"
-   },
-   {
-      "id": 3,
-      "title": "Lavarropas automático Whirlpool",
-      "price": 100499,
-      "discount": 20,
-      "image": "lavarropas2.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "lavado"
-   },
-   {
-      "id": 4,
-      "title": "Ropero de madera",
-      "price": 45065,
-      "discount": 10,
-      "image": "ropero.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "muebles"
-   },
-   {
-      "id": 5,
-      "title": "Ventilador de techo Liliana",
-      "price": 44899,
-      "discount": 15,
-      "image": "ventilador.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "climatizacion"
-   },
-   {
-      "id": 6,
-      "title": "Colchón 2 plaza de espuma",
-      "price": 47599,
-      "discount": 20,
-      "image": "colchon.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "lo mejor",
-      "type": "hogar"
-   },
-   {
-      "id": 7,
-      "title": "Cocina Electrolux",
-      "price": 189799,
-      "discount": 30,
-      "image": "cocina.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "cocina"
-   },
-   {
-      "id": 8,
-      "title": "Tostadora Moulinex Vita",
-      "price": 7590,
-      "discount": 35,
-      "image": "tostadora.png",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "cocina"
-   },
-   {
-      "id": 9,
-      "title": "Inodoro Prunus One Piece",
-      "price": 37012,
-      "discount": 30,
-      "image": "inodoro.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "hogar"
-   },
-   {
-      "id": 10,
-      "title": "Cesto Tacho Basura Acero Inoxidable Pedal",
-      "price": 4990,
-      "discount": 50,
-      "image": "tacho.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "hogar"
-   },
-   {
-      "id": 11,
-      "title": "Sillon Capitone Premium",
-      "price": 19999,
-      "discount": 40,
-      "image": "sillon.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "hogar"
-   },
-   {
-      "id": 12,
-      "title": "Smart TV Samsung",
-      "price": 112999,
-      "discount": 40,
-      "image": "tv1.jpg",
-      "description": "lorem ipsum dolor amet sit.",
-      "section": "oferta",
-      "type": "tv"
-   },
-   {
-      "id": 14,
-      "title": "Sega genesis",
-      "description": "Sega Mega Drive o Sega Genesis es una videoconsola de sobremesa producida por SEGA, lanzada al mercado en 1988. Esta videoconsola es la sucesora directa de la Sega Master System y compitió contra la SNES de Nintendo, como parte de las videoconsolas de cuarta generación.",
-      "price": 5000,
-      "discount": 0,
-      "section": "",
-      "type": "consolas",
-      "image": "product-1662078677579.jpg"
-   }
+  {
+    "name": "Secarropas centrífugo Koh-i-noor",
+    "price": 35999,
+    "discount": 10,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Heladera inverter no frost Samsung",
+    "price": 158190,
+    "discount": 15,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Lavarropas automático Whirlpool",
+    "price": 100499,
+    "discount": 20,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Ropero de madera",
+    "price": 45065,
+    "discount": 10,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 6
+  },
+  {
+    "name": "Ventilador de techo Liliana",
+    "price": 44899,
+    "discount": 15,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Colchón 2 plaza de espuma",
+    "price": 47599,
+    "discount": 20,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 6
+  },
+  {
+    "name": "Cocina Electrolux",
+    "price": 189799,
+    "discount": 30,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Tostadora Moulinex Vita",
+    "price": 7590,
+    "discount": 35,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Inodoro Prunus One Piece",
+    "price": 37012,
+    "discount": 30,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 5
+  },
+  {
+    "name": "Cesto Tacho Basura Acero Inoxidable Pedal",
+    "price": 4990,
+    "discount": 50,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 6
+  },
+  {
+    "name": "Sillon Capitone Premium",
+    "price": 19999,
+    "discount": 40,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 6
+  },
+  {
+    "name": "Smart TV Samsung",
+    "price": 112999,
+    "discount": 40,
+    "description": "lorem ipsum dolor amet sit.",
+    "categoryId": 1
+  },
+  {
+    "name": "Sega genesis",
+    "description": "Sega Mega Drive o Sega Genesis es una videoconsola de sobremesa producida por SEGA, lanzada al mercado en 1988. Esta videoconsola es la sucesora directa de la Sega Master System y compitió contra la SNES de Nintendo, como parte de las videoconsolas de cuarta generación.",
+    "price": 5000,
+    "discount": 0,
+    "categoryId": 2
+  },
+  {
+    "name": "Iphone 12",
+    "description": "Esta re bueno",
+    "price": 250000,
+    "discount": 5,
+    "categoryId" : 4
+  }
 ]
