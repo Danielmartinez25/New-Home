@@ -22,7 +22,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       categoryId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        reference : {
+          model : {
+            tableName : 'Category',
+            key : 'id'
+          }
+        }
       },
       createdAt: {
         allowNull: false,
