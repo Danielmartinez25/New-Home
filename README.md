@@ -20,23 +20,23 @@
 
 ###### MVC (modelo-vista-controlador)
 
-###TECNOLOGIAS DEL LADO DEL FRONT
+### TECNOLOGIAS DEL LADO DEL FRONT
 Utilizamos las siguientes tecnologias :
 
 - HTML
 - CSS
 - JAVASCRIPT
 
-###TECNOLOGIAS DEL LADO DEL BACK
+### TECNOLOGIAS DEL LADO DEL BACK
 
 - Utilizamos las siguientes tecnologias :
 - NODE JS
 - JAVASCRIPT
 
-###BASE DE DATOS
+### BASE DE DATOS
 Utilizamos la base de datos:
 
 - MySql
 
-###ORM
+### ORM
 - Sequelize
