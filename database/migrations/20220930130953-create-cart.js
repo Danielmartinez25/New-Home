@@ -11,20 +11,19 @@ module.exports = {
       },
       orderId: {
         type: Sequelize.INTEGER,
-        reference: {
+        references: {
           model: {
-            tableName: "Orders",
-            key: "id",
-          },
+            tableName: "Orders"  
+          },key: "id"
         },
       },
       productId: {
         type: Sequelize.INTEGER,
-        reference: {
+        references: {
           model: {
-            tableName: "Products",
-            key: "id",
+            tableName: "Products"
           },
+        key: "id"
         },
         onDelete: "cascade",
       },

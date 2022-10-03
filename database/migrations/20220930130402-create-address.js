@@ -20,11 +20,11 @@ module.exports = {
       },
       userId: {
         type: Sequelize.INTEGER,
-        reference: {
+        references: {
           model: {
-            tableName: "Users",
-            key: "id",
+            tableName: "Users"
           },
+        key: "id"
         },
       },
       createdAt: {

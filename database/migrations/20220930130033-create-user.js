@@ -26,11 +26,11 @@ module.exports = {
       },
       rolId: {
         type: Sequelize.INTEGER,
-        reference: {
+        references: {
           model: {
-            tableName: "Rols",
-            key: "id",
+            tableName: "Rols"
           },
+        key: "id"
         },
       },
       createdAt: {
