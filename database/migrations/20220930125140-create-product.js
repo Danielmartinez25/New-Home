@@ -19,7 +19,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       description: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT,
       },
       categoryId: {
         type: Sequelize.INTEGER,
@@ -35,11 +35,9 @@ module.exports = {
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
       deleteAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       },
     });

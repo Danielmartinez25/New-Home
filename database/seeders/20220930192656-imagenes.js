@@ -2,9 +2,9 @@
 const imagesDB = require("../../data/images.json");
 const images = imagesDB.map(({image},index) => {
   return {
-    name : image,
+    file : image,
     productId : index + 1,
-    createAt: new Date(),
+    createdAt: new Date(),
   };
 });
 module.exports = {

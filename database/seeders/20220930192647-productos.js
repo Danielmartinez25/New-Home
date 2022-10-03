@@ -3,7 +3,7 @@ const productsDB = require('../../data/products.json')
 const products = productsDB.map(product =>{
   return {
     ...product,
-  createAt : new Date()
+  createdAt : new Date()
 }
 });
 module.exports = {

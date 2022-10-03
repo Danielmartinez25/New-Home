@@ -1,5 +1,5 @@
 "use strict";
-
+const {hashSync} = require('bcryptjs')
 const users = [
   {
     name: "admin",
