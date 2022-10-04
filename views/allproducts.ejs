@@ -10,10 +10,9 @@
 		<h3>Tus resultados sobre: </h3>
 		<div class="main_allProducts">
 		<div class="containsproduct">
-
-        	<% type.forEach(({id,title, image,discount,price}) => { %>		
+        	<% product.forEach(({id,title, images,discount,price}) => { %>		
 				<article>
-				<a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= image %>" alt=""></a>	
+				<a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= images[0].file %>" alt=""></a>	
 				<h5 class="interesting_products_border"><%= title %> </h5>
 				<p class="">$<%= price %> </p>
 				<p class=""><%= discount %> % OFF</p>  

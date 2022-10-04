@@ -1,41 +1,42 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models')
+const { Op } = require("sequelize");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const {validationResult} = require('express-validator');
 
 
 controller = {
   all: (req, res) => {
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-    let selectType = req.params.nombre;
-    let type = products.filter((product) => product.type === selectType);
-    const product = products.find((product) => product.id === +req.params.id);
-    return res.render("allproducts", {
-      title: "Products",
-      toThousand,
-      selectType,
-      products,
+    db.Product.findAll({
+      include : ['images']
+    })
+    .then(product => res.render('allProducts',{
       product,
-      type,
-    });
+      toThousand
+    })).catch(error => console.log(error))
   },
   detail: (req, res) => {
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-    const product = products.find((product) => product.id === +req.params.id);
-    let loMejor = products.filter(
-      (product) => product.section === "lo mejor" && product.discount <= 20
-    );
-
-    return res.render("productDetail", {
-      title: "Detalle",
-      toThousand,
-      product,
-      loMejor,
+  let product = db.Product.findByPk(req.params.id, {
+  include: ["images"],
+});
+  let offer = db.Product.findAll({
+      where: {
+        discount: {
+          [Op.gt]: 20,
+        },
+      },
+      include: ["images", "category"],
     });
+    Promise.all([product,offer])
+    .then(([product,offer])=> {
+      return res.render('productDetail',{
+        product,
+        offer,
+        toThousand
+      })
+    })
+  .catch((error) => console.log(error));
   },
   edit: (req, res) => {
     const products = JSON.parse(
@@ -88,10 +89,39 @@ controller = {
     } */
   },
   create: (req, res) => {
-    return res.render("productAdd");
+    db.Category.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    })
+      .then((categories) =>
+        res.render('productAdd', {
+          categories,
+        })
+      )
+      .catch((error) => console.log(error));
   },
   store: (req, res) => {
-    const errors = validationResult(req);
+  db.Product.create({
+    ...req.body,
+    name : req.body.name,
+    description : req.body.description,
+  })
+  .then(product =>{
+    if(req.files.length){
+    let images = req.files.map(({filename}) => {
+						return {
+							file : filename,
+							productId: product.id
+						}
+					})
+          db.Image.bulkCreate(images,{
+            validate : true
+          }).then((result) => console.log(result))
+    }
+    return res.redirect('/')
+  }).catch(error => console.log(error))
+  
+/*     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const { price, section, discount, description, title, type } = req.body;
       const products = JSON.parse(
@@ -120,7 +150,7 @@ controller = {
         errors: errors.mapped(),
         old: req.body,
       });
-    }
+    } */
   },
   cart: (req, res) => {
     return res.render("productCart", {

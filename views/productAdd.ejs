@@ -33,27 +33,14 @@
 						<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-control" value="<%= locals.old && old.discount ? old.discount : null %>">
 					</div>
 					<div class="col-md-6 my-1">
-						<label for="section" class="form-label">Seccion:</label>
-						<select name="section" id="section" class="form-control form-select">
-							<option value="">Elegí</option>
-							<option value="lo mejor">Lo mejor</option>
-							<option value="oferta">Oferta</option>
-						</select>
-						<p class="text-danger"><%= locals.errors && errors.section ? errors.section.msg : null %></p>
-					</div>
-					<div class="col-md-6 my-1">
-						<label for="type" class="form-label">Categoria:</label>
-						<select name="type" id="type" class="form-control form-select">
-							<option value="">Elegí</option>
-							<option value="tv">Televisores</option>
-							<option value="celulares">Celulares</option>
-							<option value="audio">Equipos de audio</option>
-							<option value="consolas">Consolas</option>
-							<option value="hogar">Hogar</option>
-							<option value="muebles">Muebles</option>
-							<option value="climatizacion">Climatización</option>
-							<option value="lavado">Lavado</option>
-							<option value="cocina">Cocina</option>
+						<label for="category" class="form-label">Categoría:</label>
+						<select name="categoryId" id="category" class="form-input">
+							<option value="" hidden selected>Elegí la categoría</option>
+							<% categories.forEach(({id,name})=> { %>
+								<option value="<%= id %>">
+									<%= name %>
+								</option>
+								<% }) %>
 						</select>
 					</div>
 					<div class="col-md-3 mt-5">

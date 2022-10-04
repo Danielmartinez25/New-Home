@@ -47,13 +47,13 @@
                 <!-- Banner -->
                 <h2>Lo mejor para tu hogar</h2>
                 <section class="main__section">
-                    <% loMejor.forEach(({id,title, image,discount,price})=> { %>
+                    <% newest.forEach(({id,name, images,discount,price})=> { %>
                         <div class="main__section__caja">
                             <a href="/products/detail/<%= id %> "><img class="main__section__img"
-                                    src="/img/<%= image %>" alt=""></a>
+                                    src="/img/<%= images[0].file %>" alt=""></a>
                             <div class="main__section__texto">
                                 <h5>
-                                    <%= title %>
+                                    <%= name %>
                                 </h5>
                                 <p class="">$<%= toThousand(price) %>
                                 </p>
@@ -113,14 +113,14 @@
                                 <h2>Mejores ofertas</h2>
                             </div>
 
-                            <% oferta.forEach(({id,title, image,discount,price})=> { %>
+                            <% offer.forEach(({id,name, images,discount,price})=> { %>
 
                                 <div class="main__section__caja">
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
-                                            src="/img/<%= image %>" alt=""></a>
+                                            src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="main__section__texto">
                                         <h5>
-                                            <%= title %>
+                                            <%= name %>
                                         </h5>
                                         <p class="">$<%= toThousand(price) %>
                                         </p>
@@ -131,6 +131,45 @@
                                 </div>
                                 <% }) %>
 
+                                    <h2>Televisores</h2>
+
+                                    <% tv.products.forEach(({id,name, images,discount,price})=> { %>
+
+                                        <div class="main__section__caja">
+                                            <a href="/products/detail/<%= id %> "><img class="main__section__img"
+                                                    src="/img/<%= images[0].file %>" alt=""></a>
+                                            <div class="main__section__texto">
+                                                <h5>
+                                                    <%= name %>
+                                                </h5>
+                                                <p class="">$<%= toThousand(price) %>
+                                                </p>
+                                                <p class="">
+                                                    <%= discount %> % OFF
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <% }) %>
+                                        <h2>Consolas</h2>
+
+                                            <% console.products.forEach(({id,name, images,discount,price})=> { %>
+
+                                                <div class="main__section__caja">
+                                                    <a href="/products/detail/<%= id %> "><img
+                                                            class="main__section__img" src="/img/<%= images[0].file %>"
+                                                            alt=""></a>
+                                                    <div class="main__section__texto">
+                                                        <h5>
+                                                            <%= name %>
+                                                        </h5>
+                                                        <p class="">$<%= toThousand(price) %>
+                                                        </p>
+                                                        <p class="">
+                                                            <%= discount %> % OFF
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <% }) %>
                 </section>
 
 

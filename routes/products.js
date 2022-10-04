@@ -10,7 +10,7 @@ const adminUserCheck = require('../middlewares/adminUserCheck')
 /*/products */
 router    
 
-    .get('/all/:nombre', all)
+    .get('/all', all)
     .get('/detail/:id',detail) 
     .get('/edit/:id',adminUserCheck,edit)
     .put('/update/:id',validatorEditProduct,update)

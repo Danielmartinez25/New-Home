@@ -27,7 +27,7 @@ module.exports = {
           model: {
             tableName: "Categories",
           },
-          key: "id"
+          key: "id",
         },
       },
       createdAt: {
@@ -38,7 +38,7 @@ module.exports = {
         type: Sequelize.DATE,
       },
       deleteAt: {
-        type: Sequelize.DATE,
+        type: Sequelize.DATE
       },
     });
   },

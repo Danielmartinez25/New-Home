@@ -11,7 +11,7 @@
                 <section class="producto">
                     <h2> <%= product.title %> </h2>
                     <div class="product_img">
-                        <img width="600" src="/img/<%= product.image %> " alt="tv">
+                        <img width="600" src="/img/<%= product.images[0].file %> " alt="tv">
                     </div>
 
                     <article class="more_img_box">
@@ -88,9 +88,9 @@
             <section class="interesting_products">
                 <h3>Productos que te pueden llegar a interesar</h3>
                 <div class="containsproduct">       
-                    <% loMejor.forEach(({id,title, image,discount,price}) => { %>
+                    <% offer.forEach(({id,title, images,discount,price}) => { %>
                     <article>
-                        <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= image %>" alt=""></a>                      
+                        <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= images[0].file %>" alt=""></a>                      
                         <h5 class="interesting_products_border"><%= title %> </h5>
                         <p class="">$<%= price %> </p>
                         <p class="color_verde"><%= discount %> % OFF</p>    
