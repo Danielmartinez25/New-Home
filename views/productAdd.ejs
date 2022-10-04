@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('partials/head', {title: 'Formulario de creación'}) %>
+<%- include('partials/head', {name: 'Formulario de creación'}) %>
 <body>
 	<!-- Header -->
 	<%- include('partials/header') %>
@@ -18,9 +18,9 @@
 			<form action="/products/store" method="POST" enctype="multipart/form-data">
 				<div class="row product-detail">
 					<div class="col-md-6 my-1">
-						<label for="title" class="form-label">Nombre del producto:</label>
-						<input type="text" id="title" name="title" placeholder="Ej: Zapatillas Reebok" class="form-control <%= locals.errors && errors.title ? 'is-invalid' : null %>" value="<%= locals.old && old.title ? old.title : null %>">
-						<p class="text-danger"><%= locals.errors && errors.title ? errors.title.msg : null %></p>
+						<label for="name" class="form-label">Nombre del producto:</label>
+						<input type="text" id="name" name="name" placeholder="Ej: Play Station" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%= locals.old && old.name ? old.name : null %>">
+						<p class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></p>
 					</div>
 					<div class="col-md-6 my-1">
 						<label for="price" class="form-label">Precio del producto:</label>
@@ -45,13 +45,13 @@
 					</div>
 					<div class="col-md-3 mt-5">
 						<label class="btn btn-secondary <%= locals.errors && errors.image ? 'btn-danger' : null %>" for="image">Agregar imagen</label> 
-						<input hidden type="file" accept="image/*" name="image" id="image" >
+						<input hidden type="file" accept="image/*" name="images" id="image" multiple>
 						<p class="text-danger"><%= locals.errors && errors.image ? errors.image.msg : null %></p>
 					  </div>	
 
 					<div class="col-12">
 						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-control <%= locals.errors && errors.title ? 'is-invalid' : null %>" value="<%= locals.old && old.title ? old.title : null %>"></textarea>
+						<textarea name="description" id="description" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%= locals.old && old.name ? old.name : null %>"></textarea>
 						<p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
 					</div>
 					

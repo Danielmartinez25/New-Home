@@ -163,18 +163,13 @@ controller = {
     });
   },
   destroy: (req, res) => {
-    const { id } = req.params;
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-    const productModify = products.filter((product) => product.id !== +id);
-    fs.writeFileSync(
-      path.join(__dirname, "..", "data", "productDB.json"),
-      JSON.stringify(productModify, null, 3),
-      "utf-8"
-    );
-    return res.redirect("/");
-  },
+    db.Product.destroy({
+      where : {
+        id:req.params.id
+      }
+    }).then(()=> res.redirect('/'))
+    .catch(error => console.log(error))
+  }
 };
 
 module.exports = controller;
