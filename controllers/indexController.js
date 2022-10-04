@@ -46,7 +46,7 @@ module.exports = {
           console,
           toThousand,
         });
-      })
+      }).catch((error) => console.log(error));
   },
   search: (req, res) => {
     let { keywords } = req.query;
