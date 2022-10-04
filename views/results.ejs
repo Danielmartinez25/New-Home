@@ -11,12 +11,12 @@
 				<div class="main_allProducts">
 					<div class="containsproduct">
 						<% if (products.length> 0) { %>
-							<% products.forEach(({id,title, image,discount,price})=> { %>
+							<% products.forEach(({id,name, images,discount,price})=> { %>
 								<article>
 									<a href="/products/detail/<%= id %> "><img class="main__section__img"
-											src="/img/<%= image %>" alt=""></a>
+											src="/img/<%= images[0].file %>" alt=""></a>
 									<h5 class="interesting_products_border">
-										<%= title %>
+										<%= name%>
 									</h5>
 									<p class="">$<%= price %>
 									</p>

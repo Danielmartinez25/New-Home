@@ -164,11 +164,12 @@ controller = {
   },
   destroy: (req, res) => {
     db.Product.destroy({
-      where : {
-        id:req.params.id
-      }
-    }).then(()=> res.redirect('/'))
-    .catch(error => console.log(error))
+      where: {
+        id: req.params.id,
+      },
+    })
+      .then(() => res.redirect("allProducts"))
+      .catch((error) => console.log(error));
   }
 };
 

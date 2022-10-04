@@ -49,7 +49,29 @@ module.exports = {
       }).catch((error) => console.log(error));
   },
   search: (req, res) => {
-    let { keywords } = req.query;
+    		const { keywords } = req.query;
+
+        db.Product.findAll({
+          where: {
+            [Op.or]: [
+              {
+                name: {
+                  [Op.substring]: keywords,
+                },
+              }
+            ],
+          },
+          include: ["images"],
+        })
+          .then((products) => {
+            return res.render("results", {
+              products,
+              keywords,
+              toThousand,
+            });
+          })
+          .catch((error) => console.log(error));
+/*     let { keywords } = req.query;
     const products = JSON.parse(
       fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
     );
@@ -62,6 +84,6 @@ module.exports = {
       products: result,
       keywords: req.query.keywords,
       toThousand,
-    });
+    }); */
   },
 };
