@@ -7,17 +7,23 @@
         <div class="header__section__img">
             <a href="/"><img class="header__section__logo" src="/img/logo2.jpg" alt="logo"></a>
         </div>
-        <div class="header__section__menu">
-<!--             <i id="burguer" class="fa-solid fa-bars"></i>
+<!--         <div class="header__section__menu">
+          <i id="burguer" class="fa-solid fa-bars"></i>
             <form action="/search" method="GET" class="header__section__barra">
                 <input class="search" placeholder="Buscar productos,marcas y mas..." type="text" name="keywords">
                 <button class="header__section__button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            </form> -->
+            </form> 
             <form class="d-flex" role="search" action="/search" method="GET">
                 <input class="form-control me-2"  type="search" placeholder="Buscar productos,marcas y mas..." aria-label="Search" name="keywords" >
                 <button class="btn btn-outline-success" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
-        </div>
+        </div> -->
+                    <div class="col-7 col-md-6">
+                        <form action="/search" method="GET" class="search-form">
+                            <input type="text" name="keywords" placeholder="Buscar productos, marcas y más" class="search-form_input">
+                            <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
 
         <nav class="header__nav">
             <ul class="menu-horizontal">

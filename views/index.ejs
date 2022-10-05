@@ -44,7 +44,9 @@
                     </button>
                 </div>
                 <!-- Banner -->
-                <h2>Lo mas nuevo</h2>
+                <div class="col-12">
+                    <h2 class="products-title">Lo mas nuevo</h2>
+                </div>
                 <section class="main__section">
                     <% newest.forEach(({id,name, images,discount,price})=> { %>
 
@@ -57,17 +59,19 @@
                                         <%= name %>
                                     </p>
                                     <h5>$<%= toThousand(price) %>
-                                    <h5>                                   
-                                    <span>
-                                    <%= discount %> % OFF
-                                    </span>                                 
+                                            <h5>
+                                                <span>
+                                                    <%= discount %> % OFF
+                                                </span>
                                 </div>
                             </a>
                         </div>
 
                         <% }) %>
-                            <h2>Ofertas en todos los productos</h2>
-
+<!--                             <div class="col-12">
+                                <h2 class="products-title">Lo mas nuevo</h2>
+                            </div>
+ -->
                             <!-- Banner body -->
 
                             <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -106,7 +110,9 @@
 
                             <!-- Banner body -->
 
-                            <h2>Mejores ofertas</h2>
+                            <div class="col-12">
+                                <h2 class="products-title">Las mejores Ofertas</h2>
+                            </div>
                             </div>
 
                             <% offer.forEach(({id,name, images,discount,price})=> { %>
@@ -130,7 +136,9 @@
 
                                 <% }) %>
 
-                                    <h2>Televisores</h2>
+                                    <div class="col-12">
+                                        <h2 class="products-title">Televisores en New Home</h2>
+                                    </div>
 
                                     <% tv.products.forEach(({id,name, images,discount,price})=> { %>
 
@@ -152,7 +160,9 @@
                                         </div>
 
                                         <% }) %>
-                                            <h2>Consolas</h2>
+                                            <div class="col-12">
+                                                <h2 class="products-title">Consolas en New Home</h2>
+                                            </div>
 
                                             <% console.products.forEach(({id,name, images,discount,price})=> { %>
 
