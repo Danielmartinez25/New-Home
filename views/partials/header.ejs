@@ -1,11 +1,7 @@
 <header class="header">
     <section class="header__section">
         <div class="header__section__text">
-            <h1>New Home</h1>
-            <p>- Lo mejor para tu hogar -</p>
-        </div>
-        <div class="header__section__img">
-            <a href="/"><img class="header__section__logo" src="/img/logo2.jpg" alt="logo"></a>
+            <a href="/"><h1>NewHome  <i class="fa-solid fa-house-laptop"></i></h1></a>  
         </div>
 <!--         <div class="header__section__menu">
           <i id="burguer" class="fa-solid fa-bars"></i>
@@ -27,12 +23,7 @@
 
         <nav class="header__nav">
             <ul class="menu-horizontal">
-
-                <!--             <li class="header__nav__li"><a href="/products/edit">Editar</a></li>
- -->
-                <li>
-                    <a href="/products/all">Todos los productos</a>
-            <ul class="menu-horizontal">
+                <li><a href="/products/all">Todos los productos</a></li>
                 <% if (locals.userLogged) { %>
                     <li class="header__nav__li"><a href="/users/profile">Mi perfil</a></li>
                     <li class="header__nav__li"><a href="/users/logout">Salir</a></li>

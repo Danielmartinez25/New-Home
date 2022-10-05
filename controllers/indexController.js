@@ -12,6 +12,7 @@ module.exports = {
           [Op.gt]: 30,
         },
       },
+      limit : 4,
       include: ["images", "category"],
     });
     newest = db.Product.findAll({
