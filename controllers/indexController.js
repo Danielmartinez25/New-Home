@@ -17,7 +17,7 @@ module.exports = {
     });
     newest = db.Product.findAll({
       order: [["createdAt", "DESC"]],
-      limit: 8,
+      limit: 4,
       include: ["images", "category"],
     });
     let tv = db.Category.findByPk(1, {

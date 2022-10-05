@@ -8,6 +8,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
+    padding-top: 10px;
+    padding-bottom: 20px;
 }
 
 .header__section__menu{
@@ -92,15 +94,16 @@
 
 /* MAIN */
 
-
-
-.main__section{
+.main__section {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     width: auto;
     height: auto;
+    align-content: flex-start;
 }
+
+/* 
 .main__section__caja{
     width: 100%;
     border: 1px solid gray;
@@ -134,7 +137,7 @@
     background-color: #D2D2D2;
     padding: 10px;
 }
-.main__section__texto h5 {
+.main__section__texto h2 {
     font-size: 1em;
     font-weight: 300;
     margin: 0;
@@ -161,7 +164,74 @@
 
 .main__section__texto:hover p {
     height: 50px;
+} */
+
+
+
+
+.interesting_products {
+    width: 90%;
+    margin-right: 5%;
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: 300ms;
 }
+
+.interesting_products article {
+    margin: 15px;
+    border: 1px solid #ebebeb;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    background-color: white;
+    align-self: flex-start;
+
+}
+
+.interesting_products img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+
+.article-text{
+        display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            align-items: center;
+            background-color: #D2D2D2;
+            padding-bottom: 10px;
+}
+.article-text h2{
+        font-size: 15px;
+            font-weight: 300;
+            margin: 0;
+            color: #666666;
+}
+.article-text span {
+    font-size: 12px;
+    font-weight: 200;
+    color: #39b54a;
+    margin: 0 20 0 0px;
+    
+}
+.article-text p{
+            width: 100%;
+            margin: 0;
+            height: 0;
+            transition: 300ms;
+            overflow: hidden;
+}
+
+.article-text:hover p {
+    margin-left: 5px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    word-spacing: 1px;
+    font-size: 13px;
+    height: 40px;
+}
+
 
 
 .main__section__logo{

@@ -1,14 +1,17 @@
 <header class="header">
     <section class="header__section">
         <div class="header__section__text">
-            <a href="/"><h1>NewHome  <i class="fa-solid fa-house-laptop"></i></h1></a>  
+            <a href="/">
+                <h1>NewHome <i class="fa-solid fa-house-laptop"></i></h1>
+            </a>
         </div>
-                    <div class="col-7 col-md-6">
-                        <form action="/search" method="GET" class="search-form">
-                            <input type="text" name="keywords" placeholder="Buscar productos, marcas y más" class="search-form_input">
-                            <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-                        </form>
-                    </div>
+        <div class="col-7 col-md-6">
+            <form action="/search" method="GET" class="search-form">
+                <input type="text" name="keywords" placeholder="Buscar productos, marcas y más"
+                    class="search-form_input">
+                <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+            </form>
+        </div>
 
         <nav class="header__nav">
             <ul class="ul-navbar">
@@ -16,8 +19,6 @@
                 <% if (locals.userLogged) { %>
                     <li class="header__nav__li"><a href="/users/profile">Mi perfil</a></li>
                     <li class="header__nav__li"><a href="/users/logout">Salir</a></li>
-                    <a class="" href="#"><img src="/img/avatars/<%= locals.userLogged.avatar %>" width="40"
-                            style="border-radius: 100%;"></a>
                     <% if (userLogged.rol==="admin" ) { %>
                         <li class="header__nav__li"><a href="/products/create">Vender</a></li>
                         <% } %>
