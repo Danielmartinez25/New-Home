@@ -1,3 +1,4 @@
+
 .header{
     font-family: 'Roboto';
     font-weight: bold;
@@ -53,46 +54,77 @@
 
 /* MAIN */
 
-/* .main{
-    margin-top: 5%;
-} */
-.main__section__banner__img{
-    width: 100%;
-}
+
+
 .main__section{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    width: auto;
+    height: auto;
 }
-
-.main__section h2{
-    padding: 10px;
-} 
-
 .main__section__caja{
+    width: 100%;
     border: 1px solid gray;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    width: 90%;
     margin: 10px;
+    overflow: hidden;
+    transition: 300ms;
+}
+.main__section a {
+    display: block;
 }
 
-.main__section__img{
-    width: 100%;
+.main__section__caja figure {
+    margin: 0;
+    padding: 0;
+}
+
+.main__section__caja img {
+    margin: auto;
+    height: 150px;
+    width: auto;
+    object-fit: cover;
+    align-content: center;
 }
 
 .main__section__texto{
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    align-items: center;
     background-color: #D2D2D2;
     padding: 10px;
 }
-
-.main__section__img__banner{
-    margin: 10px 0 10px 0;
-    padding: none;
+.main__section__texto h5 {
+    font-size: 1em;
+    font-weight: 300;
+    margin: 0;
+    color: #666666;
 }
-
-.main__section__banner__img__2{
+.main__section__texto span {
+    font-size: 0.75em;
+    font-weight: 300;
+    color: #666666;
+    margin: 0 0 0 10px;
+}
+.main__section__texto p {
+    font-size: 1em;
     width: 100%;
+    color: #666666;
+    margin: 0;
+    height: 0;
+    transition: 300ms;
+    overflow: hidden;
 }
+.main__section__texto:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.main__section__texto:hover p {
+    height: 50px;
+}
+
 
 .main__section__logo{
     margin-top: 10px;
@@ -198,7 +230,6 @@
     .main__section__caja{
         width: 45%;
     }
-
     .main__section__logo{
         margin-left: 40%;
         width: 20%;
@@ -215,9 +246,14 @@
     /* MAIN */
 
     .main__section__caja{
-        width: 30%;
+        width: 20%;
     }
+        .main__section__caja img {
+            margin: auto;
+            height: 150px;
+            width: auto;
 
+        }
     .main__section__logo{
         margin-left: 40%;
         width: 20%;
