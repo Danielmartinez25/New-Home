@@ -31,9 +31,6 @@
 }
 
 
-#burguer{
-    margin: 4px 0 0 20px;
-}
 
 
 .header__section__menu{
@@ -41,20 +38,6 @@
 
     padding: 10px;
 }
-
-/* .search{
-    width: 208px;
-    height: 25px;
-    border-radius: 10px;
-    border: 1px solid white;
-} */
-
-
-/* .header__section__logo{
-    display: none;
-}
- */
-
 
 .search-form {
     position: relative;
@@ -94,6 +77,10 @@
 
 /* MAIN */
 
+
+.main{
+    background-color: #F3F3F3;
+}
 .main__section {
     display: flex;
     flex-wrap: wrap;
@@ -177,6 +164,12 @@
     margin-bottom: 20px;
     overflow: hidden;
     transition: 300ms;
+}
+
+.interesting_products h3{
+    margin-left: 2%;
+    font-size: 1.75em;
+    font-family: 'Roboto', sans-serif;
 }
 
 .interesting_products article {

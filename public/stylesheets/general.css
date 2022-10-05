@@ -96,11 +96,20 @@ a{
 
 
 .footer {
-    background-color: #ebebeb;
+
+    background-color: #202020;
     width: 100%;
     font-family: 'Roboto';
     font-weight: 600;
     padding: 3%;
+}
+.footer p{
+    font-size: 15px;
+    color: #ffff;
+}
+.footer li {
+    font-size: 15px;
+    color: #ffff;
 }
 
 .mt-20 {
