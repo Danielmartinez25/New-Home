@@ -1,7 +1,7 @@
 const { check, body } = require("express-validator");
 
 module.exports = [
-  check("title")
+  check("name")
     .notEmpty()
     .withMessage("El nombre del producto es obligatorio")
     .bail()
@@ -18,6 +18,5 @@ module.exports = [
       no_symbols: true,
     })
     .withMessage("Solo números positivos"),
-  check("section").notEmpty().withMessage("Debes indicar la sección"),
   check("description").notEmpty().withMessage("Debes dar una descripción")
 ];

@@ -1,5 +1,3 @@
-const fs = require('fs');
-const path = require('path');
 const db = require('../database/models')
 const { Op } = require("sequelize");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
@@ -39,54 +37,32 @@ controller = {
   .catch((error) => console.log(error));
   },
   edit: (req, res) => {
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-    const { id } = req.params;
-    let product = products.find((product) => product.id === +id);
-    return res.render("edition", {
-      product,
+    let categories = db.Category.findAll({
+      attributes : ['id', 'name'],
+      order : ['name']
     });
+    let product = db.Product.findByPk(req.params.id);
+    Promise.all([categories,product])
+    .then(([categories,product])=>{
+      return res.render('edition',{
+        product,
+        categories
+      })
+    })
   },
   update: (req, res) => {
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-
-    const errors = validationResult(req);
-
-    /* if (errors.isEmpty()) { */
-      const { id } = req.params;
-      let { title, price, discount, description, section } = req.body;
-
-      const productModify = products.map((product) => {
-        if (product.id === +id) {
-          return {
-            ...product,
-            title: title.trim(),
-            description: description.trim(),
-            price: +price,
-            discount: +discount,
-            section,
-          };
-        } else {
-          return product;
-        }
-      });
-
-      fs.writeFileSync(
-        path.join(__dirname, "..", "data", "productDB.json"),
-        JSON.stringify(productModify, null, 3),
-        "utf-8"
-      );
-      return res.redirect("/products/detail/" + id);
-    /* } else {
-      return res.render("edition", {
-        product: req.body,
-        id: req.params.id,
-        errors: errors.mapped(),
-      });
-    } */
+    db.Product.update({
+      ...req.body,
+      name : req.body.name,
+      description: req.body.description
+    },
+    {
+      where : {
+        id : req.params.id
+      }
+    })
+    .then(() => res.redirect('/products/detail/' + req.params.id))
+    .catch(error => console.log(error))  
   },
   create: (req, res) => {
     db.Category.findAll({
