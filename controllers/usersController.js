@@ -6,7 +6,7 @@ const User = require("../modelsUser/User");
 
 module.exports = {
   register: (req, res) => {
-    return res.render("register", {
+    return res.render("users/register", {
       title: "Register",
     });
   },
@@ -24,7 +24,7 @@ module.exports = {
 
       return res.redirect("/");
     } else {
-      return res.render("register", {
+      return res.render("users/register", {
         title: "Register",
         errors: errors.mapped(),
         old: req.body,
@@ -33,7 +33,7 @@ module.exports = {
   },
 
   login: (req, res) => {
-    return res.render("login", {
+    return res.render("users/login", {
       title: "Login",
     });
   },
@@ -49,9 +49,9 @@ module.exports = {
       if (isCorrectPassword) {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
-        return res.redirect("/users/profile");
+        return res.redirect("users/users/profile");
       }
-      return res.render("login", {
+      return res.render("users/login", {
         title: "Login",
         errors: {
           email: {
@@ -61,7 +61,7 @@ module.exports = {
       });
     }
 
-    return res.render("login", {
+    return res.render("users/login", {
       title: "Login",
       errors: {
         email: {
@@ -72,7 +72,7 @@ module.exports = {
   },
 
   profile: (req, res) => {
-    return res.render("userProfile", {
+    return res.render("users/userProfile", {
       title: "Perfil",
       user: req.session.userLogged,
     });

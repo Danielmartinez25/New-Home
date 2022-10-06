@@ -9,7 +9,7 @@ controller = {
     db.Product.findAll({
       include : ['images']
     })
-    .then(product => res.render('allProducts',{
+    .then(product => res.render('products/allProducts',{
       product,
       toThousand
     })).catch(error => console.log(error))
@@ -28,7 +28,7 @@ controller = {
     });
     Promise.all([product,offer])
     .then(([product,offer])=> {
-      return res.render('productDetail',{
+      return res.render('products/productDetail',{
         product,
         offer,
         toThousand
@@ -44,7 +44,7 @@ controller = {
     let product = db.Product.findByPk(req.params.id);
     Promise.all([categories,product])
     .then(([categories,product])=>{
-      return res.render('edition',{
+      return res.render('products/edition',{
         product,
         categories
       })
@@ -61,7 +61,7 @@ controller = {
         id : req.params.id
       }
     })
-    .then(() => res.redirect('/products/detail/' + req.params.id))
+    .then(() => res.redirect('products/products/detail/' + req.params.id))
     .catch(error => console.log(error))  
   },
   create: (req, res) => {
@@ -70,7 +70,7 @@ controller = {
       order: ["name"],
     })
       .then((categories) =>
-        res.render('productAdd', {
+        res.render('products/productAdd', {
           categories,
         })
       )
@@ -101,7 +101,7 @@ controller = {
   } db.Category.findAll({
     order: ["name"],
   }).then((categories) => {
-    res.render("productAdd", {
+    res.render("products/productAdd", {
       categories,
       errors: errors.mapped(),
       old: req.body,
@@ -109,7 +109,7 @@ controller = {
   });
   },
   cart: (req, res) => {
-    return res.render("productCart", {
+    return res.render("products/productCart", {
       title: "Carrito",
     });
   },
@@ -124,7 +124,7 @@ controller = {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("allProducts"))
+      .then(() => res.redirect("products/allProducts"))
       .catch((error) => console.log(error));
   }
 };
