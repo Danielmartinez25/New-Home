@@ -1,7 +1,7 @@
 const {check} = require('express-validator');
 
 module.exports = [
-    check('title')
+    check('name')
         .notEmpty()
         .withMessage('Nombre de producto requerido').bail()
         .isLength({

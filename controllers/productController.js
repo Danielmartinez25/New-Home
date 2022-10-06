@@ -101,6 +101,8 @@ controller = {
       .catch((error) => console.log(error));
   },
   store: (req, res) => {
+  let errors = validationResult(req);
+  if(errors.isEmpty()){
   db.Product.create({
     ...req.body,
     name : req.body.name,
@@ -119,38 +121,16 @@ controller = {
           }).then((result) => console.log(result))
     }
     return res.redirect('/')
-  }).catch(error => console.log(error))
-  
-/*     const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { price, section, discount, description, title, type } = req.body;
-      const products = JSON.parse(
-        fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-      );
-      image = req.file.filename;
-      const newProduct = {
-        id: products[products.length - 1].id + 1,
-        title: title.trim(),
-        description: description.trim(),
-        price: +price,
-        discount: +discount,
-        section,
-        type,
-        image,
-      };
-      let productModify = [...products, newProduct];
-      fs.writeFileSync(
-        path.join(__dirname, "..", "data", "productDB.json"),
-        JSON.stringify(productModify, null, 3),
-        "utf-8"
-      );
-      return res.redirect("/");
-    } else {
-      return res.render("productAdd", {
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    } */
+  }).catch(error => console.log(error))  
+  } db.Category.findAll({
+    order: ["name"],
+  }).then((categories) => {
+    res.render("productAdd", {
+      categories,
+      errors: errors.mapped(),
+      old: req.body,
+    });
+  });
   },
   cart: (req, res) => {
     return res.render("productCart", {

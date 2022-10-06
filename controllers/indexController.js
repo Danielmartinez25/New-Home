@@ -72,19 +72,5 @@ module.exports = {
             });
           })
           .catch((error) => console.log(error));
-/*     let { keywords } = req.query;
-    const products = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "productDB.json"))
-    );
-
-    let result = products.filter((product) =>
-      product.title.toLowerCase().includes(keywords.toLowerCase())
-    );
-
-    return res.render("results", {
-      products: result,
-      keywords: req.query.keywords,
-      toThousand,
-    }); */
-  },
+  }
 };
