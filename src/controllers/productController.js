@@ -7,7 +7,8 @@ const {validationResult} = require('express-validator');
 controller = {
   all: (req, res) => {
     db.Product.findAll({
-      include : ['images']
+      include : ['images'],
+      order : ['name']
     })
     .then(product => res.render('products/allProducts',{
       product,
