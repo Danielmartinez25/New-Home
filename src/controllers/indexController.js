@@ -10,7 +10,7 @@ module.exports = {
           [Op.gt]: 30,
         },
       },
-      limit : 4,
+      limit: 4,
       include: ["images", "category"],
     });
     newest = db.Product.findAll({
@@ -36,39 +36,43 @@ module.exports = {
         },
       ],
     });
-    Promise.all([offer, newest, tv, console])
-      .then(([offer, newest, tv, console]) => {
+    let category = db.Category.findAll(req.params.id);
+
+    Promise.all([offer, newest, tv, console, category])
+      .then(([offer, newest, tv, console, category]) => {
         return res.render("index", {
           offer,
           tv,
           newest,
           console,
+          category,
           toThousand,
         });
-      }).catch((error) => console.log(error));
+      })
+      .catch((error) => console.log(error));
   },
   search: (req, res) => {
-    		const { keywords } = req.query;
+    const { keywords } = req.query;
 
-        db.Product.findAll({
-          where: {
-            [Op.or]: [
-              {
-                name: {
-                  [Op.substring]: keywords,
-                },
-              }
-            ],
+    db.Product.findAll({
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.substring]: keywords,
+            },
           },
-          include: ["images"],
-        })
-          .then((products) => {
-            return res.render("results", {
-              products,
-              keywords,
-              toThousand,
-            });
-          })
-          .catch((error) => console.log(error));
+        ],
+      },
+      include: ["images"],
+    })
+      .then((products) => {
+        return res.render("results", {
+          products,
+          keywords,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
   }
 };
