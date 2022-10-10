@@ -82,4 +82,7 @@ module.exports = {
     res.cookie("newHome", null, { maxAge: -1 });
     return res.redirect("/");
   },
+  logoutV: (req, res) => {
+    return res.render("../views/logout.ejs");
+  },
 };

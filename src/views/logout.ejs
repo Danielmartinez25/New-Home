@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('./partials/head', { title : 'Confirmar eliminación' }) %>
+
+
+    <body class="login">
+        <%- include('./partials/header') %>
+            <main class="login__main">
+                <section class="login__main__confirm">
+                    <h5 class="text-center">¿Desea Salir?</h5>
+                        <div class="button__danger">
+                            <a style="margin-left: 4%;" href="/users/logout"><button class="btn btn-danger" type="submit">Salir</button></a>
+                        </div>
+                    <a href="/"><button class="button_Neg" type="submit">No Salir</button></a>
+
+                </section>
+            </main>
+    </body>
+
+</html>
