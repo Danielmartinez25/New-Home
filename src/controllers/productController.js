@@ -143,14 +143,22 @@ controller = {
         },
       ],
     })
-    .then(
-      (category) => {
-        return res.render("products/category", {
+      .then((category) => {
+        return res.render("products/productCategory", {
           category,
-          toThousand
+          toThousand,
         });
-      }
-    ).catch(error => console.log(error))
+      })
+      .catch((error) => console.log(error));
+  },
+  categoryV: (req, res) => {
+    db.Category.findAll(req.params.id)
+    .then(category => {
+      return res.render("category",{
+        category
+      });
+    }).catch(error => console.log(error))
+   
   },
 };
 
