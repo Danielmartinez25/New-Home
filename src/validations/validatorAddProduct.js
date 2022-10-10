@@ -19,13 +19,5 @@ module.exports = [
         .withMessage('Sectión requerida'),
     check('description')
         .notEmpty()
-        .withMessage('Descripción requerida'),
-    check('image')
-        .custom((value,{req}) => {
-            let file = req.file;
-            if(!file){
-                throw new Error('Imagen Requerida');
-            }
-            return true;
-        })
+        .withMessage('Descripción requerida')
 ]

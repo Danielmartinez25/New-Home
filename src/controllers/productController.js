@@ -83,7 +83,7 @@ controller = {
   },
   store: (req, res) => {
     let errors = validationResult(req);
-    if (errors.isEmpty()) {
+    /* if (errors.isEmpty()) { */
       db.Product.create({
         ...req.body,
         name: req.body.name,
@@ -104,8 +104,8 @@ controller = {
           return res.redirect("/");
         })
         .catch((error) => console.log(error));
-    }
-    db.Category.findAll({
+
+    /* db.Category.findAll({
       order: ["name"],
     }).then((categories) => {
       res.render("products/productAdd", {
@@ -113,7 +113,7 @@ controller = {
         errors: errors.mapped(),
         old: req.body,
       });
-    });
+    }); */
   },
   cart: (req, res) => {
     return res.render("products/productCart", {
