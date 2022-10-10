@@ -78,18 +78,18 @@
             </section>
 
             <section class="description">   
-                <h4 class="tittle">Funciones especiales</h4>
+                <h4 class="tittle">Descripción</h4>
                 <p class="product__description"><%= product.description %> </p>
             </section>
 
             <section class="interesting_products">
-                <h3>Productos que te pueden llegar a interesar</h3>
+                <h3>Productos en oferta</h3>
                 <div class="containsproduct">       
                     <% offer.forEach(({id,title, images,discount,price}) => { %>
                     <article>
                         <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= images[0].file %>" alt=""></a>                      
                         <h5 class="interesting_products_border"><%= title %> </h5>
-                        <p class="">$<%= price %> </p>
+                        <p class="">$<%= toThousand(price) %> </p>
                         <p class="color_verde"><%= discount %> % OFF</p>    
                     </article>
                           <% }) %>                   
