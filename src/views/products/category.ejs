@@ -5,9 +5,10 @@
     <body class="body-all">
         <%- include('../partials/header') %>
             <main class="main-all">
-                <h3>Todos los productos</h3>
+                <% if (category.products.length > 0) { %>
+                <h3>Todo en <%= category.name %> en New Home</h3>
                 <section class="section-all">
-                    <% category.tv.forEach(({id,name,images,discount,price})=> { %>
+                    <% category.products.forEach(({id,name,images,discount,price})=> { %>
                         <article class="product-all">
                             <div class="div-all">
                                 <a href="/products/detail/<%= id %> "><img class="img-all"
@@ -24,7 +25,13 @@
                                 </div>
                             </div>
                         </article>
-                        <% }) %>
+                        <% }) %> 
+                <% } else {%>
+                    <div class="col-12">
+						<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa
+							búsqueda</h2>
+					</div>
+                <% } %>
                 </section>
             </main>
             <!-- FOOTER -->

@@ -37,7 +37,6 @@ module.exports = {
       ],
     });
     let category = db.Category.findAll(req.params.id);
-
     Promise.all([offer, newest, tv, console, category])
       .then(([offer, newest, tv, console, category]) => {
         return res.render("index", {

@@ -83,6 +83,6 @@ module.exports = {
     return res.redirect("/");
   },
   logoutV: (req, res) => {
-    return res.render("../views/logout.ejs");
+    return res.render("logout");
   },
 };

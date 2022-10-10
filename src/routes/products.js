@@ -11,7 +11,7 @@ const adminUserCheck = require('../middlewares/adminUserCheck')
 router    
 
     .get('/all', all)
-    .get('category/:id',category)
+    .get('/category/:id',category)
     .get('/detail/:id',detail) 
     .get('/edit/:id',adminUserCheck,edit)
     .put('/update/:id',validatorEditProduct,update)

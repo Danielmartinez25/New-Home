@@ -135,64 +135,19 @@ controller = {
       .catch((error) => console.log(error));
   },
   category: (req, res) => {
-    let tv = db.Category.findByPk(1, {
+    db.Category.findByPk(req.params.id, {
       include: [
         {
           association: "products",
           include: ["images"],
         },
       ],
-    });
-    let console = db.Category.findByPk(2, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    });
-    let audio = db.Category.findByPk(3, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    });
-
-    let phone = db.Category.findByPk(4, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    });
-    let electrodomestico = db.Category.findByPk(5, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    });
-    let mueble = db.Category.findByPk(6, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    });
-    Promise.all([tv, console, audio, phone, electrodomestico, mueble]).then(
-      ([tv, console, audio, phone, electrodomestico, mueble]) => {
+    })
+    .then(
+      (category) => {
         return res.render("products/category", {
-          tv,
-          console,
-          audio,
-          phone,
-          electrodomestico,
-          mueble,
+          category,
+          toThousand
         });
       }
     ).catch(error => console.log(error))
