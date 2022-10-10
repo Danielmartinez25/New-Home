@@ -1,83 +1,92 @@
 [
- {
-  "id": 1,
-  "name": "Roman Riquelme",
-  "password": "$2a$10$iRE5bBRyPZNREwCVwMLfHOhnFb3v2Js7KDes4j8q1zXv78jfYpqQu",
-  "email": "hola@gmail.com",
-  "country": "Uruguay",
-  "rol": "admin",
-  "avatar": "1662079974191_img.jpg"
- },
- {
-  "id": 2,
-  "name": "Goku",
-  "password": "$2a$10$UculHn2j.Jtc6u/DeQGQcOmg2gdkPTKGFkqifkrSkB32yBu/Qn8.S",
-  "email": "chau014@gmail.com",
-  "country": "Argentina",
-  "rol": "admin",
-  "avatar": "1662502140409_img.jpg"
- },
- {
-  "id": 3,
-  "name": "Oscar",
-  "password": "$2a$10$uYtN8N5zzkhdyQeT7xTHfeiLYHnLANz1vJrO3Ma0i5y1Gsh7G7tfK",
-  "email": "holaasdas@gmail.com",
-  "country": "Argentina",
-  "rol": "usuario",
-  "avatar": "1662502552577_img.jpg"
- },
- {
-  "id": 4,
-  "name": "daniel ",
-  "password": "$2a$10$ZRFnHsA/akV7Pdlj5lWJge.BtB3WKSXfWjdtqSa7WmTiX6d7kLt5y",
-  "email": "newhome@gmail.com",
-  "country": "Argentina",
-  "rol": "admin",
-  "avatar": "1663037294814_img.jpg"
- },
- {
-  "id": 5,
-  "name": "daniel ",
-  "password": "$2a$10$9WFLtkLrQMfbXuFIdUJpJumbZ3eJbw5aGPNZuPn9x4VNlksl.hHNO",
-  "email": "newhome123@gmail.com",
-  "country": "Argentina",
-  "rol": "admin",
-  "avatar": "1663103621938_img.jpg"
- },
- {
-  "id": 6,
-  "name": "maxi",
-  "password": "$2a$10$4/Hkn2bHmFzpTOF3nApbqOTEOgpCLQX3msX4yGZdPHNQIFaXukKzi",
-  "email": "maxi@gmail.com",
-  "country": "Argentina",
-  "rol": "usuario",
-  "avatar": "1663103786495_img.jpg"
- },
- {
-  "id": 7,
-  "name": "Daniel Martinez",
-  "password": "$2a$10$JDYs/sfLP/vqyE6BiykKmeQOXem5NRK5S48OWrw7DIpRuyH6r6QXO",
-  "email": "danimartinez1325@gmail.com",
-  "country": "Argentina",
-  "rol": "admin",
-  "avatar": "1663343048250_img.jpg"
- },
- {
-  "id": 8,
-  "name": "daniel m",
-  "password": "$2a$10$a4htI1WqZWjH50izhfV3c.l9VQEDMCv6Dhnb9FmoDIK9PE6CQwra.",
-  "email": "dani@gmail.com",
-  "country": "Argentina",
-  "rol": "usuario",
-  "avatar": "1663343420120_img.jpg"
- },
- {
-  "id": 9,
-  "name": "daniel M",
-  "password": "$2a$10$dPxfrJiPCC.aQHzXXlAgieWwRFgCV68L9y3qWbNpRZe6GYc1k9iNy",
-  "email": "gusti@gmail.com",
-  "country": "Argentina",
-  "rol": "admin",
-  "avatar": "1664381905211_img.jpg"
- }
+   {
+      "id": 1,
+      "name": "Roman Riquelme",
+      "password": "$2a$10$iRE5bBRyPZNREwCVwMLfHOhnFb3v2Js7KDes4j8q1zXv78jfYpqQu",
+      "email": "hola@gmail.com",
+      "country": "Uruguay",
+      "rol": "admin",
+      "avatar": "1662079974191_img.jpg"
+   },
+   {
+      "id": 2,
+      "name": "Goku",
+      "password": "$2a$10$UculHn2j.Jtc6u/DeQGQcOmg2gdkPTKGFkqifkrSkB32yBu/Qn8.S",
+      "email": "chau014@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1662502140409_img.jpg"
+   },
+   {
+      "id": 3,
+      "name": "Oscar",
+      "password": "$2a$10$uYtN8N5zzkhdyQeT7xTHfeiLYHnLANz1vJrO3Ma0i5y1Gsh7G7tfK",
+      "email": "holaasdas@gmail.com",
+      "country": "Argentina",
+      "rol": "usuario",
+      "avatar": "1662502552577_img.jpg"
+   },
+   {
+      "id": 4,
+      "name": "daniel ",
+      "password": "$2a$10$ZRFnHsA/akV7Pdlj5lWJge.BtB3WKSXfWjdtqSa7WmTiX6d7kLt5y",
+      "email": "newhome@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1663037294814_img.jpg"
+   },
+   {
+      "id": 5,
+      "name": "daniel ",
+      "password": "$2a$10$9WFLtkLrQMfbXuFIdUJpJumbZ3eJbw5aGPNZuPn9x4VNlksl.hHNO",
+      "email": "newhome123@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1663103621938_img.jpg"
+   },
+   {
+      "id": 6,
+      "name": "maxi",
+      "password": "$2a$10$4/Hkn2bHmFzpTOF3nApbqOTEOgpCLQX3msX4yGZdPHNQIFaXukKzi",
+      "email": "maxi@gmail.com",
+      "country": "Argentina",
+      "rol": "usuario",
+      "avatar": "1663103786495_img.jpg"
+   },
+   {
+      "id": 7,
+      "name": "Daniel Martinez",
+      "password": "$2a$10$JDYs/sfLP/vqyE6BiykKmeQOXem5NRK5S48OWrw7DIpRuyH6r6QXO",
+      "email": "danimartinez1325@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1663343048250_img.jpg"
+   },
+   {
+      "id": 8,
+      "name": "daniel m",
+      "password": "$2a$10$a4htI1WqZWjH50izhfV3c.l9VQEDMCv6Dhnb9FmoDIK9PE6CQwra.",
+      "email": "dani@gmail.com",
+      "country": "Argentina",
+      "rol": "usuario",
+      "avatar": "1663343420120_img.jpg"
+   },
+   {
+      "id": 9,
+      "name": "daniel M",
+      "password": "$2a$10$dPxfrJiPCC.aQHzXXlAgieWwRFgCV68L9y3qWbNpRZe6GYc1k9iNy",
+      "email": "gusti@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1664381905211_img.jpg"
+   },
+   {
+      "id": 10,
+      "name": "Daniel Martinez Lozano",
+      "password": "$2a$10$A0KpeWBAwEdug1I/n0NBI.1sMM5KJQwq/EyKDdNgGDg1RpoZHQMlW",
+      "email": "danimar@gmail.com",
+      "country": "Argentina",
+      "rol": "admin",
+      "avatar": "1665400439591_img.png"
+   }
 ]

@@ -1,10 +1,10 @@
 const fs = require ('fs');
+const path = require("path");
 
 const User = {
-    fileName: './data/users.json',
 
     getData: function () {
-        return JSON.parse(fs.readFileSync(this.fileName, 'utf-8'));
+        return JSON.parse(fs.readFileSync(path.join(__dirname, '../data/users.json'),'utf-8'));
     },
 
     generateId: function (){
@@ -40,7 +40,7 @@ const User = {
             ...userData
         }
         allUsers.push (newUser);
-        fs.writeFileSync(this.fileName, JSON.stringify(allUsers, null, ' '));
+        fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(allUsers,null,3),'utf-8');
         return newUser;
         
     },
@@ -48,7 +48,7 @@ const User = {
     delete : function (id) {
         let allUsers = this.findAll();
         let finalUsers = allUsers.filter (oneUser => oneUser.id !== id);
-        fs.writeFileSync(this.fileName, JSON.stringify(finalUsers, null, ' '));
+        fs.writeFileSync(path.join(__dirname, '../data/users.json'),JSON.stringify(finalUsers,null,3),'utf-8');
         return true;
     }
 

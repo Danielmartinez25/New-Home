@@ -49,7 +49,7 @@ module.exports = {
       if (isCorrectPassword) {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
-        return res.redirect("users/users/profile");
+        return res.redirect("/");
       }
       return res.render("users/login", {
         title: "Login",
