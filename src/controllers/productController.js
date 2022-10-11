@@ -66,7 +66,7 @@ controller = {
         },
       }
     )
-      .then(() => res.redirect("/products/detail/" + req.params.id))
+      .then(() => res.redirect("/"))
       .catch((error) => console.log(error));
   },
   create: (req, res) => {
@@ -101,7 +101,7 @@ controller = {
               validate: true,
             }).then((result) => console.log(result));
           }
-          return res.redirect("/");
+          return res.redirect("products/allproducts");
         })
         .catch((error) => console.log(error));
 
