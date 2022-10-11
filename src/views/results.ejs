@@ -5,28 +5,28 @@
 
 	<body class="result">
 		<%- include('./partials/header') %>
-
+			
 			<main class="interesting_products">
-				<h3>Tus resultados sobre: </h3>
-				<div class="main_allProducts">
-					<div class="containsproduct">
-						<% if (products.length> 0) { %>
-							<% products.forEach(({id,name, images,discount,price})=> { %>
-								<article>
-									<a href="/products/detail/<%= id %> "><img class="main__section__img"
-											src="/img/<%= images[0].file %>" alt=""></a>
-									<h5 class="interesting_products_border">
-										<%= name%>
-									</h5>
-									<p>$<%= price %>
-									</p>
-									<p>
-										<%= discount %> % OFF
-									</p>
-								</article>
-								<% }) %>
-					</div>
-				</div>
+				<% if (products.length> 0) { %>
+								<section class="main__section">
+									<section class="interesting_products">
+										<h3>Tus resultados sobre: </h3>
+										<div class="containsproduct">
+											<% products.forEach(({id,name, images,discount,price})=> { %>
+												<article>
+													<a href="/products/detail/<%= id %> "><img class="main__section__img"
+															src="/img/<%= images[0].file %>" alt=""></a>
+													<div class="article-text">
+														<p class="p2"><del>$<%= toThousand(price) %></del></p>
+														<h2 style="padding : 0%; padding-left : 10px">$<%= toThousand(price - (price * discount / 100))%></h2><span style="margin-left : 10px"><%= discount %>%OFF</span>
+														<p>
+															<%= name %>
+														</p>
+													</div>
+												</article>
+												<% }) %>
+										</div>
+									</section>
 				<% }else{ %>
 					<div class="col-12">
 						<h2 class="products-title" style="color: tomato;">No hay productos que coincidan con esa
