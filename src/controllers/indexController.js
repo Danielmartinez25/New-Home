@@ -24,15 +24,18 @@ module.exports = {
           association: "products",
           include: ["images"],
           limit: 4,
+          order: [["createdAt", "DESC"]]
         },
       ],
     });
     let console = db.Category.findByPk(2, {
+      
       include: [
         {
           association: "products",
           include: ["images"],
           limit: 4,
+          order: [["createdAt", "DESC"]]
         },
       ],
     });

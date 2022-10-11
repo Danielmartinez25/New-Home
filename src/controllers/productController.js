@@ -101,7 +101,7 @@ controller = {
               validate: true,
             }).then((result) => console.log(result));
           }
-          return res.redirect("products/allproducts");
+          return res.redirect('../views/index.ejs')
         })
         .catch((error) => console.log(error));
 
