@@ -7,11 +7,11 @@
     <!-- HEADER -->
     <%- include('../partials/header') %>
     <main>
+        <section class="section-detail">
         <section class="maintop">
                 <section class="producto">
                         <img src="/img/<%= product.images[0].file %> " alt="producto">
                 </section>
-
                 <section class="price">
                     <h5>
                         <%= product.name %>
@@ -86,18 +86,13 @@
                           <% }) %>                   
                 </div>
             </section>
-    </main>
-    <nav class="main__nav">
-        <ul>
-            <!-- <button><li><a href="/products/productAdd">Actualizar</a></li></button>
-            <button><li><a href="/products/productEdition">Editar</a></li></button> -->
-            
-        </ul>
-    </nav>   
+    </main> 
     </section> 
 
     <a class="outsidelogo" href="/index"><img  width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
-
+    
+        </section>
+        
     <!-- FOOTER -->
     <%- include('../partials/footer') %>
 
