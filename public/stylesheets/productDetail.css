@@ -83,17 +83,18 @@ main h5{
 
 .buttons {
     display: flex;
-    gap: 25px;
+    gap: 10px;
     justify-content: center;
     margin: 10px;
-    padding-bottom: 10px;
     text-align: center;
+    margin-right: 10%;
     
 }
 
 .buttons a{
-    background-color: #72223E;
-    padding: 7px;
+    font-size: 15px;
+    background-color: #181818;
+    padding: 10px;
     border-radius: 10px;
     color: white;
     font-weight: 600;
