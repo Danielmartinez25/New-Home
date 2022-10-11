@@ -11,7 +11,9 @@ module.exports = {
         },
       },
       limit: 4,
+      order: [["discount", "DESC"]],
       include: ["images", "category"],
+
     });
     newest = db.Product.findAll({
       order: [["createdAt", "DESC"]],

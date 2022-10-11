@@ -9,24 +9,15 @@
     <main>
         <section class="maintop">
                 <section class="producto">
-                    <h2> <%= product.name %> </h2>
-                    <div class="product_img">
-                        <img width="600" src="/img/<%= product.images[0].file %> " alt="tv">
-                    </div>
-
-                    <article class="more_img_box">
-                        <div class="more_img">
-                            <img width="60" height="60" src="/img/tv2.jpg" alt="tv">
-                            <img width="60" height="60" src="/img/tv3.jpg" alt="tv">
-                            <img width="60" height="60" src="/img/tv4.jpg" alt="tv">
-                            <img width="60" height="60" src="/img/tv5.jpg" alt="tv">
-                        </div>
-                        <i id="flecha" class="fa-solid fa-arrow-right"></i>
-                    </article>
+                        <img src="/img/<%= product.images[0].file %> " alt="producto">
                 </section>
 
                 <section class="price">
-                    <h2> $<%= toThousand(product.price) %></h2>
+                    <h5>
+                        <%= product.name %>
+                    </h5>
+                    <h6> <del>$<%= toThousand(product.price) %></del>  <%= product.discount %>%</h6>
+                    <h2>$<%= toThousand(product.price - (product.price * product.discount / 100)) %></h2>
                     <p class="promos_bank">¡Nuestras promociones bancarias!</p>
                     <p class="promos">3 cuotas sin interes con los siguientes metodos de pago</p>
                     <div class="cards">

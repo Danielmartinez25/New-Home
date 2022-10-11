@@ -14,7 +14,7 @@
                                 <a href="/products/detail/<%= id %> "><img class="img-all"
                                         src="/img/<%= images[0].file %>" alt=""></a>
                                 <div class="text-all">
-                                    <h2>$<%= toThousand(price) %>
+                                    <h2>$<%= toThousand(price - (price * discount / 100)) %>
                                     </h2>
                                     <span>
                                         <%= discount %> % OFF

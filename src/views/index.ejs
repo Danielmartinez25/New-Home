@@ -64,10 +64,10 @@
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="article-text">
-                                        <h2>$<%= toThousand(price) %>
-                                        </h2>
-                                        <span>
-                                            <%= discount %> % OFF
+                                        <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                                        <h2>$<%= toThousand(price - (price * discount / 100)) %></h2>
+                                        <span> 
+                                            <%= discount %>%OFF
                                         </span>
                                         <p>
                                             <%= name %>
@@ -87,10 +87,11 @@
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="article-text">
-                                        <h2>$<%= toThousand(price) %>
+                                        <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                                        <h2>$<%= toThousand(price - (price * discount / 100)) %>
                                         </h2>
                                         <span>
-                                            <%= discount %> % OFF
+                                            <%= discount %>%OFF
                                         </span>
                                         <p>
                                             <%= name %>
@@ -150,10 +151,11 @@
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="article-text">
-                                        <h2>$<%= toThousand(price) %>
+                                        <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                                        <h2>$<%= toThousand(price - (price * discount / 100)) %>
                                         </h2>
                                         <span>
-                                            <%= discount %> % OFF
+                                            <%= discount %>%OFF
                                         </span>
                                         <p>
                                             <%= name %>
@@ -172,10 +174,11 @@
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="article-text">
-                                        <h2>$<%= toThousand(price) %>
+                                        <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                                        <h2>$<%= toThousand(price - (price * discount / 100)) %>
                                         </h2>
                                         <span>
-                                            <%= discount %> % OFF
+                                            <%= discount %>%OFF
                                         </span>
                                         <p>
                                             <%= name %>

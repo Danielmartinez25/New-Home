@@ -28,6 +28,8 @@ controller = {
           [Op.gt]: 20,
         },
       },
+      limit: 4,
+      order: [["createdAt", "DESC"]],
       include: ["images", "category"],
     });
     Promise.all([product, offer])
