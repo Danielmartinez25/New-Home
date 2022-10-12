@@ -1,47 +1,39 @@
-'use strict';
+"use strict";
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("Addresses", {
+    await queryInterface.createTable("Avatars", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      country: {
-        type: Sequelize.STRING,
-      },
-      city: {
-        type: Sequelize.STRING,
-      },
-      province: {
+      file: {
         type: Sequelize.STRING,
       },
       userId: {
         type: Sequelize.INTEGER,
         references: {
           model: {
-            tableName: "Users"
+            tableName: "Users",
           },
-        key: "id"
+          key: "id",
         },
-        onDelete : 'cascade'
+        onDelete: "cascade",
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: true,
         type: Sequelize.DATE,
       },
       deletedAt: {
-        allowNull: true,
         type: Sequelize.DATE,
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Addresses');
-  }
+    await queryInterface.dropTable("Avatars");
+  },
 };

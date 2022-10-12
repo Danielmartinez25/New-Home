@@ -1,0 +1,23 @@
+[
+   {
+      "name": "Daniel",
+      "surname" : "Martinez",
+      "email": "dani@gmail.com",
+      "password": "123123",
+      "rolId": 1
+   },
+   {
+     "name": "Gustavo",
+     "surname": "Lozano",
+     "email": "gusti@gmail.com",
+     "password": "123123",
+     "rolId": 2
+   },
+   {
+     "name": "Giovanni",
+     "surname": "Martinez",
+     "email": "danimar@gmail.com",
+     "password": "123123",
+     "rolId": 2
+   }
+]
