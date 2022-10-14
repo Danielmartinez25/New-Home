@@ -1,73 +1,23 @@
-const bcryptjs = require("bcryptjs");
+const db = require("../database/models");
 const { validationResult } = require("express-validator");
-
-/* User de models */
-const User = require("../modelsUser/User");
+const bcryptjs = require("bcryptjs");
 
 module.exports = {
   register: (req, res) => {
-    return res.render("users/register", {
-      title: "Register",
-    });
+    db.Rol.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    })
+      .then((rol) =>
+        res.render("users/register", {
+          rol,
+        })
+      )
+      .catch((error) => console.log(error));
   },
-
-  processRegister: (req, res) => {
-    const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      let userToCreate = {
-        ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        avatar: req.file.filename,
-      };
-
-      User.create(userToCreate);
-
-      return res.redirect("/");
-    } else {
-      return res.render("users/register", {
-        title: "Register",
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    }
-  },
-
   login: (req, res) => {
-    return res.render("users/login", {
+    return res.render("login", {
       title: "Login",
-    });
-  },
-
-  loginProcess: (req, res) => {
-    let userToLogin = User.findByTag("email", req.body.email);
-
-    if (userToLogin) {
-      let isCorrectPassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-      if (isCorrectPassword) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
-        return res.redirect("/");
-      }
-      return res.render("users/login", {
-        title: "Login",
-        errors: {
-          email: {
-            msg: "las creedenciales son invalidas",
-          },
-        },
-      });
-    }
-
-    return res.render("users/login", {
-      title: "Login",
-      errors: {
-        email: {
-          msg: "Este email no se encuentra en nuestra base de datos",
-        },
-      },
     });
   },
 
@@ -84,5 +34,77 @@ module.exports = {
   },
   logoutV: (req, res) => {
     return res.render("logout");
+  },
+  processRegister: (req, res) => {
+    db.User.create({
+      ...req.body
+    })
+    .then(user => {
+        return user
+    })
+/*      
+
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const { name, surname, email, password, username } = req.body;
+      let users = loadUsers();
+
+      let newUser = {
+        id: users.length > 0 ? users[users.length - 1].id + 1 : 1,
+        name: name.trim(),
+        surname: surname.trim(),
+        email: email.trim(),
+        password: bcryptjs.hashSync(password, 12),
+        username: username.trim(),
+        rol: "user",
+        avatar: null,
+      };
+
+      let usersModify = [...users, newUser];
+
+      storeUsers(usersModify);
+
+      return res.redirect("/users/login");
+    } else {
+      return res.render("register", {
+        title: "Register",
+        errors: errors.mapped(),
+        old: req.body,
+      });
+    } */
+  },
+  processLogin: (req, res) => {
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      let { id, name, username, rol, avatar } = loadUsers().find(
+        (user) => user.email === req.body.email
+      );
+
+      req.session.userLogin = {
+        id,
+        username,
+        name,
+        rol,
+        avatar,
+      };
+
+      if (req.body.remember) {
+        res.cookie("craftsy16", req.session.userLogin, {
+          maxAge: 1000 * 60,
+        });
+      }
+
+      return res.redirect("/");
+    } else {
+      return res.render("login", {
+        title: "Login",
+        errors: errors.mapped(),
+      });
+    }
+  },
+  logout: (req, res) => {
+    req.session.destroy();
+    res.cookie("craftsy16", null, { maxAge: -1 });
+    return res.redirect("/");
   },
 };

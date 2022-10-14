@@ -20,14 +20,24 @@
 
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
-                                                <label for="name">Nombre completo</label>
+                                                <label for="name">Nombre:</label>
                                                 <input type="text" name="name" id="name"
                                                     value="<%= locals.old && old.name ? old.name : null %>"
                                                     class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
                                                 <p class="text-danger">
                                                     <%= locals.errors && errors.name ? errors.name.msg : null %>
                                                 </p>
-
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 my-1">
+                                            <div class="form-group">
+                                                <label for="surname">Apellido:</label>
+                                                <input type="text" name="surname" id="surname"
+                                                    value="<%= locals.old && old.surname ? old.surname : null %>"
+                                                    class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
+                                                    <%= locals.errors && errors.surname ? errors.surname.msg : null %>
+                                                </p>
                                             </div>
                                         </div>
 
@@ -56,6 +66,40 @@
 
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
+                                                <label for="country">Pais</label>
+                                                <input type="country" name="country" id="country"
+                                                    value="<%= locals.old && old.country ? old.country : null %>"
+                                                    class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
+                                                    <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 my-1">
+                                            <div class="form-group">
+                                                <label for="province">Provincia</label>
+                                                <input type="province" name="province" id="province"
+                                                    value="<%= locals.old && old.province ? old.province : null %>"
+                                                    class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
+                                                    <%= locals.errors && errors.province ? errors.province.msg : null %>
+                                                </p>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 my-1">
+                                            <div class="form-group">
+                                                <label for="city">Ciudad</label>
+                                                <input type="city" name="city" id="city"
+                                                    value="<%= locals.old && old.city ? old.city : null %>"
+                                                    class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>">
+                                                <p class="text-danger">
+                                                    <%= locals.errors && errors.city ? errors.city.msg : null %>
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 my-1">
+                                            <div class="form-group">
 
                                                 <label for="country">Pais</label>
                                                 <select class="form-control" name="country" id="country">
@@ -67,6 +111,19 @@
                                                     <option value="Brazil">Brazil</option>
                                                 </select>
                                             </div>
+                                        </div>
+
+
+                                        <div class="col-md-6 my-1">
+                                            <label for="rol" class="form-label">Rol:</label>
+                                            <select name="rolId" id="rol" class="form-input">
+                                                <option value="" hidden selected>Elegí Tu rol</option>
+                                                <% rol.forEach(({id,name})=> { %>
+                                                    <option value="<%= id %>">
+                                                        <%= name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
                                         </div>
 
                                         <div class="col-md-6 my-1">
@@ -95,8 +152,8 @@
 
                                         <div class="row">
                                             <button class="enviar m-top50 m-botton25" type="submit">Enviar</button>
-                                            <p class="login-text">¿Ya tienes cuenta? <a href="/users/login">Entra
-                                                    aqui</a></p>
+                                            <p class="login-text">¿Ya tienes cuenta? <a
+                                                    href="/users/login">Entraaqui</a></p>
                                         </div>
                                     </div>
 
