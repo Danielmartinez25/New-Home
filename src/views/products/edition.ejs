@@ -47,6 +47,17 @@
                           <% }) %>
                       </select>
                     </div>
+
+
+                    <div class="col-12 col-md-6">
+                      <label for="category" class="form-label">sub Categoría:</label>
+                      <select name="categoryId" id="category" class="form-input">
+                        <% subcategories.forEach(({id, name})=> { %>
+                          <option value="<%= id %>" <%=id===product.subcategoryId && 'selected' %>><%= name %>
+                          </option>
+                          <% }) %>
+                      </select>
+                    </div>
                     <div class="mb-3 col-12">
                       <label for="description" class="form-label">Descripción</label>
                       <textarea class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"

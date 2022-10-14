@@ -1,74 +1,106 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%- include('../partials/head', {name: 'Formulario de creación'}) %>
-<body>
-	<!-- Header -->
-	<%- include('../partials/header') %>
-	<!-- /Header -->
+<%- include('../partials/head', {name: 'Formulario de creación' }) %>
 
-	<div class="container my-5">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Crear producto</h2>
-			</div>
-		</div>
-		<div class="row justify-content-center">
-			
-			<form action="/products/store" method="POST" enctype="multipart/form-data">
-				<div class="row product-detail">
-					<div class="col-md-6 my-1">
-						<label for="name" class="form-label">Nombre del producto:</label>
-						<input type="text" id="name" name="name" placeholder="Ej: Play Station" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%= locals.old && old.name ? old.name : null %>">
-						<p class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></p>
-					</div>
-					<div class="col-md-6 my-1">
-						<label for="price" class="form-label">Precio del producto:</label>
-						<input type="number" id="price" name="price" placeholder="Ej: 5678" class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>" value="<%= locals.old && old.price ? old.price : null %>">
-						<p class="text-danger"><%= locals.errors && errors.price ? errors.price.msg : null %></p>
+	<body>
+		<!-- Header -->
+		<%- include('../partials/header') %>
+			<!-- /Header -->
 
-					</div>
-					<div class="col-md-6 my-1">
-						<label for="discount" class="form-label">Descuento:</label>
-						<input type="number" id="discount" name="discount" placeholder="Ej: 15" class="form-control" value="<%= locals.old && old.discount ? old.discount : null %>">
-					</div>
-					<div class="col-md-6 my-1">
-						<label for="category" class="form-label">Categoría:</label>
-						<select name="categoryId" id="category" class="form-input">
-							<option value="" hidden selected>Elegí la categoría</option>
-							<% categories.forEach(({id,name})=> { %>
-								<option value="<%= id %>">
-									<%= name %>
-								</option>
-								<% }) %>
-						</select>
-					</div>
-					<div class="col-md-3 mt-5">
-						<label class="btn btn-secondary <%= locals.errors && errors.image ? 'btn-danger' : null %>" for="image">Agregar imagen</label> 
-						<input hidden type="file" accept="image/*" name="images" id="image" multiple>
-						<p class="text-danger"><%= locals.errors && errors.image ? errors.image.msg : null %></p>
-					  </div>	
-
+			<div class="container my-5">
+				<div class="row">
 					<div class="col-12">
-						<label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>" value="<%= locals.old && old.name ? old.name : null %>"></textarea>
-						<p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
-					</div>
-					
-					<div class="mt-2 team-button d-flex justify-content-around px-2">				  
-					<div class="mt-4">
-						<button type="submit" class="btn btn-success graphic">Guardar producto</button>
+						<h2 class="products-title">Crear producto</h2>
 					</div>
 				</div>
-				</div>
-			</form>
-		
-	</div>
-	</div>
-	<!-- /todos los productos -->
+				<div class="row justify-content-center">
 
-	<!-- footer -->
-	<%- include('../partials/footer') %>
-	<!-- /footer -->
-</body>	
+					<form action="/products/store" method="POST" enctype="multipart/form-data">
+						<div class="row product-detail">
+							<div class="col-md-6 my-1">
+								<label for="name" class="form-label">Nombre del producto:</label>
+								<input type="text" id="name" name="name" placeholder="Ej: Play Station"
+									class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+									value="<%= locals.old && old.name ? old.name : null %>">
+								<p class="text-danger">
+									<%= locals.errors && errors.name ? errors.name.msg : null %>
+								</p>
+							</div>
+							<div class="col-md-6 my-1">
+								<label for="price" class="form-label">Precio del producto:</label>
+								<input type="number" id="price" name="price" placeholder="Ej: 5678"
+									class="form-control <%= locals.errors && errors.price ? 'is-invalid' : null %>"
+									value="<%= locals.old && old.price ? old.price : null %>">
+								<p class="text-danger">
+									<%= locals.errors && errors.price ? errors.price.msg : null %>
+								</p>
+
+							</div>
+							<div class="col-md-6 my-1">
+								<label for="discount" class="form-label">Descuento:</label>
+								<input type="number" id="discount" name="discount" placeholder="Ej: 15"
+									class="form-control"
+									value="<%= locals.old && old.discount ? old.discount : null %>">
+							</div>
+							
+							<div class="col-md-6 my-1">
+								<label for="category" class="form-label">Categoría:</label>
+								<select name="categoryId" id="category" class="form-input">
+									<option value="" hidden selected>Elegí la categoría</option>
+									<% categories.forEach(({id,name})=> { %>
+										<option value="<%= id %>">
+											<%= name %>
+										</option>
+										<% }) %>
+								</select>
+							</div>
+							<div class="col-md-6 my-1">
+								<label for="subcategory" class="form-label">Sub categoría:</label>
+								<select name="subcategoryId" id="subcategory" class="form-input">
+									<option value="" hidden selected>Elegí la sub Categoría</option>
+									<% subcategories.forEach(({id,name})=> { %>
+										<option value="<%= id %>">
+											<%= name %>
+										</option>
+										<% }) %>
+								</select>
+							</div>
+							<div class="col-md-3 mt-5">
+								<label
+									class="btn btn-secondary <%= locals.errors && errors.image ? 'btn-danger' : null %>"
+									for="image">Agregar imagen</label>
+								<input hidden type="file" accept="image/*" name="images" id="image" multiple>
+								<p class="text-danger">
+									<%= locals.errors && errors.image ? errors.image.msg : null %>
+								</p>
+							</div>
+
+							<div class="col-12">
+								<label for="description" class="form-label">Descipción:</label>
+								<textarea name="description" id="description"
+									class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
+									value="<%= locals.old && old.name ? old.name : null %>"></textarea>
+								<p class="text-danger">
+									<%= locals.errors && errors.description ? errors.description.msg : null %>
+								</p>
+							</div>
+
+							<div class="mt-2 team-button d-flex justify-content-around px-2">
+								<div class="mt-4">
+									<button type="submit" class="btn btn-success graphic">Guardar producto</button>
+								</div>
+							</div>
+						</div>
+					</form>
+
+				</div>
+			</div>
+			<!-- /todos los productos -->
+
+			<!-- footer -->
+			<%- include('../partials/footer') %>
+				<!-- /footer -->
+	</body>
+
 </html>

@@ -4,20 +4,24 @@
       "surname" : "Martinez",
       "email": "dani@gmail.com",
       "password": "123123",
-      "rolId": 1
+      "rolId": 1,
+      "avatar": "1663343420120_img.jpg" 
+
    },
    {
      "name": "Gustavo",
      "surname": "Lozano",
      "email": "gusti@gmail.com",
      "password": "123123",
-     "rolId": 2
+     "rolId": 2,
+     "avatar": "1664381905211_img.jpg"
    },
    {
      "name": "Giovanni",
      "surname": "Martinez",
      "email": "danimar@gmail.com",
      "password": "123123",
-     "rolId": 2
+     "rolId": 2,
+     "avatar": "1665400439591_img.png" 
    }
 ]

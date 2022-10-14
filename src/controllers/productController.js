@@ -1,8 +1,7 @@
-const db = require('../database/models')
+const db = require("../database/models");
 const { Op } = require("sequelize");
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const {validationResult} = require('express-validator');
-
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const { validationResult } = require("express-validator");
 
 controller = {
   all: (req, res) => {
@@ -47,11 +46,16 @@ controller = {
       attributes: ["id", "name"],
       order: ["name"],
     });
+    let subcategories = db.subCategory.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    });
     let product = db.Product.findByPk(req.params.id);
-    Promise.all([categories, product]).then(([categories, product]) => {
+    Promise.all([categories, product,subcategories]).then(([categories, product,subcategories]) => {
       return res.render("products/edition", {
         product,
         categories,
+        subcategories
       });
     });
   },
@@ -72,13 +76,19 @@ controller = {
       .catch((error) => console.log(error));
   },
   create: (req, res) => {
-    db.Category.findAll({
+    let categories = db.Category.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    });
+    let subcategories = db.subCategory.findAll({
       attributes: ["id", "name"],
       order: ["name"],
     })
-      .then((categories) =>
+    Promise.all([categories,subcategories])
+      .then(([categories,subcategories]) =>
         res.render("products/productAdd", {
           categories,
+          subcategories
         })
       )
       .catch((error) => console.log(error));
@@ -86,26 +96,26 @@ controller = {
   store: (req, res) => {
     let errors = validationResult(req);
     /* if (errors.isEmpty()) { */
-      db.Product.create({
-        ...req.body,
-        name: req.body.name,
-        description: req.body.description,
+    db.Product.create({
+      ...req.body,
+      name: req.body.name,
+      description: req.body.description,
+    })
+      .then((product) => {
+        if (req.files.length) {
+          let images = req.files.map(({ filename }) => {
+            return {
+              file: filename,
+              productId: product.id,
+            };
+          });
+          db.Image.bulkCreate(images, {
+            validate: true,
+          }).then((result) => console.log(result));
+        }
+        return res.redirect("../views/index.ejs");
       })
-        .then((product) => {
-          if (req.files.length) {
-            let images = req.files.map(({ filename }) => {
-              return {
-                file: filename,
-                productId: product.id,
-              };
-            });
-            db.Image.bulkCreate(images, {
-              validate: true,
-            }).then((result) => console.log(result));
-          }
-          return res.redirect('../views/index.ejs')
-        })
-        .catch((error) => console.log(error));
+      .catch((error) => console.log(error));
 
     /* db.Category.findAll({
       order: ["name"],
@@ -155,12 +165,12 @@ controller = {
   },
   categoryV: (req, res) => {
     db.Category.findAll(req.params.id)
-    .then(category => {
-      return res.render("category",{
-        category
-      });
-    }).catch(error => console.log(error))
-   
+      .then((category) => {
+        return res.render("category", {
+          category,
+        });
+      })
+      .catch((error) => console.log(error));
   },
 };
 
