@@ -1,7 +1,20 @@
 var express = require('express');
 /* const productController = require('../controllers/productController'); */
 var router = express.Router();
-const {detail,all,edit,update,cart,store,create,destroy,remove,category,categoryV} = require('../controllers/productController')
+const {
+  detail,
+  all,
+  edit,
+  update,
+  cart,
+  store,
+  create,
+  destroy,
+  remove,
+  category,
+  categoryV,
+  subcategory,
+} = require("../controllers/productController");
 
 const {uploadImageProduct} = require('../middlewares/uploadImg')
 const {validatorAddProduct,validatorEditProduct} = require('../validations')
@@ -13,6 +26,7 @@ router
     .get('/all', all)
     .get('/categoryV',categoryV)
     .get('/category/:id',category)
+    .get('/subcategory/:id',subcategory)
     .get('/detail/:id',detail) 
     .get('/edit/:id',adminUserCheck,edit)
     .put('/update/:id',validatorEditProduct,update)

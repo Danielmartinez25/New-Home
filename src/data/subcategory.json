@@ -21,6 +21,9 @@
     "name": "Samsung"
   },
   {
+    "name" : "Apple"
+  },
+  {
     "name": "Hp"
   },
   {
@@ -31,5 +34,23 @@
   },
   {
     "name": "philips"
+  },
+  {
+    "name" : "Whirlpool"
+  },
+  {
+    "name" : "Electrolux"
+  },
+  {
+    "name" : "Moulinex"
+  },
+  {
+    "name" : "Prunus"
+  },
+  {
+    "name" : "Liliana"
+  },
+  {
+    "name" : "Sillones"
   }
 ]

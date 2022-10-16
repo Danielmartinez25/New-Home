@@ -10,7 +10,7 @@ controller = {
       order: ["name"],
     })
       .then((product) =>
-        res.render("products/allProducts", {
+        res.render("products/all", {
           product,
           toThousand,
         })
@@ -33,7 +33,7 @@ controller = {
     });
     Promise.all([product, offer])
       .then(([product, offer]) => {
-        return res.render("products/productDetail", {
+        return res.render("products/detail", {
           product,
           offer,
           toThousand,
@@ -51,13 +51,15 @@ controller = {
       order: ["name"],
     });
     let product = db.Product.findByPk(req.params.id);
-    Promise.all([categories, product,subcategories]).then(([categories, product,subcategories]) => {
-      return res.render("products/edition", {
-        product,
-        categories,
-        subcategories
-      });
-    });
+    Promise.all([categories, product, subcategories]).then(
+      ([categories, product, subcategories]) => {
+        return res.render("products/edition", {
+          product,
+          categories,
+          subcategories,
+        });
+      }
+    );
   },
   update: (req, res) => {
     db.Product.update(
@@ -83,12 +85,12 @@ controller = {
     let subcategories = db.subCategory.findAll({
       attributes: ["id", "name"],
       order: ["name"],
-    })
-    Promise.all([categories,subcategories])
-      .then(([categories,subcategories]) =>
-        res.render("products/productAdd", {
+    });
+    Promise.all([categories, subcategories])
+      .then(([categories, subcategories]) =>
+        res.render("products/add", {
           categories,
-          subcategories
+          subcategories,
         })
       )
       .catch((error) => console.log(error));
@@ -113,7 +115,7 @@ controller = {
             validate: true,
           }).then((result) => console.log(result));
         }
-        return res.redirect("../views/index.ejs");
+        return res.redirect("/");
       })
       .catch((error) => console.log(error));
 
@@ -128,7 +130,7 @@ controller = {
     }); */
   },
   cart: (req, res) => {
-    return res.render("products/productCart", {
+    return res.render("products/cart", {
       title: "Carrito",
     });
   },
@@ -143,7 +145,7 @@ controller = {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("products/allProducts"))
+      .then(() => res.redirect("products/all"))
       .catch((error) => console.log(error));
   },
   category: (req, res) => {
@@ -156,8 +158,25 @@ controller = {
       ],
     })
       .then((category) => {
-        return res.render("products/productCategory", {
+        return res.render("products/category", {
           category,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  subcategory: (req, res) => {
+    db.subCategory.findByPk(req.params.id, {
+      include: [
+        {
+          association: "products",
+          include: ["images"],
+        },
+      ],
+    })
+      .then((subcategory) => {
+        return res.render("products/subcategory", {
+          subcategory,
           toThousand,
         });
       })

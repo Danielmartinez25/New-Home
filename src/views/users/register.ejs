@@ -20,7 +20,7 @@
 
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
-                                                <label for="name">Nombre:</label>
+                                                <label for="name">Nombre</label>
                                                 <input type="text" name="name" id="name"
                                                     value="<%= locals.old && old.name ? old.name : null %>"
                                                     class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="col-md-6 my-1">
                                             <div class="form-group">
-                                                <label for="surname">Apellido:</label>
+                                                <label for="surname">Apellido</label>
                                                 <input type="text" name="surname" id="surname"
                                                     value="<%= locals.old && old.surname ? old.surname : null %>"
                                                     class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>">
@@ -99,32 +99,15 @@
                                             </div>
                                         </div>
                                         <div class="col-md-6 my-1">
-                                            <div class="form-group">
-
-                                                <label for="country">Pais</label>
-                                                <select class="form-control" name="country" id="country">
-                                                    <option value="Argentina">Argentina</option>
-                                                    <option value="Peru">Peru</option>
-                                                    <option value="Paraguay">Paraguay</option>
-                                                    <option value="Uruguay">Uruguay</option>
-                                                    <option value="Chile">Chile</option>
-                                                    <option value="Brazil">Brazil</option>
-                                                </select>
-                                            </div>
-                                        </div>
-
-
-
-
-                                        <div class="col-md-6 my-1">
-                                            <div class="form-group">
-
-                                                <label for="rol">Rol</label>
-                                                <select class="form-control" name="rol" id="rol">
-                                                    <option value="admin">Admin</option>
-                                                    <option value="usuario">Usuario</option>
-                                                </select>
-                                            </div>
+                                            <label for="subcategory" class="form-label">Sub categoría:</label>
+                                            <select name="subcategoryId" id="subcategory" class="form-input">
+                                                <option value="" hidden selected>Elegí la sub Categoría</option>
+                                                <% subcategories.forEach(({id,name})=> { %>
+                                                    <option value="<%= id %>">
+                                                        <%= name %>
+                                                    </option>
+                                                    <% }) %>
+                                            </select>
                                         </div>
 
 

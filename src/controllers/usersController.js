@@ -1,5 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const db = require('../database/models')
 
 /* User de models */
 const User = require("../modelsUser/User");
@@ -12,6 +13,14 @@ module.exports = {
   },
 
   processRegister: (req, res) => {
+    const {} = req.body
+    userCreate = db.User.create({
+      ...req.body,
+      
+    })
+
+
+
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       let userToCreate = {

@@ -9,13 +9,30 @@
                 <div class="hr">
                     <hr>
                 </div>
-                <div class="category">  
-                <ul>   
-                    <% category.forEach(({id,name})=> { %>
-                        <li><a href="/products/category/<%= id %>"><%= name %></a></li>
-                        <% }) %>
-                </ul>    
+                <div class="category">
+                    <ul>
+                        <% category.forEach(({id,name})=> { %>
+                            <li><a href="/products/category/<%= id %>">
+                                    <%= name %>
+                                </a></li>
+                            <% }) %>
+                    </ul>
                 </div>
+
+
+
+                </div>
+                <div class="category">
+                    <ul>
+                        <% subcategory.forEach(({id,name})=> { %>
+                            <li><a href="/products/subcategory/<%= id %>">
+                                    <%= name %>
+                                </a></li>
+                            <% }) %>
+                    </ul>
+                </div>
+
+
                 <!-- Banner -->
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -65,8 +82,9 @@
                                             src="/img/<%= images[0].file %>" alt=""></a>
                                     <div class="article-text">
                                         <p class="p2"><del>$<%= toThousand(price) %></del></p>
-                                        <h2>$<%= toThousand(price - (price * discount / 100)) %></h2>
-                                        <span> 
+                                        <h2>$<%= toThousand(price - (price * discount / 100)) %>
+                                        </h2>
+                                        <span>
                                             <%= discount %>%OFF
                                         </span>
                                         <p>
