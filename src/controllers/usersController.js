@@ -1,6 +1,6 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const db = require('../database/models')
+const db = require("../database/models");
 
 /* User de models */
 const User = require("../modelsUser/User");
@@ -13,15 +13,41 @@ module.exports = {
   },
 
   processRegister: (req, res) => {
-    const {} = req.body
-    userCreate = db.User.create({
-      ...req.body,
+    const { name, surname, password, email, country, province, city,rolId} =req.body;
+    let rol = db.Rol.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    });
+    const {id} = db.User.create({
+      name: name?.trim(),
+      surname: surname?.trim(),
+      email: email?.trim(),
+      password: bcryptjs.hashSync(password, 10),
+      country: country?.trim(),
+      city: city?.trim(),
+      province: province?.trim(),
+      avatar: req.file?.filename,
+      rolId: rolId,
+    });
+    
+    addressCreate = db.Address.create({
+      country: country?.trim(),
+      city: city?.trim(),
+      province: province?.trim(),
+      userId: id,
+    });
+    Promise.all([userCreate,addressCreate, rol]).then(
+      ([addressCreate, rol]) => {
+      ({
+        addressCreate,
+        rol
+      })
+      return res.redirect('/')
+      }
       
-    })
+    );
 
-
-
-    const errors = validationResult(req);
+/*     const errors = validationResult(req);
     if (errors.isEmpty()) {
       let userToCreate = {
         ...req.body,
@@ -38,7 +64,7 @@ module.exports = {
         errors: errors.mapped(),
         old: req.body,
       });
-    }
+    } */
   },
 
   login: (req, res) => {
