@@ -11,7 +11,6 @@ const {
   create,
   destroy,
   remove,
-  category,
   categoryV,
   subcategory
 } = require("../controllers/productController");
@@ -25,7 +24,6 @@ router
 
   .get("/all", all)
   .get("/categoryV", categoryV)
-  .get("/category/:id", category)
   .get("/subcategory/:id", subcategory)
   .get("/detail/:id", detail)
   .get("/edit/:id", adminUserCheck, edit)
