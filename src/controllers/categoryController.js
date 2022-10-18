@@ -58,7 +58,7 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   smartphone: (req, res) => {
-    db.Category.findByPk(1, {
+    db.Category.findByPk(4, {
       include: [
         {
           association: "products",
