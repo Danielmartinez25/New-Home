@@ -13,7 +13,6 @@ module.exports = {
       limit: 4,
       order: [["discount", "DESC"]],
       include: ["images", "category"],
-
     });
     newest = db.Product.findAll({
       order: [["createdAt", "DESC"]],
@@ -26,39 +25,52 @@ module.exports = {
           association: "products",
           include: ["images"],
           limit: 4,
-          order: [["createdAt", "DESC"]]
+          order: [["createdAt", "DESC"]],
         },
       ],
     });
     let console = db.Category.findByPk(2, {
-      
       include: [
         {
           association: "products",
           include: ["images"],
           limit: 4,
-          order: [["createdAt", "DESC"]]
+          order: [["createdAt", "DESC"]],
         },
       ],
     });
-    let lg = db.subCategory.findByPk(5)
+    let lg = db.subCategory.findByPk(5);
+    let samsung = db.subCategory.findByPk(7);
     let muebles = db.Category.findByPk(6);
     let category = db.Category.findAll(req.params.id);
-    let subcategory = db.subCategory.findAll(req.params.id)
-    Promise.all([offer, newest, tv, console, category,subcategory,lg,muebles])
-      .then(([offer, newest, tv, console, category,subcategory,lg,muebles]) => {
-        return res.render("index", {
-          offer,
-          tv,
-          newest,
-          console,
-          category,
-          subcategory,
-          lg,
-          muebles,
-          toThousand,
-        });
-      })
+    let subcategory = db.subCategory.findAll(req.params.id);
+    Promise.all([
+      offer,
+      newest,
+      tv,
+      console,
+      category,
+      subcategory,
+      lg,
+      muebles,
+      samsung
+    ])
+      .then(
+        ([offer, newest, tv, console, category, subcategory, lg, muebles,samsung]) => {
+          return res.render("index", {
+            offer,
+            tv,
+            newest,
+            console,
+            category,
+            subcategory,
+            lg,
+            muebles,
+            samsung,
+            toThousand,
+          });
+        }
+      )
       .catch((error) => console.log(error));
   },
   search: (req, res) => {
@@ -84,5 +96,5 @@ module.exports = {
         });
       })
       .catch((error) => console.log(error));
-  }
+  },
 };
