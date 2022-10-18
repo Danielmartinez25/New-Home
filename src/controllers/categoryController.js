@@ -21,7 +21,7 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-  muebles: (req, res) => {
+  furniture: (req, res) => {
     db.Category.findByPk(6, {
       include: [
         {
@@ -31,9 +31,45 @@ module.exports = {
         },
       ],
     })
-      .then((muebles) => {
-        return res.render("category/muebles", {
-          muebles,
+      .then((furniture) => {
+        return res.render("category/furniture", {
+          furniture,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  tv: (req, res) => {
+    db.Category.findByPk(1, {
+      include: [
+        {
+          association: "products",
+          include: ["images"],
+          order: [["createdAt", "DESC"]],
+        },
+      ],
+    })
+      .then((tv) => {
+        return res.render("category/tv", {
+          tv,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  smartphone: (req, res) => {
+    db.Category.findByPk(1, {
+      include: [
+        {
+          association: "products",
+          include: ["images"],
+          order: [["createdAt", "DESC"]],
+        },
+      ],
+    })
+      .then((smartphone) => {
+        return res.render("category/smartphone", {
+          smartphone,
           toThousand,
         });
       })

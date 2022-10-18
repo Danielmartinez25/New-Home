@@ -42,6 +42,7 @@ module.exports = {
     let lg = db.subCategory.findByPk(5);
     let samsung = db.subCategory.findByPk(7);
     let furniture = db.Category.findByPk(6);
+    let smart = db.Category.findByPk(1);
     let category = db.Category.findAll(req.params.id);
     let subcategory = db.subCategory.findAll(req.params.id);
     Promise.all([
@@ -53,10 +54,22 @@ module.exports = {
       subcategory,
       lg,
       furniture,
-      samsung
+      samsung,
+      smart,
     ])
       .then(
-        ([offer, newest, tv, console, category, subcategory, lg, furniture,samsung]) => {
+        ([
+          offer,
+          newest,
+          tv,
+          console,
+          category,
+          subcategory,
+          lg,
+          furniture,
+          samsung,
+          smart
+        ]) => {
           return res.render("index", {
             offer,
             tv,
@@ -67,6 +80,7 @@ module.exports = {
             lg,
             furniture,
             samsung,
+            smart,
             toThousand,
           });
         }

@@ -5,12 +5,12 @@
     <body class="body-all">
         <%- include('../partials/header') %>
             <main class="main-all">
-                <% if (muebles.products.length> 0) { %>
+                <% if (furniture.products.length> 0) { %>
                     <h3>
-                        <%= muebles.name %> en New Home
+                        <%= furniture.name %> en New Home
                     </h3>
                     <section class="section-all">
-                        <% muebles.products.forEach(({id,name,images,discount,price})=> { %>
+                        <% furniture.products.forEach(({id,name,images,discount,price})=> { %>
                             <article class="product-all">
                                 <div class="div-all">
                                     <a href="/products/detail/<%= id %> "><img class="img-all"

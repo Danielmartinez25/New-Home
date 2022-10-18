@@ -1,11 +1,14 @@
 let express = require("express");
 let router = express.Router();
 
-const { muebles,category} = require("../controllers/categoryController.js");
+const { furniture,category,tv} = require("../controllers/categoryController.js");
 
 router
-.get("/muebles/:id", muebles)
-.get("/category/:id", category);
+  .get("/furniture/:id", furniture)
+  .get("/category/:id", category)
+  .get("/tv/:id", tv);
+
+
 
 
 module.exports = router;
