@@ -14,6 +14,8 @@ let indexRouter = require("./routes/index");
 let usersRouter = require("./routes/users");
 let productsRouter = require("./routes/products");
 let subcategoryRouter = require('./routes/subcategory')
+let categoryRouter = require("./routes/category");
+
 
 let app = express();
 
@@ -42,6 +44,9 @@ app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 app.use('/subcategory',subcategoryRouter)
+app.use("/category", categoryRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
