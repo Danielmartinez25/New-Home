@@ -166,7 +166,7 @@ controller = {
       .catch((error) => console.log(error));
   },
   subcategory: (req, res) => {
-    db.subCategory.findByPk(req.params.id, {
+      db.subCategory.findByPk(req.params.id, {
       include: [
         {
           association: "products",
@@ -177,6 +177,24 @@ controller = {
       .then((subcategory) => {
         return res.render("products/subcategory", {
           subcategory,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
+  lg : (req,res) => {
+        db.subCategory.findByPk(5, {
+          include: [
+            {
+              association: "products",
+              include: ["images"],
+              order: [["createdAt", "DESC"]],
+            },
+          ],
+        })
+        .then((lg) => {
+        return res.render("subcategory/lg", {
+          lg,
           toThousand,
         });
       })

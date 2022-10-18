@@ -14,6 +14,7 @@ const {
   category,
   categoryV,
   subcategory,
+  lg
 } = require("../controllers/productController");
 
 const {uploadImageProduct} = require('../middlewares/uploadImg')
@@ -21,19 +22,25 @@ const {validatorAddProduct,validatorEditProduct} = require('../validations')
 
 const adminUserCheck = require('../middlewares/adminUserCheck')
 /*/products */
-router    
+router
 
-    .get('/all', all)
-    .get('/categoryV',categoryV)
-    .get('/category/:id',category)
-    .get('/subcategory/:id',subcategory)
-    .get('/detail/:id',detail) 
-    .get('/edit/:id',adminUserCheck,edit)
-    .put('/update/:id',validatorEditProduct,update)
-    .post('/store',uploadImageProduct.array('images'),validatorAddProduct,store)
-    .get('/create', adminUserCheck,create) 
-    .get('/cart',cart)  
-    .get('/delete/:id',adminUserCheck, remove)   
-    .delete('/destroy/:id',destroy)
+  .get("/all", all)
+  .get("/categoryV", categoryV)
+  .get("/category/:id", category)
+  .get("/subcategory/:id", subcategory)
+  .get("/lg/:id", lg)
+  .get("/detail/:id", detail)
+  .get("/edit/:id", adminUserCheck, edit)
+  .put("/update/:id", validatorEditProduct, update)
+  .post(
+    "/store",
+    uploadImageProduct.array("images"),
+    validatorAddProduct,
+    store
+  )
+  .get("/create", adminUserCheck, create)
+  .get("/cart", cart)
+  .get("/delete/:id", adminUserCheck, remove)
+  .delete("/destroy/:id", destroy);
 
 module.exports = router;

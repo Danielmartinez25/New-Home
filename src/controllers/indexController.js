@@ -41,10 +41,11 @@ module.exports = {
         },
       ],
     });
+    let lg = db.subCategory.findByPk(5)
     let category = db.Category.findAll(req.params.id);
     let subcategory = db.subCategory.findAll(req.params.id)
-    Promise.all([offer, newest, tv, console, category,subcategory])
-      .then(([offer, newest, tv, console, category,subcategory]) => {
+    Promise.all([offer, newest, tv, console, category,subcategory,lg])
+      .then(([offer, newest, tv, console, category,subcategory,lg]) => {
         return res.render("index", {
           offer,
           tv,
@@ -52,6 +53,7 @@ module.exports = {
           console,
           category,
           subcategory,
+          lg,
           toThousand,
         });
       })

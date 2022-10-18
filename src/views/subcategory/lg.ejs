@@ -5,10 +5,12 @@
     <body class="body-all">
         <%- include('../partials/header') %>
             <main class="main-all">
-                <% if (subcategory.products.length> 0) { %>
-                    <h3><%= subcategory.name %> en New Home</h3>
+                <% if (lg.products.length> 0) { %>
+                    <h3>
+                        <%= lg.name %> en New Home
+                    </h3>
                     <section class="section-all">
-                        <% subcategory.products.forEach(({id,name,images,discount,price})=> { %>
+                        <% lg.products.forEach(({id,name,images,discount,price})=> { %>
                             <article class="product-all">
                                 <div class="div-all">
                                     <a href="/products/detail/<%= id %> "><img class="img-all"
@@ -38,4 +40,5 @@
             <!-- FOOTER -->
             <%- include('../partials/footer') %>
     </body>
+
 </html>
