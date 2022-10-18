@@ -42,6 +42,7 @@ module.exports = {
       ],
     });
     let lg = db.subCategory.findByPk(5)
+    let mueble = db.Category.findByPk(6);
     let category = db.Category.findAll(req.params.id);
     let subcategory = db.subCategory.findAll(req.params.id)
     Promise.all([offer, newest, tv, console, category,subcategory,lg])
