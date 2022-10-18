@@ -5,6 +5,24 @@ const { validationResult } = require("express-validator");
 
 
 module.exports = {
+  subcategory: (req, res) => {
+    db.subCategory
+      .findByPk(req.params.id, {
+        include: [
+          {
+            association: "products",
+            include: ["images"],
+          },
+        ],
+      })
+      .then((subcategory) => {
+        return res.render("products/subcategory", {
+          subcategory,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
   lg: (req, res) => {
     db.subCategory
       .findByPk(5, {
@@ -26,7 +44,8 @@ module.exports = {
   },
 
   samsung: (req, res) => {
-    db.subCategory.findByPk(7, {
+    db.subCategory
+      .findByPk(7, {
         include: [
           {
             association: "products",

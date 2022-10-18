@@ -1,11 +1,14 @@
-let express = require('express')
+let express = require('express');
+const subcategoryController = require('../controllers/subcategoryController.js');
 let router = express.Router()
 
-const { lg, samsung } = require("../controllers/subcategoryController.js")
+const { lg, samsung,subcategory } = require("../controllers/subcategoryController.js")
 
 router
-.get("/lg/:id",lg)
-.get("/samsung/:id",samsung)
+  .get("/lg/:id", lg)
+  .get("/samsung/:id", samsung)
+  .get("/subcategory/:id", subcategory);
+
 
 
 

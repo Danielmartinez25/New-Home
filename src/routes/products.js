@@ -11,8 +11,7 @@ const {
   create,
   destroy,
   remove,
-  categoryV,
-  subcategory
+  categoryV
 } = require("../controllers/productController");
 
 const {uploadImageProduct} = require('../middlewares/uploadImg')
@@ -24,7 +23,6 @@ router
 
   .get("/all", all)
   .get("/categoryV", categoryV)
-  .get("/subcategory/:id", subcategory)
   .get("/detail/:id", detail)
   .get("/edit/:id", adminUserCheck, edit)
   .put("/update/:id", validatorEditProduct, update)

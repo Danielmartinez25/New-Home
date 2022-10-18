@@ -148,41 +148,6 @@ controller = {
       .then(() => res.redirect("products/all"))
       .catch((error) => console.log(error));
   },
-  category: (req, res) => {
-    db.Category.findByPk(req.params.id, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    })
-      .then((category) => {
-        return res.render("products/category", {
-          category,
-          toThousand,
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-  subcategory: (req, res) => {
-      db.subCategory.findByPk(req.params.id, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-        },
-      ],
-    })
-      .then((subcategory) => {
-        return res.render("products/subcategory", {
-          subcategory,
-          toThousand,
-        });
-      })
-      .catch((error) => console.log(error));
-  },
-
   categoryV: (req, res) => {
     db.Category.findAll(req.params.id)
       .then((category) => {
