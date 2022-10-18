@@ -36,7 +36,7 @@ module.exports = {
       province: province?.trim(),
       userId: id,
     });
-    Promise.all([userCreate,addressCreate, rol]).then(
+    Promise.all([addressCreate, rol]).then(
       ([addressCreate, rol]) => {
       ({
         addressCreate,
@@ -74,7 +74,18 @@ module.exports = {
   },
 
   loginProcess: (req, res) => {
-    let userToLogin = User.findByTag("email", req.body.email);
+/*     const {email, password} = req.body;
+
+    db.User.findOne({
+      where : {
+      email : email,
+      password : password
+    }})
+    .then(() => {
+      return res.redirect('/')
+    }) */
+    
+     let userToLogin = User.findByTag("email", req.body.email);
 
     if (userToLogin) {
       let isCorrectPassword = bcryptjs.compareSync(
@@ -107,7 +118,7 @@ module.exports = {
   },
 
   profile: (req, res) => {
-    return res.render("users/userProfile", {
+    return res.render("users/profile", {
       title: "Perfil",
       user: req.session.userLogged,
     });
