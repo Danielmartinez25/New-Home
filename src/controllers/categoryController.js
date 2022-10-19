@@ -86,4 +86,22 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
+  freetime : (req,res) => {
+        db.Category.findByPk(8, {
+          include: [
+            {
+              association: "products",
+              include: ["images"],
+              order: [["createdAt", "DESC"]],
+            },
+          ],
+        })
+          .then((freetime) => {
+            return res.render("category/freetime", {
+              freetime,
+              toThousand,
+            });
+          })
+          .catch((error) => console.log(error));
+  }
 };

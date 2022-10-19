@@ -39,11 +39,12 @@ module.exports = {
         },
       ],
     });
-    let lg = db.subCategory.findByPk(5);
-    let samsung = db.subCategory.findByPk(7);
-    let furniture = db.Category.findByPk(6);
     let smart = db.Category.findByPk(1);
     let smartphone = db.Category.findByPk(4);
+    let furniture = db.Category.findByPk(6);
+    let freetime = db.Category.findByPk(8);
+    let lg = db.subCategory.findByPk(5);
+    let samsung = db.subCategory.findByPk(7);
     let category = db.Category.findAll(req.params.id);
     let subcategory = db.subCategory.findAll(req.params.id);
     Promise.all([
@@ -58,6 +59,7 @@ module.exports = {
       samsung,
       smart,
       smartphone,
+      freetime
     ])
       .then(
         ([
@@ -72,6 +74,7 @@ module.exports = {
           samsung,
           smart,
           smartphone,
+          freetime
         ]) => {
           return res.render("index", {
             offer,
@@ -85,7 +88,9 @@ module.exports = {
             samsung,
             smart,
             smartphone,
+            freetime,
             toThousand,
+
           });
         }
       )
