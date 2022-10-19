@@ -57,7 +57,7 @@ module.exports = {
       furniture,
       samsung,
       smart,
-      smartphone
+      smartphone,
     ])
       .then(
         ([
@@ -71,7 +71,7 @@ module.exports = {
           furniture,
           samsung,
           smart,
-          smartphone
+          smartphone,
         ]) => {
           return res.render("index", {
             offer,
