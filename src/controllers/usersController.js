@@ -30,7 +30,7 @@ module.exports = {
       rolId: rolId,
     });
     
-    addressCreate = db.Address.create({
+    let addressCreate = db.Address.create({
       country: country?.trim(),
       city: city?.trim(),
       province: province?.trim(),
@@ -42,7 +42,7 @@ module.exports = {
         addressCreate,
         rol
       })
-      return res.redirect('/')
+      return res.redirect('profile')
       }
       
     );

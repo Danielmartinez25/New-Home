@@ -11,7 +11,7 @@
       <div class="perfil-usuario-header">
         <div class="perfil-usuario-portada">
           <div class="perfil-usuario-avatar">
-            <img src="http://localhost/multimedia/relleno/img-c9.png" alt="img-avatar">
+            <img src="/img/avatars/<%= user.avatar %> " alt="img-avatar">
             <button type="button" class="boton-avatar">
               <i class="far fa-image"></i>
             </button>
@@ -23,16 +23,16 @@
       </div>
       <div class="perfil-usuario-body">
         <div class="perfil-usuario-bio">
-          <h3 class="titulo">Maria Alejandra De la Cruz</h3>
+          <h3 class="titulo"><%= user.name %> </h3>
           <p class="texto">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
             tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div class="perfil-usuario-footer">
           <ul class="lista-datos">
-            <li><i class="icono fas fa-map-signs"></i> Direccion de usuario:</li>
+            <li><i class="icono fas fa-map-signs"></i> Direccion de usuario: <%= user.email %></li>
             <li><i class="icono fas fa-phone-alt"></i> Telefono:</li>
             <li><i class="icono fas fa-briefcase"></i> Trabaja en.</li>
-            <li><i class="icono fas fa-building"></i> Cargo</li>
+            <li><i class="icono fas fa-building"></i> Rol <%= user.rolId %> </li>
           </ul>
           <ul class="lista-datos">
             <li><i class="icono fas fa-map-marker-alt"></i> Ubicacion.</li>
