@@ -30,16 +30,16 @@ module.exports = {
       rolId: rolId,
     });
     
-    let addressCreate = db.Address.create({
+    let address= db.Address.create({
       country: country?.trim(),
       city: city?.trim(),
       province: province?.trim(),
       userId: id,
     });
-    Promise.all([addressCreate, rol]).then(
-      ([addressCreate, rol]) => {
+    Promise.all([address, rol]).then(
+      ([address, rol]) => {
       ({
-        addressCreate,
+        address,
         rol
       })
       return res.redirect('profile')
@@ -68,60 +68,41 @@ module.exports = {
   },
 
   login: (req, res) => {
-    return res.render("users/login", {
-      title: "Login",
-    });
+    return res.render("users/login");
   },
 
   loginProcess: (req, res) => {
-/*     const {email, password} = req.body;
-
-    db.User.findOne({
-      where : {
-      email : email,
-      password : password
-    }})
-    .then(() => {
-      return res.redirect('/')
-    }) */
-    
-     let userToLogin = User.findByTag("email", req.body.email);
-
-    if (userToLogin) {
-      let isCorrectPassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-      if (isCorrectPassword) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
-        return res.redirect("/");
-      }
-      return res.render("users/login", {
-        title: "Login",
-        errors: {
-          email: {
-            msg: "las creedenciales son invalidas",
-          },
-        },
-      });
-    }
-
-    return res.render("users/login", {
-      title: "Login",
-      errors: {
-        email: {
-          msg: "Este email no se encuentra en nuestra base de datos",
-        },
+    const {email} = req.body;
+     db.User.findOne({
+      where: {
+        email
       },
-    });
+    })
+    .then((user) => {
+          req.session.userLogin = {
+          id: user.id,
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          rol: user.rolId,
+          avatar: user.avatar,
+        };
+        res.locals.user = req.session.userLogin;
+        return res.redirect('/')
+    })
   },
 
   profile: (req, res) => {
-    return res.render("users/profile", {
+    db.User.findAll()
+    .then(() => {
+      return res.render("users/profile", {
+        user: req.session.userLogged
+      });
+    })
+/*     return res.render("users/profile", {
       title: "Perfil",
       user: req.session.userLogged,
-    });
+    }); */
   },
   logout: (req, res) => {
     req.session.destroy();
