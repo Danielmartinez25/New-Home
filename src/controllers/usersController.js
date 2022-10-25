@@ -2,9 +2,6 @@ const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const db = require("../database/models");
 
-/* User de models */
-const User = require("../modelsUser/User");
-
 module.exports = {
   register: (req, res) => {
     return res.render("users/register", {
