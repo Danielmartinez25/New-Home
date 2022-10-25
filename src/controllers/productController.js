@@ -97,7 +97,7 @@ controller = {
   },
   store: (req, res) => {
     let errors = validationResult(req);
-    /* if (errors.isEmpty()) { */
+    /* if (errors.isEmpty()) {*/
     db.Product.create({
       ...req.body,
       name: req.body.name,
@@ -117,18 +117,27 @@ controller = {
         }
         return res.redirect("/");
       })
-      .catch((error) => console.log(error));
-
-    /* db.Category.findAll({
+      .catch((error) => console.log(error))
+     /*  } */ /* else { 
+    let categories = db.Category.findAll({
+      attributes: ["id", "name"],
       order: ["name"],
-    }).then((categories) => {
-      res.render("products/productAdd", {
+    });
+    let subcategories = db.subCategory.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    });
+    Promise.all([categories,subcategories])
+    .then(([categories,subcategories]) => {
+      res.render("products/add", {
         categories,
+        subcategories,
         errors: errors.mapped(),
         old: req.body,
       });
-    }); */
-  },
+    }) 
+  }*/
+},
   cart: (req, res) => {
     return res.render("products/cart", {
       title: "Carrito",
