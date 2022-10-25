@@ -1,0 +1,18 @@
+[
+    {
+        "name" : "user",
+        "surname": "Usuario",
+        "email" : "user@gmail.com",
+        "password" : "123456",
+        "avatar" : "1666324213688_img.jpg",
+        "rolId" : 2
+    },
+    {
+        "name" : "admin",
+        "surname": "Administrador",
+        "email" : "admin@gmail.com",
+        "password" : "123456",
+        "avatar" : "1666302275444_img.jpg",
+        "rolId" : 1
+    }
+]
