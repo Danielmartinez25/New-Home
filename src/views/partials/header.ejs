@@ -16,10 +16,10 @@
         <nav class="header__nav">
             <ul class="ul-navbar">
                 <li><a href="/products/all">Todos los productos</a></li>
-                <% if (locals.userLogged) { %>
+                <% if (locals.userLogin) { %>
                     <li class="header__nav__li"><a href="/users/profile">Mi perfil</a></li>
                     <li class="header__nav__li"><a href="/users/logoutV">Salir</a></li>
-                    <% if (userLogged.rol==="admin" ) { %>
+                    <% if (locals.userLogin && userLogin.rol === 1) { %>
                         <li class="header__nav__li"><a href="/products/create">Vender</a></li>
                         <% } %>
                             <% }else{ %>

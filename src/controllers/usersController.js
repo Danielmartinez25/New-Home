@@ -18,7 +18,7 @@ module.exports = {
       attributes: ["id", "name"],
       order: ["name"],
     });
-    const {id} = db.User.create({
+    let user = db.User.create({
       name: name?.trim(),
       surname: surname?.trim(),
       email: email?.trim(),
@@ -34,13 +34,14 @@ module.exports = {
       country: country?.trim(),
       city: city?.trim(),
       province: province?.trim(),
-      userId: id,
+      userId: user.id,
     });
-    Promise.all([address, rol]).then(
-      ([address, rol]) => {
+    Promise.all([address, rol,user]).then(
+      ([address, rol,user]) => {
       ({
         address,
-        rol
+        rol,
+        user
       })
       return res.redirect('profile')
       }
@@ -80,25 +81,33 @@ module.exports = {
     })
     .then((user) => {
           req.session.userLogin = {
-          id: user.id,
+          id : user.id,
           name: user.name,
           surname: user.surname,
           email: user.email,
           rol: user.rolId,
           avatar: user.avatar,
         };
+        if (req.body.remember) {
+          res.cookie("newHome", req.session.userLogin, {
+            maxAge: 1000 * 60 * 60 * 24,
+          });
+        }
         res.locals.user = req.session.userLogin;
         return res.redirect('/')
     })
   },
 
   profile: (req, res) => {
-    db.User.findAll()
-    .then(() => {
-      return res.render("users/profile", {
-        user: req.session.userLogged
-      });
-    })
+    const id = req.session.userLogin?.id;
+    db.User.findByPk(id)
+      .then((user) => {
+        return res.render("users/profile", {
+          title: "New Home Perfil",
+          user,
+        });
+      })
+      .catch((err) => console.log(err));
 /*     return res.render("users/profile", {
       title: "Perfil",
       user: req.session.userLogged,
