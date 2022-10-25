@@ -4,97 +4,103 @@
     "price": 35999,
     "discount": 10,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId" : 21
   },
   {
     "name": "Heladera inverter no frost Samsung",
     "price": 158190,
     "discount": 15,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 7
   },
   {
     "name": "Lavarropas automático Whirlpool",
     "price": 100499,
     "discount": 20,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 13
   },
   {
     "name": "Ropero de madera",
     "price": 45065,
     "discount": 10,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 6
+    "categoryId": 6,
+    "subcategoryId": null
   },
   {
     "name": "Ventilador de techo Liliana",
     "price": 44899,
     "discount": 15,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 17
   },
   {
     "name": "Colchón 2 plaza de espuma",
     "price": 47599,
     "discount": 20,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 6
+    "categoryId": 6,
+    "subcategoryId": null
   },
   {
     "name": "Cocina Electrolux",
     "price": 189799,
     "discount": 30,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 14
   },
   {
     "name": "Tostadora Moulinex Vita",
     "price": 7590,
     "discount": 35,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 15
   },
   {
     "name": "Inodoro Prunus One Piece",
     "price": 37012,
     "discount": 30,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 5
+    "categoryId": 5,
+    "subcategoryId": 16
   },
   {
     "name": "Cesto Tacho Basura Acero Inoxidable Pedal",
     "price": 4990,
     "discount": 50,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 6
+    "categoryId": 6,
+    "subcategoryId": null
   },
   {
     "name": "Sillon Capitone Premium",
     "price": 19999,
     "discount": 40,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 6
+    "categoryId": 6,
+    "subcategoryId": 18
   },
   {
-    "name": "Smart TV Samsung",
+    "name": "Smart TV samsung",
     "price": 112999,
     "discount": 40,
     "description": "lorem ipsum dolor amet sit.",
-    "categoryId": 1
-  },
-  {
-    "name": "Sega genesis",
-    "description": "Sega Mega Drive o Sega Genesis es una videoconsola de sobremesa producida por SEGA, lanzada al mercado en 1988. Esta videoconsola es la sucesora directa de la Sega Master System y compitió contra la SNES de Nintendo, como parte de las videoconsolas de cuarta generación.",
-    "price": 5000,
-    "discount": 0,
-    "categoryId": 2
+    "categoryId": 1,
+    "subcategoryId": 7
   },
   {
     "name": "Iphone 12",
     "description": "Esta re bueno",
     "price": 250000,
     "discount": 5,
-    "categoryId" : 4
+    "categoryId": 4,
+    "subcategoryId": 8
   }
 ]
