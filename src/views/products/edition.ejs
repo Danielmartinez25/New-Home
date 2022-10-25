@@ -47,11 +47,9 @@
                           <% }) %>
                       </select>
                     </div>
-
-
                     <div class="col-12 col-md-6">
                       <label for="category" class="form-label">sub Categoría:</label>
-                      <select name="categoryId" id="category" class="form-input">
+                      <select name="subcategoryId" id="category" class="form-input">
                         <% subcategories.forEach(({id, name})=> { %>
                           <option value="<%= id %>" <%=id===product.subcategoryId && 'selected' %>><%= name %>
                           </option>
