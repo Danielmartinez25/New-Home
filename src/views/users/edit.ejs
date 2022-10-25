@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- HEAD -->
+<%- include('../partials/head') %>
+
+    <body>
+
+        <main>
+            <div class="container my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-10">
+                        <div class="col-12">
+                            <h1 class="m-botton25">Editar</h1>
+                        </div>
+
+                        <section>
+                            <form action="/users/update/<%= user.id %>?_method=PUT" method="POST"
+                                enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="name">Nombre</label>
+                                            <input type="text" name="name" id="name"
+                                                value="<%= locals.old && old.name ? old.name : null %>"
+                                                class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.name ? errors.name.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="surname">Apellido</label>
+                                            <input type="text" name="surname" id="surname"
+                                                value="<%= locals.old && old.surname ? old.surname : null %>"
+                                                class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.surname ? errors.surname.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="password">Contraseña</label>
+                                            <input type="password" name="password" id="password"
+                                                class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.password ? errors.password.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="email">E-mail</label>
+                                            <input type="email" name="email" id="email"
+                                                value="<%= locals.old && old.email ? old.email : null %>"
+                                                class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="country">Pais</label>
+                                            <input type="country" name="country" id="country"
+                                                value="<%= locals.old && old.country ? old.country : null %>"
+                                                class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="province">Provincia</label>
+                                            <input type="province" name="province" id="province"
+                                                value="<%= locals.old && old.province ? old.province : null %>"
+                                                class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.province ? errors.province.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+                                            <label for="city">Ciudad</label>
+                                            <input type="city" name="city" id="city"
+                                                value="<%= locals.old && old.city ? old.city : null %>"
+                                                class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>">
+                                            <p class="text-danger">
+                                                <%= locals.errors && errors.city ? errors.city.msg : null %>
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6 my-1">
+                                        <div class="form-group">
+
+                                            <label for="rol">Rol</label>
+                                            <select class="form-control" name="rolId" id="rol">
+                                                <option value="1">Admin</option>
+                                                <option value="2">Usuario</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="text-end">
+                                        <button type="submit" class="btn btn-success">Guardar</button>
+                                    </div>
+                                </div>
+
+                    </div>
+                    </form>
+                </div>
+            </div>
+            </div>
+            </section>
+        </main>
+        <a class="outsidelogo" href="/index"><img width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
+
+
+    </body>
