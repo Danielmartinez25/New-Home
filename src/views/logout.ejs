@@ -5,15 +5,13 @@
 
 
     <body class="login">
-        <%- include('./partials/header') %>
-            <main class="login__main">
-                <section class="login__main__confirm">
-                    <h5 class="text-center">¿Desea Salir?</h5>
-                        <div class="button__danger">
-                            <a style="margin-left: 4%;" href="/users/logout"><button class="btn btn-danger" type="submit">Salir</button></a>
-                        </div>
-                    <a href="/"><button class="button_Neg" type="submit">No Salir</button></a>
-
+            <main class="main-logout">
+                <section class="section-logout">
+                    <h5>¿Desea Salir?</h5>
+                    <div class="text-logout">
+                    <button class="button-on" type="submit"><a  href="/users/logout">SALIR</a></button>
+                    <button class="button-off" type="submit"><a href="/">NO SALIR</a></button>
+                </div>
                 </section>
             </main>
     </body>
