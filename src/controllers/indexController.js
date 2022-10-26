@@ -90,7 +90,7 @@ module.exports = {
             smartphone,
             freetime,
             toThousand,
-
+            title: "Home",
           });
         }
       )

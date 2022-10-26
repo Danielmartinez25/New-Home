@@ -13,6 +13,7 @@ controller = {
         res.render("products/all", {
           product,
           toThousand,
+          title: "Todos los Productos",
         })
       )
       .catch((error) => console.log(error));
@@ -37,6 +38,7 @@ controller = {
           product,
           offer,
           toThousand,
+          title: "Detalle de producto",
         });
       })
       .catch((error) => console.log(error));
@@ -91,6 +93,7 @@ controller = {
         res.render("products/add", {
           categories,
           subcategories,
+          title: "Agregar producto",
         })
       )
       .catch((error) => console.log(error));
@@ -146,6 +149,7 @@ controller = {
   remove: (req, res) => {
     return res.render("confirm", {
       id: req.params.id,
+      title: "Eliminar",
     });
   },
   destroy: (req, res) => {
@@ -162,6 +166,7 @@ controller = {
       .then((category) => {
         return res.render("category", {
           category,
+          title: "Categoria",
         });
       })
       .catch((error) => console.log(error));

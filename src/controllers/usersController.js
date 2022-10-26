@@ -10,7 +10,8 @@ module.exports = {
     .then(([address,user]) => {
         return res.render("users/edit", {
           address,
-          user
+          user,
+          title: "Editar usuario",
         });
       }
     );
@@ -48,7 +49,7 @@ module.exports = {
   },
   register: (req, res) => {
     return res.render("users/register", {
-      title: "Register",
+      title: "Registrate",
     });
   },
 
@@ -107,7 +108,9 @@ module.exports = {
   },
 
   login: (req, res) => {
-    return res.render("users/login");
+    return res.render("users/login", {
+      title: "Ingresar",
+    });
   },
 
   loginProcess: (req, res) => {

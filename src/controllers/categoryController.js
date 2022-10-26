@@ -17,6 +17,7 @@ module.exports = {
         return res.render("products/category", {
           category,
           toThousand,
+          title: category.name,
         });
       })
       .catch((error) => console.log(error));
@@ -35,6 +36,7 @@ module.exports = {
         return res.render("category/furniture", {
           furniture,
           toThousand,
+          title: "Muebles",
         });
       })
       .catch((error) => console.log(error));
@@ -53,6 +55,7 @@ module.exports = {
         return res.render("category/tv", {
           tv,
           toThousand,
+          title: "Televisores",
         });
       })
       .catch((error) => console.log(error));
@@ -82,6 +85,7 @@ module.exports = {
           smartphone,
           notebook,
           toThousand,
+          title: "Smartphone && Notebook",
         });
       })
       .catch((error) => console.log(error));
@@ -100,6 +104,7 @@ module.exports = {
             return res.render("category/freetime", {
               freetime,
               toThousand,
+              title: "Tiempo Libre",
             });
           })
           .catch((error) => console.log(error));

@@ -19,6 +19,7 @@ module.exports = {
         return res.render("products/subcategory", {
           subcategory,
           toThousand,
+          title: "Subcategoria",
         });
       })
       .catch((error) => console.log(error));
@@ -38,6 +39,7 @@ module.exports = {
         return res.render("subcategory/lg", {
           lg,
           toThousand,
+          title: "Lg",
         });
       })
       .catch((error) => console.log(error));
@@ -58,6 +60,7 @@ module.exports = {
         return res.render("subcategory/samsung", {
           samsung,
           toThousand,
+          title: "Samsung",
         });
       })
       .catch((error) => console.log(error));
