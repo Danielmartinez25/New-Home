@@ -1,37 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- HEAD -->
 <%- include('../partials/head') %>
 
-<body class="login">
-    <!-- HEADER -->
-    <%- include('../partials/header') %>
+    <body class="body-form">
+        <main class="main-form">
+            <section class="section-form">
+                <h4>Crear una cuenta</h4>
+                <form action="" method="POST">
+                    <div class="form-reg">
+                        <label for="email">CORREO ELECTRONICO</label>
+                        <input placeholder="mi@gmail.com" type="text" name="email" id="email"
+                            value="<%= locals.old && old.email ? old.email : null %>"
+                            class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
+                        <p class="text-danger">
+                            <%= locals.errors && errors.email ? errors.email.msg : null %>
+                        </p>
+                    </div>
+                    <div class="form-reg">
+                        <label for="password">CONTRASEÑA</label>
+                        <input placeholder="********" type="password" name="password" id="password"
+                            value="<%= locals.old && old.password ? old.password : null %>"
+                            class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
+                        <p class="text-danger">
+                            <%= locals.errors && errors.password ? errors.password.msg : null %>
+                        </p>
+                    </div>
+                    <div class="form-reg">
+                        <button class="" type="submit">INGRESAR</button>
+                    </div>
+                    <div class="text-olvide">
+                        <p><a href="">Olvide mi contraseña</a></p>
+                    </div>
+                    <hr class="hr-register">
+                    <div class="text-register">
+                        <p class="login-text">¿No tenes cuentra?</p>
+                        <p><a href="/users/register">REGISTRARTE</a></p>
+                    </div>
+                </form>
+            </section>
+        </main>
 
-        <!-- MAIN -->
-        <main class=" d-flex a-center j-center  flex-column ">
-            <a class="m-top25 m-botton25" href="/"><img width="100" src="/img/logo2.jpg" alt="logo"></a>
-            <h1>Acceder!</h1>
-            <form class=" w-40 d-flex  flex-column " action="" method="POST">
-                <label for="email"></label>
-                <input class="m-top25 radio p-left" placeholder="Ingresa tu email" type="email" name="email"
-                    id="email">
-                <p class="form__error__msg">
-                    <%= locals.errors && errors.email ? errors.email.msg : null %>
-                </p>
-                <label for="password"></label>
-                <input class="m-top50 radio p-left" placeholder="Elegi tu contraseña" type="password"
-                    name="password" id="password">
-                <p class="form__error__msg">
-                    <%= locals.errors && errors.password ? errors.password.msg : null %>
-                </p>
-                <button class="enviar m-top50 m-botton25" type="submit">Enviar</button>
-            </form>
-            <button class="radio bc-white">Olvidaste tu contraseña?</button>
-
-            <a class="outsidelogo" href="/index"><img width="60px" height="60px" src="/img/logo 1.png"
-                    alt="logo"></a>
-            <!-- FOOTER -->
-            <%- include('../partials/footer') %>
-</body>
+    </body>
 
 </html>
