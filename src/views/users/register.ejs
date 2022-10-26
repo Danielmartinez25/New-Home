@@ -3,22 +3,22 @@
 <!-- HEAD -->
 <%- include('../partials/head') %>
 
-    <body>
+    <body class="body-form">
         <main class="main-form">
             <section class="section-form">
-                <h3>Crear Cuenta</h3>
+                <h4>Crear una cuenta</h4>
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-reg">
-                        <label for="name">Nombre</label>
-                        <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>"
+                        <label for="name">NOMBRE</label>
+                        <input placeholder="Daniel" type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>"
                             class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
                         <p class="text-danger">
                             <%= locals.errors && errors.name ? errors.name.msg : null %>
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="surname">Apellido</label>
-                        <input type="text" name="surname" id="surname"
+                        <label for="surname">APELLIDO</label>
+                        <input placeholder="Martinez" type="text" name="surname" id="surname"
                             value="<%= locals.old && old.surname ? old.surname : null %>"
                             class="form-control <%= locals.errors && errors.surname ? 'is-invalid' : null %>">
                         <p class="text-danger">
@@ -26,8 +26,8 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="email">Email</label>
-                        <input type="text" name="email" id="email"
+                        <label for="email">CORREO ELECTRONICO</label>
+                        <input placeholder="mi@gmail.com" type="text" name="email" id="email"
                             value="<%= locals.old && old.email ? old.email : null %>"
                             class="form-control <%= locals.errors && errors.email ? 'is-invalid' : null %>">
                         <p class="text-danger">
@@ -35,8 +35,8 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="password">Contraseña</label>
-                        <input type="text" name="password" id="password"
+                        <label for="password">CONTRASEÑA</label>
+                        <input placeholder="********" type="password" name="password" id="password"
                             value="<%= locals.old && old.password ? old.password : null %>"
                             class="form-control <%= locals.errors && errors.password ? 'is-invalid' : null %>">
                         <p class="text-danger">
@@ -44,8 +44,8 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="country">Pais</label>
-                        <input type="text" name="country" id="country"
+                        <label for="country">PAÍS</label>
+                        <input placeholder="Argentina" type="text" name="country" id="country"
                             value="<%= locals.old && old.country ? old.country : null %>"
                             class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>">
                         <p class="text-danger">
@@ -53,8 +53,8 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="province">Provincia</label>
-                        <input type="text" name="province" id="province"
+                        <label for="province">PROVINCIA</label>
+                        <input placeholder="Buenos Aires" type="text" name="province" id="province"
                             value="<%= locals.old && old.province ? old.province : null %>"
                             class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>">
                         <p class="text-danger">
@@ -62,22 +62,16 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="city">Ciudad</label>
-                        <input type="text" name="city" id="city" value="<%= locals.old && old.city ? old.city : null %>"
+                        <label for="city">CIUDAD</label>
+                        <input placeholder="Escobar" type="text" name="city" id="city" value="<%= locals.old && old.city ? old.city : null %>"
                             class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>">
                         <p class="text-danger">
                             <%= locals.errors && errors.city ? errors.city.msg : null %>
                         </p>
                     </div>
+
                     <div class="form-reg">
-                        <label for="name">Rol</label>
-                        <select class="form-control" name="rolId" id="rol">
-                            <option value="1">Admin</option>
-                            <option value="2">Usuario</option>
-                        </select>
-                    </div>
-                    <div class="form-reg">
-                        <label for="name">Elegir Foto de perfil</label>
+                        <label for="name">ELIGIR FOTO DE PERFIL</label>
                         <input type="file" name="avatar" id="avatar"
                             value="<%= locals.old  && old.avatar ? old.avatar : null %>"
                             class="form-control <%= locals.errors && errors.avatar ? 'is-invalid' : null %>">
@@ -86,14 +80,17 @@
                         </p>
                         </p>
                     </div>
-                    <div class="row">
-                        <button class="" type="submit">Enviar</button>
-                        <p class="login-text">¿Ya tienes cuenta? <a href="/users/login">Entra aqui</a>
-                        </p>
+                    <div class="form-reg">
+                    <button class="" type="submit">CREAR CUENTA</button>
+                    </div>
+
+                    <div class="text-form" >
+                    <p class="login-text">¿Ya tenes una cuenta?</p>
+                    <p><a href="/users/login">INGRESAR</a></p>
                     </div>
                 </form>
             </section>
         </main>
-    </body>
 
+    </body>
 </html>
