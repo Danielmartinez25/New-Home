@@ -1,6 +1,7 @@
 
 .header{
     background-color: #060608;
+    position: sticky;
 }
 
 .header__section{

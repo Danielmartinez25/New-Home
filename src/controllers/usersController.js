@@ -140,11 +140,14 @@ module.exports = {
 
   profile: (req, res) => {
     const id = req.session.userLogin?.id;
-    db.User.findByPk(id)
-      .then((user) => {
+    let user = db.User.findByPk(id)
+    let address = db.Address.findByPk(id)
+    Promise.all([user,address])
+      .then(([user,address]) => {
         return res.render("users/profile", {
           title: "New Home Perfil",
           user,
+          address
         });
       })
       .catch((err) => console.log(err));

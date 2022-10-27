@@ -38,7 +38,8 @@
     background-color: #2874e6;
     color: white;
     font-size: 13px;
-    transition: 300ms;
+    transition: 100ms;
+
 }
 .form-reg button:hover{
     opacity: 0.7;
