@@ -1,0 +1,57 @@
+.main-edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-edit {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border: 1px solid black;
+    width: 40%;
+
+}
+
+.son-edit {
+    padding: 8%;
+}
+
+.form-edit input {
+    font-size: 15px;
+    border-radius: 0%;
+}
+
+.form-label {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    font-size: 14px;
+}
+
+.form-edit-discount {
+    -webkit-column-count: 3;
+    padding: 0%;
+    margin-bottom: 3%;
+}
+.form-edit-discount input{
+    width: 60%;
+    padding-left: 5%;
+}
+
+.form-edit-category {
+    -webkit-column-count: 2;
+    padding: 0%;
+    margin-bottom: 3%;
+}
+.form-edit-category select{
+    padding: 2%;
+}
+
+.form-edit-subcategory {
+    -webkit-column-count: 2;
+    padding: 0%;
+    margin-bottom: 3%;
+}
+.form-edit-subcategory select {
+    padding: 2%;
+}
