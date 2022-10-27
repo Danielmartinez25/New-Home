@@ -145,7 +145,7 @@ module.exports = {
     Promise.all([user,address])
       .then(([user,address]) => {
         return res.render("users/profile", {
-          title: "New Home Perfil",
+          title: "Perfil",
           user,
           address
         });
