@@ -9,10 +9,6 @@ a{
     text-decoration: none;
 }
 
-.header {
-    background-color: #060608;
-}
-
 .d-flex {
     display: flex;
 }

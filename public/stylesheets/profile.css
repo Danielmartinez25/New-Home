@@ -1,23 +1,9 @@
 
 
 
-        * {
-            margin: 0;
-            padding: 0;
-            -webkit-box-sizing: border-box;
-            -moz-box-sizing: border-box;
-            box-sizing: border-box;
-        }
-
-        body {
-            color: #404040;
-            font-family: "Arial", Segoe UI, Tahoma, sans-serifl, Helvetica Neue, Helvetica;
-                line-height: 1.4;
-        }
 
 
-
-                .mensaje a {
+        .mensaje a {
             color: inherit;
             margin-right: .5rem;
             display: inline-block;

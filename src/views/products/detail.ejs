@@ -27,9 +27,11 @@
                     </div>
                      <div class="buttons">
                         <a href="#">Comprar</a>
-                    <!--<a href="#">Añadir al carrito</a>-->                   
+                    <!--<a href="#">Añadir al carrito</a>--> 
+                    <% if (locals.userLogin && userLogin.rol === 1) { %>
                         <a href="/products/edit/<%= product.id %>">Editar</a>
                         <a href="/products/delete/<%= product.id %>">Eliminar</a>
+                    <% }%>                  
                     </div>
                     <div class="send">
                         <div class="cuandollega">
@@ -68,24 +70,28 @@
 
             </section>
 
-            <section class="description">   
-                <h4 class="tittle">Descripción</h4>
-                <p class="product__description"><%= product.description %> </p>
-            </section>
-
-            <section class="interesting_products">
-                <h3>Productos en oferta</h3>
-                <div class="containsproduct">       
-                    <% offer.forEach(({id,title, images,discount,price}) => { %>
+        <section class="interesting_products">
+            <h3>Aprovechá las ofertas destacadas</h3>
+            <div class="containsproduct">
+                <% offer.forEach(({id,name, images,discount,price})=> { %>
                     <article>
-                        <a href="/products/detail/<%= id %> "><img  class ="main__section__img" src="/img/<%= images[0].file %>" alt=""></a>                      
-                        <h5 class="interesting_products_border"><%= title %> </h5>
-                        <p class="">$<%= toThousand(price) %> </p>
-                        <p class="color_verde"><%= discount %> % OFF</p>    
+                        <a href="/products/detail/<%= id %> "><img class="main__section__img" src="/img/<%= images[0].file %>"
+                                alt=""></a>
+                        <div class="article-text">
+                            <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                            <h2 style="padding-right: 20px;">$<%= toThousand(price - (price * discount / 100)) %>
+                            </h2>
+                            <span>
+                                <%= discount %>%OFF
+                            </span>
+                            <p>
+                                <%= name %>
+                            </p>
+                        </div>
                     </article>
-                          <% }) %>                   
-                </div>
-            </section>
+                    <% }) %>
+            </div>
+        </section>
     </main> 
     </section> 
 
