@@ -116,6 +116,7 @@ module.exports = {
           products,
           keywords,
           toThousand,
+          title : "Resultado"
         });
       })
       .catch((error) => console.log(error));

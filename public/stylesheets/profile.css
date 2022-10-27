@@ -9,20 +9,22 @@
 
 .section-pro {
     margin-top: 5%;
+    margin-bottom: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 75%;
-    background-color: rgba(86, 156, 218, 0.603);
-    border-radius: 10%;
-    box-shadow: 0px 0px 30px rgb(110, 110, 110);
+    border: 1px solid rgb(207, 207, 207);
+
 
 }
 
 .section-pro h2 {
     text-align: center;
-    width: 76.7%;
+    font-size: 30px;
     margin-top: 1%;
 }
 
@@ -32,25 +34,24 @@
     width: 30%;
 }
 
-.hr-pro {
-    border: 5px solid black;
+.section-pro hr{
+    width: 72%;
 }
 
 .section-pro-datos {
-    margin-top: 5%;
+    
     -webkit-column-count: 2;
     -webkit-column-gap: 75px;
-    padding: 4% 3% 4% 3%;
-
-    background-color: rgb(255, 255, 255);
+    padding: 2% 3% 2% 3%;
+    background-color: rgb(219, 219, 219);
 }
 
 .section-pro-datos p {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: rgb(104, 76, 76);
+    color: rgb(51, 51, 51);
 }
 .nav-pro-datos{
-    margin-top: 5%;
+    margin-top: 2%;
 }
 
 .nav-pro-datos ul {

@@ -3,12 +3,14 @@
 
 <%- include('../partials/head') %>
 
+<%- include('../partials/header') %>
+
   <body>
     <main class="main-pro">
       <section class="section-pro">
-        <h2>Datos de usuario</h2>
+        <h2>Mi perfil</h2>
         <img src="/img/avatars/<%= user.avatar %> " alt="">
-
+        <hr>
         <div class="section-pro-datos">
           <p>Nombre: <%= user.name %>
           </p>
@@ -32,6 +34,7 @@
   
       </section>
     </main>
+    <%- include('../partials/footer') %>
   </body>
 
 </html>
