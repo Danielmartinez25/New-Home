@@ -27,8 +27,14 @@
         </div>
         <nav class="nav-pro-datos">
           <ul>
+            <% if (locals.userLogin && userLogin.rol===1 ) { %>
+            <li class="header__nav__li"><a href="/products/create"><i class="fa-sharp fa-solid fa-bag-shopping"></i> Vender</a></li>
             <li><a href="/users/edit/<%= user.id %> "><i class="fa-solid fa-pen-to-square"></i></i> Editar</a></li>
             <li><a href="/users/logoutV"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+            <% } else {%>
+            <li><a href="/users/edit/<%= user.id %> "><i class="fa-solid fa-pen-to-square"></i></i> Editar</a></li>
+            <li><a href="/users/logoutV"><i class="fa-solid fa-right-from-bracket"></i> Cerrar sesión</a></li>
+            <% } %>
           </ul>
         </nav>  
   

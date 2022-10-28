@@ -34,14 +34,15 @@
 }
 
 .section-pro hr{
-    width: 75%;
+    width: 85%;
 }
 
 .section-pro-datos {
     -webkit-column-count: 2;
-    -webkit-column-gap: 75px;
+    -webkit-column-gap: 5%;
     padding: 2% 3% 2% 3%;
     background-color: rgb(219, 219, 219);
+    width: 85%;
 }
 
 .section-pro-datos p {

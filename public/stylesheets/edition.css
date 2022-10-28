@@ -9,7 +9,7 @@
     margin-top: 2%;
     margin-bottom: 2%;
     width: 40%;
-        box-shadow: 0px 0px 30px rgb(110, 110, 110);
+    box-shadow: 0px 0px 30px rgb(110, 110, 110);
 }
 
 .son-edit {
@@ -57,7 +57,8 @@
     padding: 2%;
     font-family: 'IBM Plex Sans', sans-serif;
 }
-.form-edit-description{
+
+.form-edit-description {
     padding-top: 5%;
 }
 
@@ -89,7 +90,8 @@
     color: #fcfcfc;
     transition: 100ms;
 }
-.button-guardar:hover{
+
+.button-guardar:hover {
     opacity: 0.7;
 }
 
@@ -99,9 +101,11 @@
     background-color: rgb(179, 179, 179);
     transition: 100ms;
 }
-.button-cancelar:hover{
+
+.button-cancelar:hover {
     opacity: 0.7;
 }
-.form-text a{
+
+.form-text a {
     color: rgb(255, 255, 255);
 }
