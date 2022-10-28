@@ -6,52 +6,102 @@
 }
 
 .section-edit {
-    margin-top: 5%;
-    margin-bottom: 5%;
-    border: 1px solid black;
+    margin-top: 2%;
+    margin-bottom: 2%;
     width: 40%;
-
+        box-shadow: 0px 0px 30px rgb(110, 110, 110);
 }
 
 .son-edit {
-    padding: 8%;
-}
-
-.form-edit input {
-    font-size: 15px;
-    border-radius: 0%;
+    padding: 6% 8% 6% 8%;
 }
 
 .form-label {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: black;
-    font-size: 14px;
+    font-size: 85%;
 }
 
-.form-edit-discount {
-    -webkit-column-count: 3;
-    padding: 0%;
-    margin-bottom: 3%;
-}
-.form-edit-discount input{
-    width: 60%;
-    padding-left: 5%;
+.form-edit input {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 0%;
 }
 
-.form-edit-category {
+.form-edit-price input {
+    padding-bottom: 1%;
+    padding-left: 5px;
+    width: 90%;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.form-edit-discount input {
+    padding-bottom: 1%;
+    padding-left: 5px;
+    width: 90%;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+.form-categories {
     -webkit-column-count: 2;
-    padding: 0%;
-    margin-bottom: 3%;
 }
-.form-edit-category select{
+
+.form-edit-category select {
+    width: 100%;
     padding: 2%;
+    font-family: 'IBM Plex Sans', sans-serif;
 }
 
-.form-edit-subcategory {
-    -webkit-column-count: 2;
-    padding: 0%;
-    margin-bottom: 3%;
-}
 .form-edit-subcategory select {
+    width: 100%;
     padding: 2%;
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+.form-edit-description{
+    padding-top: 5%;
+}
+
+.form-edit-description textarea {
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 15px;
+    border-radius: 0%;
+}
+
+.form-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.form-text button {
+    width: 50%;
+    padding: 10px;
+
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 12px;
+
+}
+
+.button-guardar {
+    border: #2874e6;
+    background-color: #2874e6;
+    color: #fcfcfc;
+    transition: 100ms;
+}
+.button-guardar:hover{
+    opacity: 0.7;
+}
+
+.button-cancelar {
+    margin-left: 2%;
+    border: 1px solid rgb(179, 179, 179);
+    background-color: rgb(179, 179, 179);
+    transition: 100ms;
+}
+.button-cancelar:hover{
+    opacity: 0.7;
+}
+.form-text a{
+    color: rgb(255, 255, 255);
 }
