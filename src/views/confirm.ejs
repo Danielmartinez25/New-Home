@@ -1,25 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <%- include('./partials/head', {
-        title : 'Confirmar eliminación'
-    }) %> 
+<%- include('./partials/head', { title : 'Confirmar eliminación' }) %>
 
 
-<body class="login">
-    <%- include('./partials/header') %> 
-    <main class="login__main">
-        <section class="login__main__confirm">
-           <h5 class="text-center">¿Estás seguro?</h5>
-           <form action="/products/destroy/<%= id %>?_method=DELETE" method="POST">              
-                <div class="button__danger">
-                    <button class="btn btn-danger" type="submit">Eliminar producto</button>
-                </div>
-           </form>
-           <a href="/"><button class="button_Neg" type="submit">No Eliminar</button></a>
-
-        </section>
-    </main>
-</body>
+    <body class="login">
+        <%- include('./partials/header') %>
+            <main class="main-confirm">
+                <section class="section-confirm">
+                    <h5>¿DESEA ELIMINAR ESTE PRODUCTO?</h5>
+                    <div class="text-confirm">
+                    <form action="/products/destroy/<%= id %>?_method=DELETE" method="POST">
+                        <button class="button-delete" type="submit">ELIMINAR</button>
+                    </form>
+                    <button class="button-notdelete" type="submit"><a href="/">CONTINUAR</a></button>    
+                    </div>
+                    
+                </section>
+            </main>
+    </body>
 
 </html>
