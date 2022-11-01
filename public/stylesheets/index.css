@@ -136,7 +136,7 @@
     margin: 15px;
     border: 1px solid #ebebeb;
     border-radius: 5px;
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    box-shadow: 0px 0px 20px rgb(100, 100, 100);
     background-color: white;
     align-self: flex-start;
 
@@ -153,7 +153,7 @@
     flex-wrap: wrap;
     position: relative;
     align-items: center;
-    background-color: #D2D2D2;
+    background-color: #e4e4e4;
     padding-top: 5px;
 }
 
