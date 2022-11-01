@@ -13,7 +13,7 @@
 					<div class="son-edit">
 						<form action="/products/store" method="POST" enctype="multipart/form-data">
 							<div class="form-edit">
-								<label for="name" class="form-label">PRODUCTO</label>
+								<label for="name" class="form-label">NOMBRE DEL PRODUCTO</label>
 								<input type="text"
 									class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
 									id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>">
@@ -57,7 +57,7 @@
 							</div>
 
 							<div class="form-edit-description">
-								<label for="description" class="form-label">DESCRIPCIÓN</label>
+								<label for="description" class="form-label">DESCRIPCIÓN DEL PRODUCTO</label>
 								<textarea
 									class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
 									name="description" id="description" cols="30" rows="5"
