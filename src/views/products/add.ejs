@@ -14,7 +14,7 @@
 						<form action="/products/store" method="POST" enctype="multipart/form-data">
 							<div class="form-edit">
 								<label for="name" class="form-label">NOMBRE DEL PRODUCTO</label>
-								<input type="text"
+								<input type="text" placeholder="Teclado gamer HyperX Alloy"
 									class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>"
 									id="name" name="name" value="<%= locals.old && old.name ? old.name : null %>">
 								<p class="text-danger">
@@ -24,14 +24,14 @@
 							<div class="form-categories">
 								<div class="form-edit-price">
 									<label for="price" class="form-label">PRECIO</label>
-									<input type="number" name="price" value="<%= locals.old && old.price ? old.price : null %>">
+									<input type="number" placeholder="20.000" name="price" value="<%= locals.old && old.price ? old.price : null %>">
 									<p class="text-danger">
 										<%= locals.errors && errors.price ? errors.price.msg : null %>
 									</p>
 								</div>
 								<div class="form-edit-discount">
 									<label for="discount" class="form-label">DESCUENTO</label>
-									<input id="discount" type="number" name="discount"  value="<%= locals.old && old.discount ? old.discount : null %>">
+									<input id="discount"placeholder= "15" type="number" name="discount"  value="<%= locals.old && old.discount ? old.discount : null %>">
 								</div>
 
 								<div class="form-edit-category">

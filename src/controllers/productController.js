@@ -29,7 +29,7 @@ controller = {
         },
       },
       limit: 4,
-      order: [["createdAt", "DESC"]],
+      order: [["discount", "DESC"]],
       include: ["images", "category"],
     });
     Promise.all([product, offer])
