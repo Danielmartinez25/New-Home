@@ -14,20 +14,19 @@
                                 <img src="/img/<%= product.images[0].file %> " alt="producto">
                             </div>
                             <div class="image-secundario">
-                                <% if (product.images.length > 1) { %>
-                                <% product.images.forEach(({file})=> { %>
-                                    <img src="/img/<%= file %> " alt="producto">
-                                    <% }) %> 
-                                <% } %>
+                                <% if (product.images.length> 1) { %>
+                                    <% product.images.forEach(({file})=> { %>
+                                        <img src="/img/<%= file %> " alt="producto">
+                                        <% }) %>
+                                            <% } %>
                             </div>
                         </section>
                         <section class="price">
                             <h5>
                                 <%= product.name %>
                             </h5>
-                            <h6> <del>$<%= toThousand(product.price) %></del>
-                                <%= product.discount %>%
-                            </h6>
+
+                            <h6> <del>$<%= toThousand(product.price) %></del></h6>
                             <h2>$<%= toThousand(product.price - (product.price * product.discount / 100)) %>
                             </h2>
                             <p class="promos_bank">¡Nuestras promociones bancarias!</p>
@@ -49,9 +48,9 @@
                             </div>
                             <div class="send">
                                 <div class="cuandollega">
-                                    <i class="fa-solid fa-truck-fast"></i>
+                                    <i class="fa-solid fa-arrow-rotate-left"></i>
                                     <div class="sendtexto">
-                                        <p>Envios a todo el pais</p>
+                                        <p>Devolución gratis</p>
                                         <p class="sendblue">Calcular cuando llega</p>
                                     </div>
                                 </div>
@@ -67,12 +66,14 @@
                         </section>
                     </section>
                     <div class="descripcion-detail">
+                        <h3>Descripción</h3>
                         <p>
                             <%= product.description %>
                         </p>
                     </div>
-                    <section class="interesting_products">
-                        <h3>Aprovechá las ofertas destacadas</h3>
+                    <section class="interesting_products" style="margin: 1%;">
+                        <h3 style="font-family : Verdana, Geneva, Tahoma, sans-serif;">Aprovechá las ofertas destacadas
+                        </h3>
                         <div class="containsproduct">
                             <% offer.forEach(({id,name, images,discount,price})=> { %>
                                 <article>
