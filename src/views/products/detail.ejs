@@ -1,96 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!-- HEAD -->
-    <%- include('../partials/head') %>
+<!-- HEAD -->
+<%- include('../partials/head') %>
 
-<body>
-    <!-- HEADER -->
-    <%- include('../partials/header') %>
-    <main>
-        <section class="section-detail">
-        <section class="maintop">
-                <section class="producto">
-                        <img src="/img/<%= product.images[0].file %> " alt="producto">
-                </section>
-                <section class="price">
-                    <h5>
-                        <%= product.name %>
-                    </h5>
-                    <h6> <del>$<%= toThousand(product.price) %></del>  <%= product.discount %>%</h6>
-                    <h2>$<%= toThousand(product.price - (product.price * product.discount / 100)) %></h2>
-                    <p class="promos_bank">¡Nuestras promociones bancarias!</p>
-                    <p class="promos">3 cuotas sin interes con los siguientes metodos de pago</p>
-                    <div class="cards">
-                        <img src="/img/cards/mastercard.png" alt="">
-                        <img src="/img/cards/santander.png" alt="">
-                        <img src="/img/cards/visa.png" alt="">
-                    </div>
-                     <div class="buttons">
-                        <a href="#" class="buttons-comprar">Comprar</a>
-                        <a href="#" class="buttons-agregar">Agregar al carrito</a>
-                    </div>
-                    <div>
-                    <% if (locals.userLogin && userLogin.rol === 1) { %>
-                        <a href="/products/edit/<%= product.id %>">Editar</a>
-                        <a href="/products/delete/<%= product.id %>">Eliminar</a>
-                    <% }%>                  
-                    </div>
-                    <div class="send">
-                        <div class="cuandollega">
-                            <i class="fa-solid fa-truck-fast"></i>
-                            <div class="sendtexto">
-                                <p>Envios a todo el pais</p>
-                                <p class="sendblue">Calcular cuando llega</p>
+    <body>
+        <!-- HEADER -->
+        <%- include('../partials/header') %>
+            <main>
+                <section class="section-detail">
+                    <section class="maintop">
+                        <section class="producto">
+                            <div>
+                                <img src="/img/<%= product.images[0].file %> " alt="producto">
                             </div>
-                        </div>
-                        <div class="sucursales">
-                            <i class="fa-solid fa-store"></i>
-                            <div class="sendtexto">
-                                <p>Retiro gratis en sucursal</p>
-                                <p class="sendblue">Ver sucursales</p>
+                            <div>
+                                <% product.images.forEach(({file})=> { %>
+                                    <img class="" src="/img/<%= file %> " alt="producto">
+                                    <% }) %>
                             </div>
-                        </div>
-                    </div>
-                    </div>
-                </section>
-            </section>
+                        </section>
+                        <section class="price">
+                            <h5>
+                                <%= product.name %>
+                            </h5>
+                            <h6> <del>$<%= toThousand(product.price) %></del>
+                                <%= product.discount %>%
+                            </h6>
+                            <h2>$<%= toThousand(product.price - (product.price * product.discount / 100)) %>
+                            </h2>
+                            <p class="promos_bank">¡Nuestras promociones bancarias!</p>
+                            <p class="promos">3 cuotas sin interes con los siguientes metodos de pago</p>
+                            <div class="cards">
+                                <img src="/img/cards/mastercard.png" alt="">
+                                <img src="/img/cards/santander.png" alt="">
+                                <img src="/img/cards/visa.png" alt="">
+                            </div>
+                            <div class="buttons">
+                                <a href="#" class="buttons-comprar">Comprar</a>
+                                <a href="#" class="buttons-agregar">Agregar al carrito</a>
+                            </div>
+                            <div>
+                                <% if (locals.userLogin && userLogin.rol===1) { %>
+                                    <a href="/products/edit/<%= product.id %>">Editar</a>
+                                    <a href="/products/delete/<%= product.id %>">Eliminar</a>
+                                    <% }%>
+                            </div>
+                            <div class="send">
+                                <div class="cuandollega">
+                                    <i class="fa-solid fa-truck-fast"></i>
+                                    <div class="sendtexto">
+                                        <p>Envios a todo el pais</p>
+                                        <p class="sendblue">Calcular cuando llega</p>
+                                    </div>
+                                </div>
+                                <div class="sucursales">
+                                    <i class="fa-solid fa-store"></i>
+                                    <div class="sendtexto">
+                                        <p>Retiro gratis en sucursal</p>
+                                        <p class="sendblue">Ver sucursales</p>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </section>
+                    </section>
                     <div>
                         <p>
                             <%= product.description %>
                         </p>
                     </div>
-        <section class="interesting_products">
-            <h3>Aprovechá las ofertas destacadas</h3>
-            <div class="containsproduct">
-                <% offer.forEach(({id,name, images,discount,price})=> { %>
-                    <article>
-                        <a href="/products/detail/<%= id %> "><img class="main__section__img" src="/img/<%= images[0].file %>"
-                                alt=""></a>
-                        <div class="article-text">
-                            <p class="p2"><del>$<%= toThousand(price) %></del></p>
-                            <h2 style="padding-right: 20px;">$<%= toThousand(price - (price * discount / 100)) %>
-                            </h2>
-                            <span>
-                                <%= discount %>%OFF
-                            </span>
-                            <p>
-                                <%= name %>
-                            </p>
+                    <section class="interesting_products">
+                        <h3>Aprovechá las ofertas destacadas</h3>
+                        <div class="containsproduct">
+                            <% offer.forEach(({id,name, images,discount,price})=> { %>
+                                <article>
+                                    <a href="/products/detail/<%= id %> "><img class="main__section__img"
+                                            src="/img/<%= images[0].file %>" alt=""></a>
+                                    <div class="article-text">
+                                        <p class="p2"><del>$<%= toThousand(price) %></del></p>
+                                        <h2 style="padding-right: 20px;">$<%= toThousand(price - (price * discount /
+                                                100)) %>
+                                        </h2>
+                                        <span>
+                                            <%= discount %>%OFF
+                                        </span>
+                                        <p>
+                                            <%= name %>
+                                        </p>
+                                    </div>
+                                </article>
+                                <% }) %>
                         </div>
-                    </article>
-                    <% }) %>
-            </div>
-        </section>
-    </main> 
-    </section> 
+                    </section>
+            </main>
+            </section>
 
-    <a class="outsidelogo" href="/index"><img  width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
-    
-        </section>
-        
-    <!-- FOOTER -->
-    <%- include('../partials/footer') %>
+            <a class="outsidelogo" href="/index"><img width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
 
-</body>
+            </section>
+
+            <!-- FOOTER -->
+            <%- include('../partials/footer') %>
+
+    </body>
 
 </html>

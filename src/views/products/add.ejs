@@ -24,21 +24,24 @@
 							<div class="form-categories">
 								<div class="form-edit-price">
 									<label for="price" class="form-label">PRECIO</label>
-									<input type="number" placeholder="20.000" name="price" value="<%= locals.old && old.price ? old.price : null %>">
+									<input type="number" placeholder="20.000" name="price"
+										value="<%= locals.old && old.price ? old.price : null %>">
 									<p class="text-danger">
 										<%= locals.errors && errors.price ? errors.price.msg : null %>
 									</p>
 								</div>
 								<div class="form-edit-discount">
 									<label for="discount" class="form-label">DESCUENTO</label>
-									<input id="discount"placeholder= "15" type="number" name="discount"  value="<%= locals.old && old.discount ? old.discount : null %>">
+									<input id="discount" placeholder="15" type="number" name="discount"
+										value="<%= locals.old && old.discount ? old.discount : null %>">
 								</div>
 
 								<div class="form-edit-category">
 									<label for="category" class="form-label">CATEGORIA</label>
 									<select name="categoryId" id="category" class="form-input">
 										<% categories.forEach(({id, name})=> { %>
-											<option value="<%= id %>"><%=name %>
+											<option value="<%= id %>">
+												<%=name %>
 											</option>
 											<% }) %>
 									</select>
@@ -48,8 +51,8 @@
 									<label for="category" class="form-label">SUB CATEGORIA</label>
 									<select name="subcategoryId" id="category" class="form-input">
 										<% subcategories.forEach(({id, name})=> { %>
-											<option value="<%= id %>"><%=
-													name %>
+											<option value="<%= id %>">
+												<%= name %>
 											</option>
 											<% }) %>
 									</select>
@@ -60,20 +63,22 @@
 								<label for="description" class="form-label">DESCRIPCIÓN DEL PRODUCTO</label>
 								<textarea
 									class="form-control <%= locals.errors && errors.description ? 'is-invalid' : null %>"
-									name="description" id="description" cols="30" rows="5"
-									style="resize: none;" value="<%= locals.old && old.name ? old.name : null %>"></textarea>
+									name="description" id="description" cols="30" rows="5" style="resize: none;"
+									value="<%= locals.old && old.name ? old.name : null %>"></textarea>
 								<p class="text-danger">
 									<%= locals.errors && errors.description ? errors.description.msg : null %>
 								</p>
 							</div>
-											<div class="form-edit">
-												<label class="btn btn-secondary <%= locals.errors && errors.image ? 'btn-danger' : null %>" for="image">Agregar
-													imagen</label>
-												<input hidden type="file" accept="image/*" name="images" id="image" multiple>
-												<p class="text-danger">
-													<%= locals.errors && errors.image ? errors.image.msg : null %>
-												</p>
-											</div>
+							<div class="form-edit">
+								<label
+									class="btn btn-secondary <%= locals.errors && errors.image ? 'btn-danger' : null %>"
+									for="image">Agregar
+									imagen</label>
+								<input hidden type="file" accept="image/*" name="images" id="image" multiple>
+								<p class="text-danger">
+									<%= locals.errors && errors.image ? errors.image.msg : null %>
+								</p>
+							</div>
 							<div class="form-text">
 								<button type="submit" class="button-guardar">GUARDAR CAMBIOS</button>
 							</div>
