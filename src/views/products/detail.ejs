@@ -25,7 +25,6 @@
                             <h5>
                                 <%= product.name %>
                             </h5>
-
                             <h6> <del>$<%= toThousand(product.price) %></del></h6>
                             <h2>$<%= toThousand(product.price - (product.price * product.discount / 100)) %>
                             </h2>
@@ -37,13 +36,20 @@
                                 <img src="/img/cards/visa.png" alt="">
                             </div>
                             <div class="buttons">
-                                <a href="#" class="buttons-comprar">Comprar</a>
-                                <a href="#" class="buttons-agregar">Agregar al carrito</a>
+                                <% if (locals.userLogin && userLogin.rol===2) { %>
+                                    <a href="#" class="buttons-comprar">Comprar</a>
+                                    <a href="#" class="buttons-agregar">Agregar al carrito</a>
+                                    <% } %>
+                                    
+                                    <% if (!locals.userLogin) { %>
+                                    <a href="#" class="buttons-comprar">Comprar</a>
+                                    <a href="#" class="buttons-agregar">Agregar al carrito</a>
+                                    <% } %>
                             </div>
-                            <div>
+                            <div class="button-admin">
                                 <% if (locals.userLogin && userLogin.rol===1) { %>
-                                    <a href="/products/edit/<%= product.id %>">Editar</a>
-                                    <a href="/products/delete/<%= product.id %>">Eliminar</a>
+                                    <a class="button-editar" href="/products/edit/<%= product.id %>">Editar</a>
+                                    <a class="button-eliminar" href="/products/delete/<%= product.id %>">Eliminar</a>
                                     <% }%>
                             </div>
                             <div class="send">

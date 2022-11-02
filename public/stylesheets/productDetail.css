@@ -67,7 +67,7 @@
     .price h6 {
         font-size: 16px;
         font-style: italic;
-        color: #c9c9c9;
+        color: #888888;
     }
 
     .price h2 {
@@ -98,7 +98,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        padding-bottom: 10%;
+        padding-bottom: 2%;
         width: 100%;
     }
 
@@ -118,7 +118,6 @@
     .buttons-comprar {
         background-color: #2874e6;
         transition: 100ms;
-
     }
 
     .buttons-agregar {
@@ -128,10 +127,49 @@
 
     .buttons-comprar:hover {
         opacity: 0.7;
-
     }
 
     .buttons-agregar:hover {
+        opacity: 0.7;
+    }
+
+    .button-admin {
+        display: flex;
+        justify-content: center;
+        padding-bottom: 10%;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .button-admin a {
+        margin-bottom: 2%;
+        text-align: center;
+        width: 90%;
+        font-size: 15px;
+        padding: 10px;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        border-radius: 5px;
+        color: white;
+    }
+
+    .button-editar {
+        background-color: #39e455;
+        transition: 100ms;
+
+    }
+
+    .button-eliminar {
+        background-color: #d83131;
+        transition: 100ms;
+        margin-right: 10%;
+    }
+
+    .button-editar:hover {
+        opacity: 0.7;
+
+    }
+
+    .button-eliminar:hover {
         opacity: 0.7;
 
     }
