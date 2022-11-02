@@ -26,8 +26,10 @@
                         <img src="/img/cards/visa.png" alt="">
                     </div>
                      <div class="buttons">
-                        <a href="#">Comprar</a>
-                    <!--<a href="#">Añadir al carrito</a>--> 
+                        <a href="#" class="buttons-comprar">Comprar</a>
+                        <a href="#" class="buttons-agregar">Agregar al carrito</a>
+                    </div>
+                    <div>
                     <% if (locals.userLogin && userLogin.rol === 1) { %>
                         <a href="/products/edit/<%= product.id %>">Editar</a>
                         <a href="/products/delete/<%= product.id %>">Eliminar</a>
