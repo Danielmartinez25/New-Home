@@ -10,13 +10,15 @@
                 <section class="section-detail">
                     <section class="maintop">
                         <section class="producto">
-                            <div>
+                            <div class="image-principal">
                                 <img src="/img/<%= product.images[0].file %> " alt="producto">
                             </div>
-                            <div>
+                            <div class="image-secundario">
+                                <% if (product.images.length > 1) { %>
                                 <% product.images.forEach(({file})=> { %>
-                                    <img class="" src="/img/<%= file %> " alt="producto">
-                                    <% }) %>
+                                    <img src="/img/<%= file %> " alt="producto">
+                                    <% }) %> 
+                                <% } %>
                             </div>
                         </section>
                         <section class="price">
@@ -64,7 +66,7 @@
                             </div>
                         </section>
                     </section>
-                    <div>
+                    <div class="descripcion-detail">
                         <p>
                             <%= product.description %>
                         </p>
