@@ -10,7 +10,7 @@ controller = {
       order: ["name"],
     })
       .then((product) =>
-        res.render("products/all", {
+        res.render("products/all",{
           product,
           toThousand,
           title: "Todos los Productos",
@@ -38,7 +38,7 @@ controller = {
           product,
           offer,
           toThousand,
-          title: "Detalle de producto",
+          title: product.name,
         });
       })
       .catch((error) => console.log(error));
