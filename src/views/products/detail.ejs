@@ -14,12 +14,13 @@
                                 <img src="/img/<%= product.images[0].file %> " alt="producto">
                             </div>
                             <div class="image-secundario">
-                                <% if (product.images.length> 1) { %>
+                            <% if (product.images.length> 1) { %>
                                     <% product.images.forEach(({file})=> { %>
                                         <img src="/img/<%= file %> " alt="producto">
-                                        <% }) %>
-                                            <% } %>
+                            <% }) %>
+                        <% } %>                                          
                             </div>
+
                         </section>
                         <section class="price">
                             <h5>

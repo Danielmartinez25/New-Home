@@ -106,6 +106,7 @@ controller = {
       name: req.body.name,
       description: req.body.description,
     })
+    
       .then((product) => {
         if (req.files.length) {
           let images = req.files.map(({ filename }) => {
@@ -118,7 +119,7 @@ controller = {
             validate: true,
           }).then((result) => console.log(result));
         }
-        return res.redirect("/");
+        return res.send(req.files);
       })
       .catch((error) => console.log(error))
      /*  } */ /* else { 
@@ -158,7 +159,7 @@ controller = {
         id: req.params.id,
       },
     })
-      .then(() => res.redirect("products/all"))
+      .then(() => res.redirect("/"))
       .catch((error) => console.log(error));
   },
   categoryV: (req, res) => {

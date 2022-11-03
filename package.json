@@ -6,7 +6,7 @@
     "start": "nodemon ./src/bin/www",
     "create:db": "sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "reset:db": "sequelize db:drop && npm run create:db",
-    "dev:reset":"npm run reset:db && nodemon ./bin/www"
+    "dev:reset": "npm run reset:db && nodemon ./bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -24,6 +24,7 @@
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.20",
     "sequelize": "^6.23.2",
-    "session": "^0.1.0"
+    "session": "^0.1.0",
+    "uuid": "^9.0.0"
   }
 }
