@@ -60,8 +60,8 @@ module.exports = {
       })
       .catch((error) => console.log(error));
   },
-  smartphoneAndNotebook: (req, res) => {
-    let smartphone = db.Category.findByPk(4, {
+  smartphone: (req, res) => {
+    db.Category.findByPk(4, {
       include: [
         {
           association: "products",
@@ -69,23 +69,12 @@ module.exports = {
           order: [["createdAt", "DESC"]],
         },
       ],
-    });
-    let notebook = db.Category.findByPk(7, {
-      include: [
-        {
-          association: "products",
-          include: ["images"],
-          order: [["createdAt", "DESC"]],
-        },
-      ],
-    });
-    Promise.all([smartphone,notebook])
-      .then(([smartphone,notebook]) => {
-        return res.render("category/smartphoneAndNotebook", {
+    })
+      .then((smartphone) => {
+        return res.render("category/smartphone", {
           smartphone,
-          notebook,
           toThousand,
-          title: "Smartphone && Notebook",
+          title: "Smartphone",
         });
       })
       .catch((error) => console.log(error));

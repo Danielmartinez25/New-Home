@@ -36,39 +36,6 @@
                                     </div>
                                     <% } %>
                     </section>
-
-
-
-
-                    <% if (notebook.products.length> 0) { %>
-                        <h3>
-                            <%= notebook.name %> en New Home
-                        </h3>
-                        <section class="section-all">
-                            <% notebook.products.forEach(({id,name,images,discount,price})=> { %>
-                                <article class="product-all">
-                                    <div class="div-all">
-                                        <a href="/products/detail/<%= id %> "><img class="img-all"
-                                                src="/img/<%= images[0].file %>" alt=""></a>
-                                        <div class="text-all">
-                                            <h2>$<%= toThousand(price - (price * discount / 100)) %>
-                                            </h2>
-                                            <span>
-                                                <%= discount %> % OFF
-                                            </span>
-                                            <p>
-                                                <%= name %>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </article>
-                                <% }) %>
-                                    <% } else {%>
-                                        <div class="col-12">
-                                            <h2 class="products-title" style="color: tomato;">No hay <%= notebook.name %> en New Home</h2>
-                                        </div>
-                                        <% } %>
-                        </section>
             </main>
             <!-- FOOTER -->
             <%- include('../partials/footer') %>
