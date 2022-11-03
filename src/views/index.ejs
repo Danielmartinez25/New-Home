@@ -169,9 +169,9 @@
                     <!-- Banner body -->
 
                     <section class="interesting_products">
-                        <h3>Tv en New Home</h3>
+                        <h3>Electrodomesticos en New Home</h3>
                         <div class="containsproduct">
-                            <% tv.products.forEach(({id,name, images,discount,price})=> { %>
+                            <% electrodomesticos.products.forEach(({id,name, images,discount,price})=> { %>
                                 <article>
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>
@@ -192,9 +192,9 @@
                     </section>
 
                     <section class="interesting_products">
-                        <h3>Consolas en New Home</h3>
+                        <h3>Muebles en New Home</h3>
                         <div class="containsproduct">
-                            <% console.products.forEach(({id,name, images,discount,price})=> { %>
+                            <% muebles.products.forEach(({id,name, images,discount,price})=> { %>
                                 <article>
                                     <a href="/products/detail/<%= id %> "><img class="main__section__img"
                                             src="/img/<%= images[0].file %>" alt=""></a>

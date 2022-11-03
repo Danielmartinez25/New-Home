@@ -19,7 +19,7 @@ module.exports = {
       limit: 4,
       include: ["images", "category"],
     });
-    let tv = db.Category.findByPk(1, {
+    let electrodomesticos = db.Category.findByPk(5, {
       include: [
         {
           association: "products",
@@ -29,7 +29,7 @@ module.exports = {
         },
       ],
     });
-    let console = db.Category.findByPk(2, {
+    let muebles = db.Category.findByPk(6, {
       include: [
         {
           association: "products",
@@ -50,8 +50,6 @@ module.exports = {
     Promise.all([
       offer,
       newest,
-      tv,
-      console,
       category,
       subcategory,
       lg,
@@ -59,14 +57,14 @@ module.exports = {
       samsung,
       smart,
       smartphone,
-      freetime
+      freetime,
+      muebles,
+      electrodomesticos
     ])
       .then(
         ([
           offer,
           newest,
-          tv,
-          console,
           category,
           subcategory,
           lg,
@@ -74,13 +72,13 @@ module.exports = {
           samsung,
           smart,
           smartphone,
-          freetime
+          freetime,
+          muebles,
+          electrodomesticos
         ]) => {
           return res.render("index", {
             offer,
-            tv,
             newest,
-            console,
             category,
             subcategory,
             lg,
@@ -89,6 +87,8 @@ module.exports = {
             smart,
             smartphone,
             freetime,
+            muebles,
+            electrodomesticos,
             toThousand,
             title: "Home",
           });
