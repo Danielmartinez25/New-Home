@@ -33,21 +33,23 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   register: (req, res) => {
-    const argentina = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "argentina.json"))
-    );
-    db.Province.findAll({
-      attributes: ["nombre"],
-      order: ["nombre"],
+    let countries = db.Country.findAll({
+      attributes : ["name"],
+      order : ["name"]
+    });
+    let provinces = db.Province.findAll({
+      attributes: ["name"],
+      order: ["name"],
     })
-    .then(province => {
-      return res.send(province)
+    Promise.all([countries,provinces])
+    .then(([countries,provinces]) => {
       return res.render("users/register", {
-      title: "Registrate",
-      province,
-      argentina,
-    }) 
-    })
+        title: "Registrate",
+        countries,
+        provinces
+       
+      });
+    });
   },
 
   processRegister: (req, res) => {

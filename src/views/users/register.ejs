@@ -45,11 +45,11 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                        <label for="province">PAIS</label>
-                        <select name="province" id="province" class="form-input">
-                            <% argentina.forEach(({name})=> { %>
+                        <label for="countries">PAIS</label>
+                        <select name="countries" id="countries" class="form-input">
+                            <% countries.forEach(({name})=> { %>
                                 <option>
-                                    <%=name %>
+                                    <%= name %>
                                 </option>
                                 <% }) %>
                         </select>
@@ -64,9 +64,9 @@
                     <div class="form-reg">
                         <label for="province">PROVINCIA</label>
                         <select name="province" id="province" class="form-input">
-                            <% province.forEach(({nombre})=> { %>
+                            <% provinces.forEach(({name})=> { %>
                                 <option>
-                                    <%= nombre %>
+                                    <%= name %>
                                 </option>
                                 <% }) %>
                         </select>
