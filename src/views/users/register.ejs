@@ -44,24 +44,18 @@
                             <%= locals.errors && errors.password ? errors.password.msg : null %>
                         </p>
                     </div>
-                    <div class="form-reg">
-                        <label for="countries">PAIS</label>
+                    <div class="form-country">
+                        <label  for="countries">PAIS</label>
                         <select name="countries" id="countries" class="form-input">
                             <% countries.forEach(({name})=> { %>
-                                <option>
+                                <option class="option-country">
                                     <%= name %>
                                 </option>
                                 <% }) %>
                         </select>
-                        <!-- <label for="country">PAÍS</label>
-                        <input placeholder="Argentina" type="text" name="country" id="country"
-                            value="<%= locals.old && old.country ? old.country : null %>"
-                            class="form-control <%= locals.errors && errors.country ? 'is-invalid' : null %>">
-                        <p class="text-danger">
-                            <%= locals.errors && errors.country ? errors.country.msg : null %>
-                        </p> -->
+
                     </div>
-                    <div class="form-reg">
+                    <div class="form-province">
                         <label for="province">PROVINCIA</label>
                         <select name="province" id="province" class="form-input">
                             <% provinces.forEach(({name})=> { %>
@@ -70,12 +64,6 @@
                                 </option>
                                 <% }) %>
                         </select>
-                        <!--                         <input placeholder="Buenos Aires" type="text" name="province" id="province"
-                            value="<%= locals.old && old.province ? old.province : null %>"
-                            class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>">
-                        <p class="text-danger">
-                            <%= locals.errors && errors.province ? errors.province.msg : null %>
-                        </p> -->
                     </div>
                     <div class="form-reg">
                         <label for="city">CIUDAD</label>
