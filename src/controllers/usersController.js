@@ -16,7 +16,7 @@ module.exports = {
     });
   },
   update: (req, res) => {
-    let user = db.User.update(
+    db.User.update(
       {
         ...req.body,
       },
@@ -25,25 +25,8 @@ module.exports = {
           id: req.params.id,
         },
       }
-    );
-    let address = db.Address.update(
-      {
-        ...req.body,
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    );
-    Promise.all([user, address])
-      .then(([user, address]) => {
-        ({
-          user,
-          address,
-        });
-        return res.redirect("/");
-      })
+    )
+      .then(() => {return res.send("/");})
       .catch((error) => console.log(error));
   },
   register: (req, res) => {
