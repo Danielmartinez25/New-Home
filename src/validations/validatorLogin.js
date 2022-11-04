@@ -1,8 +1,19 @@
 const {check} = require('express-validator');
 
 module.exports = [
-    check('password')
-         .notEmpty().withMessage('La contraseña es obligatoria')
-
-]
+  check("email")
+    .notEmpty()
+    .withMessage("El email es obligatorio")
+    .isEmail()
+    .withMessage("Debe ser un email valido"),
+  check("password").custom((value, { req }) => {
+    let password = req.body.password;
+    if (!password) {
+    throw new Error("Contraseña incorrecta");  
+    } else {
+    return true;  
+    }
+        
+  }),
+];
 

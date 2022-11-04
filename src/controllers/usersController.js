@@ -1,20 +1,19 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
+const { where } = require("sequelize");
 const db = require("../database/models");
 
 module.exports = {
   edit: (req, res) => {
     let address = db.Address.findByPk(req.params.id);
     let user = db.User.findByPk(req.params.id);
-    Promise.all([address,user])
-    .then(([address,user]) => {
-        return res.render("users/edit", {
-          address,
-          user,
-          title: "Editar usuario",
-        });
-      }
-    );
+    Promise.all([address, user]).then(([address, user]) => {
+      return res.render("users/edit", {
+        address,
+        user,
+        title: "Editar usuario",
+      });
+    });
   },
   update: (req, res) => {
     let user = db.User.update(
@@ -28,24 +27,24 @@ module.exports = {
       }
     );
     let address = db.Address.update(
-        {
-          ...req.body,
+      {
+        ...req.body,
+      },
+      {
+        where: {
+          id: req.params.id,
         },
-        {
-          where: {
-            id: req.params.id,
-          },
-        }
-      )
-      Promise.all([user,address])
-        .then(([user,address]) => {
+      }
+    );
+    Promise.all([user, address])
+      .then(([user, address]) => {
         ({
           user,
-          address
-        })
-        return res.redirect('/')
-        })
-        .catch((error) => console.log(error));
+          address,
+        });
+        return res.redirect("/");
+      })
+      .catch((error) => console.log(error));
   },
   register: (req, res) => {
     return res.render("users/register", {
@@ -54,6 +53,8 @@ module.exports = {
   },
 
   processRegister: (req, res) => {
+    let errors = validationResult(req)
+    if (errors.isEmpty()) {
     const { name, surname, password, email, country, province, city, rolId } =
       req.body;
     let rol = db.Rol.findAll({
@@ -85,7 +86,20 @@ module.exports = {
         user,
       });
       return res.redirect("profile");
-    });
+    });  
+    }
+    else {
+      db.User.findAll()
+      .then((user) => {
+        return res.render('users/register',{
+          user,
+          old: req.body,
+          errors : errors.mapped(),
+          title : "Registrate"
+        })
+      })
+    }
+    
 
     /*     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -114,40 +128,58 @@ module.exports = {
   },
 
   loginProcess: (req, res) => {
-    const { email } = req.body;
-    db.User.findOne({
-      where: {
-        email,
+    let errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const { email } = req.body;
+      db.User.findOne({
+        where: {
+          email
       },
-    }).then((user) => {
-      req.session.userLogin = {
-        id: user.id,
-        name: user.name,
-        surname: user.surname,
-        email: user.email,
-        rol: user.rolId,
-        avatar: user.avatar,
-      };
-      if (req.body.remember) {
-        res.cookie("newHome", req.session.userLogin, {
-          maxAge: 1000 * 60 * 60 * 24,
+      }).then((user) => {
+        
+        req.session.userLogin = {
+          id: user.id,
+          name: user.name,
+          surname: user.surname,
+          email: user.email,
+          rol: user.rolId,
+          avatar: user.avatar,
+        };
+        if (req.body.remember) {
+          res.cookie("newHome", req.session.userLogin, {
+            maxAge: 1000 * 60 * 60 * 24,
+          });
+        }
+        res.locals.user = req.session.userLogin;
+        return res.redirect("/");
+      });
+    } else {
+      const { email } = req.body;
+      db.User.findOne({
+        where: {
+          email
+      },
+      }).then((user) => {
+        return res.render("users/login", {
+          user,
+          old: req.body,
+          errors: errors.mapped(),
+          title: "Ingresar",
         });
-      }
-      res.locals.user = req.session.userLogin;
-      return res.redirect("/");
-    });
+      });
+    }
   },
 
   profile: (req, res) => {
     const id = req.session.userLogin?.id;
-    let user = db.User.findByPk(id)
-    let address = db.Address.findByPk(id)
-    Promise.all([user,address])
-      .then(([user,address]) => {
+    let user = db.User.findByPk(id);
+    let address = db.Address.findByPk(id);
+    Promise.all([user, address])
+      .then(([user, address]) => {
         return res.render("users/profile", {
           title: "Perfil",
           user,
-          address
+          address,
         });
       })
       .catch((err) => console.log(err));

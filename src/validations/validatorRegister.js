@@ -6,12 +6,12 @@ const users = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "data", "use
 
 module.exports = [
     check('name')
-         .notEmpty().withMessage('Debe ingresar su nombre completo'),/* .bail() */
-         /* .isAlpha().withMessage('El nombre debe contener solo letras')
+         .notEmpty().withMessage('Debe ingresar su nombre completo') .bail() 
+          .isAlpha().withMessage('El nombre debe contener solo letras')
          .isLength({
              min : 2,
-             max : 25 */
-         /* }).withMessage('Puede ingresar entre 2 y 25 caracteres'), */
+             max : 25 
+          }).withMessage('Puede ingresar entre 2 y 25 caracteres'), 
     check('email')
          .notEmpty().withMessage('El email es obligatorio').bail()
          .isEmail().withMessage('Debe ser un email válido').bail()
