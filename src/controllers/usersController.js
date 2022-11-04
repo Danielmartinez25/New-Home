@@ -74,6 +74,7 @@ module.exports = {
     });
 
     let address = db.Address.create({
+
       country: country?.trim(),
       city: city?.trim(),
       province: province?.trim(),

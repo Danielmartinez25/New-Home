@@ -8,10 +8,10 @@ module.exports = [
     .withMessage("Debe ser un email valido"),
   check("password").custom((value, { req }) => {
     let password = req.body.password;
-    if (!password) {
-    throw new Error("Contraseña incorrecta");  
+    if (value !== password) {
+      throw new Error("Contraseña incorrecta");
     } else {
-    return true;  
+      return true;
     }
         
   }),
