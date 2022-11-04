@@ -45,6 +45,8 @@
 											</option>
 											<% }) %>
 									</select>
+									<p class="text-danger">
+										<%= locals.errors && errors.categoryId ? errors.categoryId.msg : null %>
 									</p>
 								</div>
 								<div class="form-edit-subcategory">
@@ -56,6 +58,9 @@
 											</option>
 											<% }) %>
 									</select>
+									<p class="text-danger">
+										<%= locals.errors && errors.subcategoryId ? errors.subcategoryId.msg : null %>
+									</p>
 								</div>
 							</div>
 
