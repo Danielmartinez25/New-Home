@@ -10,7 +10,8 @@
                 <form action="" method="POST" enctype="multipart/form-data">
                     <div class="form-reg">
                         <label for="name">NOMBRE</label>
-                        <input placeholder="Daniel" type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>"
+                        <input placeholder="Daniel" type="text" name="name" id="name"
+                            value="<%= locals.old && old.name ? old.name : null %>"
                             class="form-control <%= locals.errors && errors.name ? 'is-invalid' : null %>">
                         <p class="text-danger">
                             <%= locals.errors && errors.name ? errors.name.msg : null %>
@@ -54,16 +55,24 @@
                     </div>
                     <div class="form-reg">
                         <label for="province">PROVINCIA</label>
-                        <input placeholder="Buenos Aires" type="text" name="province" id="province"
+                        <select name="province" id="province" class="form-input">
+                            <% provinces.forEach(({nombre})=> { %>
+                                <option>
+                                    <%=nombre %>
+                                </option>
+                                <% }) %>
+                        </select>
+<!--                         <input placeholder="Buenos Aires" type="text" name="province" id="province"
                             value="<%= locals.old && old.province ? old.province : null %>"
                             class="form-control <%= locals.errors && errors.province ? 'is-invalid' : null %>">
                         <p class="text-danger">
                             <%= locals.errors && errors.province ? errors.province.msg : null %>
-                        </p>
+                        </p> -->
                     </div>
                     <div class="form-reg">
                         <label for="city">CIUDAD</label>
-                        <input placeholder="Escobar" type="text" name="city" id="city" value="<%= locals.old && old.city ? old.city : null %>"
+                        <input placeholder="Escobar" type="text" name="city" id="city"
+                            value="<%= locals.old && old.city ? old.city : null %>"
                             class="form-control <%= locals.errors && errors.city ? 'is-invalid' : null %>">
                         <p class="text-danger">
                             <%= locals.errors && errors.city ? errors.city.msg : null %>
@@ -81,16 +90,17 @@
                         </p>
                     </div>
                     <div class="form-reg">
-                    <button class="" type="submit">CREAR CUENTA</button>
+                        <button class="" type="submit">CREAR CUENTA</button>
                     </div>
 
-                    <div class="text-form" >
-                    <p class="login-text">¿Ya tenes una cuenta?</p>
-                    <p><a href="/users/login">INGRESAR</a></p>
+                    <div class="text-form">
+                        <p class="login-text">¿Ya tenes una cuenta?</p>
+                        <p><a href="/users/login">INGRESAR</a></p>
                     </div>
                 </form>
             </section>
         </main>
 
     </body>
+
 </html>

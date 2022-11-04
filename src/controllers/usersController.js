@@ -2,7 +2,8 @@ const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const { where } = require("sequelize");
 const db = require("../database/models");
-
+const path = require('path')
+const fs = require('fs')
 module.exports = {
   edit: (req, res) => {
     let address = db.Address.findByPk(req.params.id);
@@ -30,8 +31,12 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   register: (req, res) => {
+    const provinces = JSON.parse(
+      fs.readFileSync(path.join(__dirname, "..", "data", "provincias.json"))
+    );
     return res.render("users/register", {
       title: "Registrate",
+      provinces
     });
   },
 
@@ -73,7 +78,7 @@ module.exports = {
     });  
     }
     else {
-      db.User.findAll()
+      db.User.findAll(req.params.id)
       .then((user) => {
         return res.render('users/register',{
           user,
