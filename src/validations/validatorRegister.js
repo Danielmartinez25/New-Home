@@ -49,9 +49,22 @@ module.exports = [
     })
     .withMessage("La contraseña debe contener entre 4 y 8 caracteres"),
 
-  check("country").notEmpty().withMessage("Debe rellenar con un pais"),
-  check("province").notEmpty().withMessage("Debe rellenar con una provincia"),
-  check("city").notEmpty().withMessage("Debe rellenar con una ciudad"),
+  check("country")
+    .notEmpty()
+    .withMessage("Debe rellenar con un pais")
+    .isAlpha()
+    .withMessage("Este campo solo debe contener letras"),
+
+  check("province")
+    .notEmpty()
+    .withMessage("Debe rellenar con una provincia")
+    .isAlpha()
+    .withMessage("Este campo solo debe contener letras"),
+  check("city")
+    .notEmpty()
+    .withMessage("Debe rellenar con una ciudad")
+    .isAlpha()
+    .withMessage("Este campo solo debe contener letras"),
   check("avatar").custom((value, { req }) => {
     let file = req.file;
     if (!file) {
