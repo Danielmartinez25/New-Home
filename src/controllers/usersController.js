@@ -2,8 +2,8 @@ const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 const { where } = require("sequelize");
 const db = require("../database/models");
-const path = require('path')
-const fs = require('fs')
+const path = require("path");
+const fs = require("fs");
 module.exports = {
   edit: (req, res) => {
     let address = db.Address.findByPk(req.params.id);
@@ -27,68 +27,74 @@ module.exports = {
         },
       }
     )
-      .then(() => {return res.send("/");})
+      .then(() => {
+        return res.send("/");
+      })
       .catch((error) => console.log(error));
   },
   register: (req, res) => {
-    const provinces = JSON.parse(
-      fs.readFileSync(path.join(__dirname, "..", "data", "provincias.json"))
+    const argentina = JSON.parse(
+      fs.readFileSync(path.join(__dirname, "..", "data", "argentina.json"))
     );
-    return res.render("users/register", {
+    db.Province.findAll({
+      attributes: ["nombre"],
+      order: ["nombre"],
+    })
+    .then(province => {
+      return res.send(province)
+      return res.render("users/register", {
       title: "Registrate",
-      provinces
-    });
+      province,
+      argentina,
+    }) 
+    })
   },
 
   processRegister: (req, res) => {
-    let errors = validationResult(req)
+    let errors = validationResult(req);
     if (errors.isEmpty()) {
-    const { name, surname, password, email, country, province, city, rolId } =
-      req.body;
-    let rol = db.Rol.findAll({
-      attributes: ["id", "name"],
-      order: ["name"],
-    });
-    let user = db.User.create({
-      name: name?.trim(),
-      surname: surname?.trim(),
-      email: email?.trim(),
-      password: bcryptjs.hashSync(password, 10),
-      country: country?.trim(),
-      city: city?.trim(),
-      province: province?.trim(),
-      avatar: req.file?.filename,
-      rolId: rolId,
-    });
-
-    let address = db.Address.create({
-
-      country: country?.trim(),
-      city: city?.trim(),
-      province: province?.trim(),
-      userId: user.id,
-    });
-    Promise.all([address, rol, user]).then(([address, rol, user]) => {
-      ({
-        address,
-        rol,
-        user,
+      const { name, surname, password, email, country, province, city, rolId } =
+        req.body;
+      let rol = db.Rol.findAll({
+        attributes: ["id", "name"],
+        order: ["name"],
       });
-      return res.redirect("profile");
-    });  
-    }
-    else {
-      db.User.findAll(req.params.id)
-      .then((user) => {
-        return res.render('users/register',{
+      let user = db.User.create({
+        name: name?.trim(),
+        surname: surname?.trim(),
+        email: email?.trim(),
+        password: bcryptjs.hashSync(password, 10),
+        country: country?.trim(),
+        city: city?.trim(),
+        province: province?.trim(),
+        avatar: req.file?.filename,
+        rolId: rolId,
+      });
+
+      let address = db.Address.create({
+        country: country?.trim(),
+        city: city?.trim(),
+        province: province?.trim(),
+        userId: user.id,
+      });
+      Promise.all([address, rol, user]).then(([address, rol, user]) => {
+        ({
+          address,
+          rol,
+          user,
+        });
+        return res.redirect("profile");
+      });
+    } else {
+      db.User.findAll(req.params.id).then((user) => {
+        return res.render("users/register", {
           user,
           old: req.body,
-          errors : errors.mapped(),
-          title : "Registrate"
-        })
-      })
+          errors: errors.mapped(),
+          title: "Registrate",
+        });
+      });
     }
-    
 
     /*     const errors = validationResult(req);
     if (errors.isEmpty()) {
@@ -122,10 +128,9 @@ module.exports = {
       const { email } = req.body;
       db.User.findOne({
         where: {
-          email
-      },
+          email,
+        },
       }).then((user) => {
-        
         req.session.userLogin = {
           id: user.id,
           name: user.name,
@@ -146,8 +151,8 @@ module.exports = {
       const { email } = req.body;
       db.User.findOne({
         where: {
-          email
-      },
+          email,
+        },
       }).then((user) => {
         return res.render("users/login", {
           user,
