@@ -34,20 +34,18 @@ module.exports = {
   },
   register: (req, res) => {
     let countries = db.Country.findAll({
-      attributes : ["name"],
-      order : ["name"]
+      attributes: ["name"],
+      order: ["name"],
     });
     let provinces = db.Province.findAll({
       attributes: ["name"],
       order: ["name"],
-    })
-    Promise.all([countries,provinces])
-    .then(([countries,provinces]) => {
+    });
+    Promise.all([countries, provinces]).then(([countries, provinces]) => {
       return res.render("users/register", {
         title: "Registrate",
         countries,
-        provinces
-       
+        provinces,
       });
     });
   },
@@ -55,12 +53,16 @@ module.exports = {
   processRegister: (req, res) => {
     let errors = validationResult(req);
     if (errors.isEmpty()) {
-      const { name, surname, password, email, country, province, city, rolId } =
-        req.body;
-      let rol = db.Rol.findAll({
-        attributes: ["id", "name"],
+      let countries = db.Country.findAll({
+        attributes: ["name"],
         order: ["name"],
       });
+      let provinces = db.Province.findAll({
+        attributes: ["name"],
+        order: ["name"],
+      });
+      const { name, surname, password, email, country, province, city, rolId } =
+        req.body;
       let user = db.User.create({
         name: name?.trim(),
         surname: surname?.trim(),
@@ -70,7 +72,7 @@ module.exports = {
         city: city?.trim(),
         province: province?.trim(),
         avatar: req.file?.filename,
-        rolId: rolId,
+        rolId: 2,
       });
 
       let address = db.Address.create({
@@ -79,43 +81,40 @@ module.exports = {
         province: province?.trim(),
         userId: user.id,
       });
-      Promise.all([address, rol, user]).then(([address, rol, user]) => {
-        ({
-          address,
-          rol,
-          user,
-        });
-        return res.redirect("profile");
-      });
+      Promise.all([address, user, countries, provinces]).then(
+        ([address, user, countries, provinces]) => {
+          ({
+            address,
+            user,
+            countries,
+            provinces,
+          });
+          return res.redirect("/");
+        }
+      );
     } else {
-      db.User.findAll(req.params.id).then((user) => {
-        return res.render("users/register", {
-          user,
-          old: req.body,
-          errors: errors.mapped(),
-          title: "Registrate",
-        });
+      let countries = db.Country.findAll({
+        attributes: ["name"],
+        order: ["name"],
       });
+      let provinces = db.Province.findAll({
+        attributes: ["name"],
+        order: ["name"],
+      });
+      let user = db.User.findAll(req.params.id);
+      Promise.all([user, countries, provinces]).then(
+        ([user, countries, provinces]) => {
+          return res.render("users/register", {
+            user,
+            countries,
+            provinces,
+            old: req.body,
+            errors: errors.mapped(),
+            title: "Registrate",
+          });
+        }
+      );
     }
-
-    /*     const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      let userToCreate = {
-        ...req.body,
-        password: bcryptjs.hashSync(req.body.password, 10),
-        avatar: req.file.filename,
-      };
-
-      User.create(userToCreate);
-
-      return res.redirect("/");
-    } else {
-      return res.render("users/register", {
-        title: "Register",
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    } */
   },
 
   login: (req, res) => {

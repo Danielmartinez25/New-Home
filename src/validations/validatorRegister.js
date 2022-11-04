@@ -33,10 +33,7 @@ module.exports = [
     .isEmail()
     .withMessage("Debe ser un email válido")
     .bail()
-    .custom((value, { req }) => {
-      let user = users.find((user) => user.email === value.trim());
-      return !!!user;
-    })
+
     .withMessage("Este email ya se encuentra registrado"),
 
   check("password")
@@ -48,7 +45,7 @@ module.exports = [
       max: 8,
     })
     .withMessage("La contraseña debe contener entre 4 y 8 caracteres"),
-
+/* 
   check("country")
     .notEmpty()
     .withMessage("Debe rellenar con un pais")
@@ -64,7 +61,7 @@ module.exports = [
     .notEmpty()
     .withMessage("Debe rellenar con una ciudad")
     .isAlpha()
-    .withMessage("Este campo solo debe contener letras"),
+    .withMessage("Este campo solo debe contener letras"), */
   check("avatar").custom((value, { req }) => {
     let file = req.file;
     if (!file) {
