@@ -34,7 +34,7 @@ Object.keys(db).forEach(modelName => {
 
 sequelize
   .authenticate()
-  .then(() => console.log("Conexión exitosa!"))
+  .then(() => console.log("Bienvenido a New Home!!"))
   .catch((error) => console.log("Problemas de conexión", error));
 
 db.sequelize = sequelize;
