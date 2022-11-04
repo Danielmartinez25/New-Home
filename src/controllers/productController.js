@@ -119,7 +119,7 @@ controller = {
             validate: true,
           }).then((result) => console.log(result));
         }
-        return res.redirect("/");
+        return res.redirect("all");
       })
       .catch((error) => console.log(error))
       }else { 
