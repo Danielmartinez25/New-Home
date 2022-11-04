@@ -101,7 +101,7 @@ controller = {
   store: (req, res) => {
     let errors = validationResult(req);
      if (errors.isEmpty()) {
-    db.Product.create({
+     db.Product.create({
       ...req.body,
       name: req.body.name,
       description: req.body.description,
@@ -119,10 +119,10 @@ controller = {
             validate: true,
           }).then((result) => console.log(result));
         }
-        return res.redirect("all");
+        return res.redirect("detail/" + req.params.id);
       })
       .catch((error) => console.log(error))
-      }else { 
+    }else { 
     let product = db.Product.findByPk(req.params.id)
     let categories = db.Category.findAll({
       attributes: ["id", "name"],
