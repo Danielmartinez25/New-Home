@@ -12,7 +12,7 @@
                 <div class="category">
                     <ul>
                         <% category.forEach(({id,name})=> { %>
-                            <li><a href="/category/category/<%= id %>">
+                            <li><a href="/category/<%= id %>">
                                     <%= name %>
                                 </a></li>
                             <% }) %>
@@ -28,8 +28,6 @@
                             <% }) %>
                     </ul>
                 </div> -->
-
-
                 <!-- Banner -->
                 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-indicators">
@@ -71,6 +69,19 @@
                     </button>
                 </div>
                 <!-- Banner -->
+
+
+
+                               <!--  <div id="menu">
+                                    <ul>
+                                        <% category.forEach(({id,name})=> { %>
+                                            <li><a href="/category/<%= id %>">
+                                                    <%= name %>
+                                                </a></li>
+                                            <% }) %>
+                                    </ul>
+                                </div>
+                                <span class="category-index">categoria</span> -->
 
                 <section class="main__section">
                     <section class="interesting_products">
@@ -150,7 +161,8 @@
                                 <img src="/img/banner/img_baner_body_3.png" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
-                                <a href="/category/freetime/<%= freetime.id %> "><img src="/img/banner/img_baner_6.png" class="d-block w-100" alt="..."></a>
+                                <a href="/category/freetime/<%= freetime.id %> "><img src="/img/banner/img_baner_6.png"
+                                        class="d-block w-100" alt="..."></a>
                             </div>
 
                         </div>
@@ -215,11 +227,12 @@
                     </section>
 
             </main>
-            <a href="/" class="outsidelogo"><img width="60px" height="60px" src="/img/logo 1.png" alt="logo"></a>
             <!-- FOOTER -->
             <%- include('./partials/footer') %>
+
                 <%- include('./partials/script') %>
 
+                    <script src="/js/index.js"></script>
     </body>
 
 </html>

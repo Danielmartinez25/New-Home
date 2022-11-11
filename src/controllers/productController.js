@@ -5,12 +5,15 @@ const { validationResult } = require("express-validator");
 
 controller = {
   all: (req, res) => {
-    db.Product.findAll({
+    let category = db.Category.findAll();
+    let product = db.Product.findAll({
       include: ["images"],
       order: ["name"],
     })
-      .then((product) =>
+    Promise.all([category,product])
+      .then(([category,product]) =>
         res.render("products/all",{
+          category,
           product,
           toThousand,
           title: "Todos los Productos",
@@ -19,6 +22,7 @@ controller = {
       .catch((error) => console.log(error));
   },
   detail: (req, res) => {
+    let category = db.Category.findAll()
     let product = db.Product.findByPk(req.params.id, {
       include: ["images"],
     });
@@ -32,9 +36,10 @@ controller = {
       order: [["discount", "DESC"]],
       include: ["images", "category"],
     });
-    Promise.all([product, offer])
-      .then(([product, offer]) => {
+    Promise.all([category,product, offer])
+      .then(([category,product, offer]) => {
         return res.render("products/detail", {
+          category,
           product,
           offer,
           toThousand,
@@ -119,7 +124,7 @@ controller = {
             validate: true,
           }).then((result) => console.log(result));
         }
-        return res.redirect("detail/" + req.params.id);
+        return res.redirect("all");
       })
       .catch((error) => console.log(error))
     }else { 

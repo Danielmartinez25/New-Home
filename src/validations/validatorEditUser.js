@@ -1,8 +1,4 @@
-const {check} = require('express-validator');
-const path = require('path');
-const fs = require('fs')
-
-
+const {check,body} =require('express-validator')
 module.exports = [
   check("name")
     .notEmpty()
@@ -45,28 +41,4 @@ module.exports = [
       max: 8,
     })
     .withMessage("La contraseña debe contener entre 4 y 8 caracteres"),
-
-/*   check("country")
-    .notEmpty()
-    .withMessage("Debe rellenar con un pais")
-    .isAlpha()
-    .withMessage("Este campo solo debe contener letras"),
-
-  check("province")
-    .notEmpty()
-    .withMessage("Debe rellenar con una provincia")
-    .isAlpha()
-    .withMessage("Este campo solo debe contener letras"),
-  check("city")
-    .notEmpty()
-    .withMessage("Debe rellenar con una ciudad")
-    .isAlpha()
-    .withMessage("Este campo solo debe contener letras"), */
-  check("avatar").custom((value, { req }) => {
-    let file = req.file;
-    if (!file) {
-      throw new Error("Seleccione una foto de perfil");
-    }
-    return true;
-  }),
 ];

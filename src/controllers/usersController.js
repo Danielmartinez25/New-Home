@@ -1,25 +1,27 @@
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
-const { where } = require("sequelize");
 const db = require("../database/models");
-const path = require("path");
-const fs = require("fs");
+
 module.exports = {
   edit: (req, res) => {
-    let address = db.Address.findByPk(req.params.id);
-    let user = db.User.findByPk(req.params.id);
-    Promise.all([address, user]).then(([address, user]) => {
+    db.User.findByPk(req.params.id)
+    .then(user => {
       return res.render("users/edit", {
-        address,
         user,
         title: "Editar usuario",
       });
     });
   },
   update: (req, res) => {
+    const {name,surname,email,password} = req.body;
+    const errors = validationResult(req)
+    if (errors.isEmpty()) {
     db.User.update(
       {
-        ...req.body,
+        name: name?.trim(),
+        surname: surname?.trim(),
+        email: email?.trim(),
+        password:bcryptjs.hashSync(password, 10),
       },
       {
         where: {
@@ -27,10 +29,20 @@ module.exports = {
         },
       }
     )
-      .then(() => {
-        return res.send("/");
+      .then(() => res.redirect("/"))
+      .catch((error) => console.log(error));  
+    }else{
+      db.User.findByPk(req.params.id)
+      .then(user => {
+        return res.render('users/edit',{
+          user,
+          old :req.body,
+          errors: errors.mapped(),
+          title : "Editar usuario"
+        })
       })
-      .catch((error) => console.log(error));
+    }
+    
   },
   register: (req, res) => {
     let countries = db.Country.findAll({

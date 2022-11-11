@@ -3,7 +3,8 @@
 - Este proyecto fue hecho para la plataforma digital house del curso Desarrollador web Full Stack
 - Inicio 01/05/22
 ## Participantes
-**Daniel Gustavo Martinez Lozano**
+- Daniel Gustavo Martinez Lozano
+
 
 ## INSTALACIÓN
 

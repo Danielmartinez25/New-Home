@@ -7,6 +7,18 @@
         <!-- HEADER -->
         <%- include('../partials/header') %>
             <main>
+                <div class="hr">
+                    <hr>
+                </div>
+                <div class="category">
+                    <ul>
+                        <% category.forEach(({id,name})=> { %>
+                            <li><a href="/category/<%= id %>">
+                                    <%= name %>
+                                </a></li>
+                            <% }) %>
+                    </ul>
+                </div>
                 <section class="section-detail">
                     <section class="maintop">
                         <section class="producto">
@@ -14,11 +26,11 @@
                                 <img src="/img/<%= product.images[0].file %> " alt="producto">
                             </div>
                             <div class="image-secundario">
-                            <% if (product.images.length> 1) { %>
+                                <% if (product.images.length> 1) { %>
                                     <% product.images.forEach(({file})=> { %>
                                         <img src="/img/<%= file %> " alt="producto">
-                            <% }) %>
-                        <% } %>                                          
+                                        <% }) %>
+                                            <% } %>
                             </div>
 
                         </section>
@@ -42,10 +54,10 @@
                                     <a href="#" class="buttons-agregar">Agregar al carrito</a>
                                     <% } %>
 
-                                    <% if (!locals.userLogin) { %>
-                                    <a href="/users/login" class="buttons-comprar">Comprar</a>
-                                    <a href="/users/login" class="buttons-agregar">Agregar al carrito</a>
-                                    <% } %>
+                                        <% if (!locals.userLogin) { %>
+                                            <a href="/users/login" class="buttons-comprar">Comprar</a>
+                                            <a href="/users/login" class="buttons-agregar">Agregar al carrito</a>
+                                            <% } %>
                             </div>
                             <div class="button-admin">
                                 <% if (locals.userLogin && userLogin.rol===1) { %>

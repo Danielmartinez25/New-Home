@@ -16,7 +16,7 @@ const {
 
 /* Middlewares */
 const uploadFile = require("../middlewares/multerMiddleware");
-const { validatorRegister, validatorLogin } = require("../validations");
+const { validatorRegister, validatorLogin, validatorEditUser } = require("../validations");
 const userSessionCheck = require("../middlewares/userSessionCheck");
 
 /*/users */
@@ -31,7 +31,7 @@ router
     processRegister
   )
   .get("/edit/:id", edit)
-  .put("/update/:id", update)
+  .put("/update/:id",validatorEditUser, update)
   .get("/login", login)
   .post("/login", validatorLogin, loginProcess)
   .get("/profile", userSessionCheck, profile)

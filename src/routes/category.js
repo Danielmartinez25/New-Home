@@ -5,7 +5,7 @@ const { furniture,category,tv, smartphone,freetime} = require("../controllers/ca
 
 router
   .get("/furniture/:id", furniture)
-  .get("/category/:id", category)
+  .get("/:id", category)
   .get("/tv/:id", tv)
   .get("/smartphone/:id", smartphone)
   .get("/freetime/:id", freetime);

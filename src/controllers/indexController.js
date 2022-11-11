@@ -45,7 +45,7 @@ module.exports = {
     let freetime = db.Category.findByPk(8);
     let lg = db.subCategory.findByPk(5);
     let samsung = db.subCategory.findByPk(7);
-    let category = db.Category.findAll(req.params.id);
+    let category = db.Category.findAll();
     let subcategory = db.subCategory.findAll(req.params.id);
     Promise.all([
       offer,
@@ -59,7 +59,7 @@ module.exports = {
       smartphone,
       freetime,
       muebles,
-      electrodomesticos
+      electrodomesticos,
     ])
       .then(
         ([
@@ -74,7 +74,7 @@ module.exports = {
           smartphone,
           freetime,
           muebles,
-          electrodomesticos
+          electrodomesticos,
         ]) => {
           return res.render("index", {
             offer,
@@ -97,9 +97,10 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   search: (req, res) => {
+    let categories = db.Category.findAll();
     const { keywords } = req.query;
 
-    db.Product.findAll({
+    let products = db.Product.findAll({
       where: {
         [Op.or]: [
           {
@@ -110,13 +111,45 @@ module.exports = {
         ],
       },
       include: ["images"],
-    })
-      .then((products) => {
+    });
+    let category = db.Category.findAll({
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.substring]: keywords,
+            },
+          },
+        ],
+      },
+      include: [
+        {
+          association: "products",
+          include: ["images"]
+        },
+      ],
+    });
+    let offer = db.Product.findAll({
+      where: {
+        discount: {
+          [Op.gt]: 30,
+        },
+      },
+      limit: 4,
+      order: [["discount", "DESC"]],
+      include: ["images", "category"],
+    });
+
+    Promise.all([category, products,offer,categories])
+      .then(([category, products,offer,categories]) => {
         return res.render("results", {
+          category,
+          categories,
+          offer,
           products,
           keywords,
           toThousand,
-          title : "Resultado"
+          title: "Resultado",
         });
       })
       .catch((error) => console.log(error));

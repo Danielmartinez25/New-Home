@@ -1,8 +1,5 @@
 .header {
     background-color: #060608;
-    position: sticky;
-
-
 }
 
 .header__section {
@@ -27,6 +24,28 @@
     font-size: 1.5em;
     font-family: 'Archivo Black', sans-serif;
     color: #ffffff;
+}
+.category-index{
+    cursor: pointer;
+}
+#menu {
+    position: fixed;
+    width: 150px;
+    height: 100%;
+    background-color: rgba(37, 37, 37, 0.88);
+    left: -200px;
+}
+
+#menu ul li {
+    color: #fff;
+    list-style: none;
+    text-align: center;
+    padding: 15px 5px;
+    border-bottom: 1px solid rgb(100, 100, 100, .88);
+}
+
+#menu.mostrar {
+    left: 0
 }
 
 .header__section__text h1 {

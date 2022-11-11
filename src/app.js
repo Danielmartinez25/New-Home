@@ -15,6 +15,9 @@ let usersRouter = require("./routes/users");
 let productsRouter = require("./routes/products");
 let subcategoryRouter = require('./routes/subcategory')
 let categoryRouter = require("./routes/category");
+let indexRouterApi = require('./routes/api/index');
+let productsRouterApi = require('./routes/api/products'); 
+let usersRouterApi = require('./routes/api/users');
 
 
 let app = express();
@@ -43,8 +46,11 @@ app.use(localsUserCheck);
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
-app.use('/subcategory',subcategoryRouter)
+app.use('/subcategory',subcategoryRouter);
 app.use("/category", categoryRouter);
+app.use("/api", indexRouterApi);
+app.use("/api/products", productsRouterApi);
+app.use("/api/users", usersRouterApi);
 
 
 

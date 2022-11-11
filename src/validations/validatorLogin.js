@@ -1,4 +1,5 @@
-const {check} = require('express-validator');
+const { check } = require("express-validator");
+const db = require('../database/models')
 
 module.exports = [
   check("email")
@@ -6,14 +7,7 @@ module.exports = [
     .withMessage("El email es obligatorio")
     .isEmail()
     .withMessage("Debe ser un email valido"),
-  check("password").custom((value, { req }) => {
-    let password = req.body.password;
-    if (value !== password) {
-      throw new Error("Contraseña incorrecta");
-    } else {
-      return true;
-    }
-        
-  }),
+  check("password")
+    .notEmpty()
+    .withMessage("El password es obligatorio"),
 ];
-
