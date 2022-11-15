@@ -99,7 +99,6 @@ module.exports = {
   search: (req, res) => {
     let categories = db.Category.findAll();
     const { keywords } = req.query;
-
     let products = db.Product.findAll({
       where: {
         [Op.or]: [
@@ -122,12 +121,12 @@ module.exports = {
           },
         ],
       },
-      include: [
-        {
+      include:[
+      {
           association: "products",
           include: ["images"]
-        },
-      ],
+      },  
+      ] 
     });
     let offer = db.Product.findAll({
       where: {

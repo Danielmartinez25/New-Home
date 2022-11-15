@@ -17,6 +17,18 @@
 						<% }) %>
 				</ul>
 			</div>
+			<section class="main__section">
+				<section class="interesting_products">
+					<h3>Tus resultados de <%= keywords %> son: </h3>
+					<div class="containsproduct">
+						<% category.forEach((category)=> { %>
+							<article>
+								<p>Mi id es <%= category.id %></p>
+								<p>Mi name es <%= category.name %></p>
+							</article>
+							<% }) %>
+					</div>
+				</section>
 			<main class="interesting_products">
 				<% if (products.length> 0) { %>
 					<section class="main__section">
@@ -68,12 +80,8 @@
 									<% }) %>
 							</div>
 							<% } %>
-
 			</main>
-
-
 			<!-- FOOTER -->
 			<%- include('./partials/footer') %>
 	</body>
-
 </html>
